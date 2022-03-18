@@ -59,6 +59,10 @@ function Header() {
           >
             Escrow scanner
           </Typography>
+          {wallet.address && <Typography sx={{mr: 1}}>
+            Account - {wallet.address.slice(2, 7)}
+          </Typography>
+          }
           <Button
             variant="contained"
             startIcon={<MetamaskLogo />}
