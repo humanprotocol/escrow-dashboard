@@ -1,15 +1,11 @@
 import { useState } from 'react';
 import Web3 from 'web3';
-import {useRecoilState} from 'recoil';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-import { escrowAddressState } from '../store/escrow';
-
-export default function Search() {
+export default function Search({onSetEscrow}) {
   const [escrow, setEscrow] = useState('');
-  const setGlobalEscrow = useRecoilState(escrowAddressState)[1];
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
 
   return (
@@ -17,7 +13,7 @@ export default function Search() {
       <TextField
         variant="outlined"
         size="small"
-        label="Escrow Address"
+        label="Escrow Factory Address"
         sx={{flexBasis: "90%", mr: 1}}
         onChange={(e) => setEscrow(e.target.value)}
         > 
@@ -25,7 +21,7 @@ export default function Search() {
         </TextField>
       <Button
         variant="outlined"
-        onClick={() => setGlobalEscrow(escrow)}
+        onClick={() => onSetEscrow(escrow)}
         disabled={!isEscrowValid}
       >
           Search

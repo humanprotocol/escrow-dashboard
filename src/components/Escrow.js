@@ -1,80 +1,39 @@
 import {useEffect, useState} from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
 
-import {escrowAddressState} from '../store/escrow';
-import {isConnectedSelector} from '../store/wallet';
-import { getWeb3 } from '../WalletProvider';
-import EscrowView from './EscrowView';
-import EscrowABI from '../contracts/EscrowAbi.json';
+import web3 from '../web3';
+import EscrowFactoryView from './EscrowFactoryView';
+import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 
-const statusesMap = ['Launched', 'Pending', 'Partial', 'Paid', 'Complete', 'Cancelled'];
-
-export default function EscrowContainer() {
-    const [escrowAddr] = useRecoilState(escrowAddressState);
-    const isConnected = useRecoilValue(isConnectedSelector);
-    const [escrowStatus, setEscrowStatus] = useState('');
-
-    const [reputationOracle, setReputationOracle] = useState('');
-    const [reputationOracleStake, setReputationOracleStake] = useState('');
-  
-    const [recordingOracle, setRecordingOracle] = useState('');
-    const [recordingOracleStake, setRecordingOracleStake] = useState('');
-  
-    const [manifestUrl, setManifestUrl] = useState('');
-    const [finalResultsUrl, setFinalResultsUrl] = useState('');
-    const [balance, setBalance] = useState('');
-  
-  
+export default function EscrowContainer({address}) {
+    const [latestEscrow, setLatestEscrow] = useState('');
+    const [count, setCount] = useState(0);
+    const eventsUrl = `https://polygonscan.com/address/${address}#events`;
 
     useEffect(() => {
-        if (!isConnected || !escrowAddr) {
-            return null;
-        }
         async function setupEscrow() {
-            const web3 = getWeb3();
-            const Escrow = new web3.eth.Contract(EscrowABI, escrowAddr);
-            const escrowSt = await Escrow.methods.status().call();
-            setEscrowStatus(statusesMap[escrowSt]);
-        
-            const recOracleAddr = await Escrow.methods.recordingOracle().call();
-            setRecordingOracle(recOracleAddr);
-        
-            const recOracleStake = await Escrow.methods.recordingOracleStake().call();
-            setRecordingOracleStake(recOracleStake);
-        
-            const repOracleAddr = await Escrow.methods.reputationOracle().call();
-            setReputationOracle(repOracleAddr);
-        
-            const repOracleStake = await Escrow.methods.reputationOracleStake().call();
-            setReputationOracleStake(repOracleStake);
-        
-            const finalResults = await Escrow.methods.finalResultsUrl().call();
-            setFinalResultsUrl(finalResults);
-        
-            const manifest = await Escrow.methods.manifestUrl().call();
-            setManifestUrl(manifest);
-        
-            const balance = await Escrow.methods.getBalance().call();
-            setBalance(web3.utils.fromWei(balance, 'ether'));
-        
+            try {
+                const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
+                const escrowCount = await EscrowFactory.methods.counter().call();
+                setCount(escrowCount);
+    
+                const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
+                setLatestEscrow(lastEscrow);
+            } catch(err) {
+                console.error(err);
+
+                alert("Invalid escrow factory");
+            }
+
         }
-
         setupEscrow();
-
-    }, [escrowAddr, isConnected]);
+    }, [address]);
 
     return (
-        <EscrowView
-          status={escrowStatus}
-          address={escrowAddr}
-          repOracleAddr={reputationOracle}
-          recOracleAddr={recordingOracle}
-          repOracleStake={reputationOracleStake}
-          recOracleStake={recordingOracleStake}
-          balance={balance}
-          manifestUrl={manifestUrl}
-          finalResultsUrl={finalResultsUrl}
-
+        <EscrowFactoryView
+          count={count}
+          address={address}
+          latestEscrow={latestEscrow}
+          eventsUrl={eventsUrl}
         />
     )
 }
