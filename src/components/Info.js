@@ -15,7 +15,7 @@ export default function Info() {
   const escrowUrl = `${networkScannerUrl}/address/${escrowAddr}`;
 
   return (
-    <Card variant="outlined" sx={{ width: "450px" }}>
+    <Card variant="outlined" sx={{ width: "450px", mr: 1 }}>
       <CardContent>
         <Divider textAlign="center">
           <Typography color="text.secondary" variant="body2">

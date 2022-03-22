@@ -61,7 +61,7 @@ export async function switchToPolygon() {
           params: [
             {
               chainId: chainIdHex,
-              chainName: 'Polygon Testnet',
+              chainName: 'Polygon Mainnet',
               nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
               rpcUrls: ['https://polygon-rpc.com', 'https://rpc-mainnet.maticvigil.com'],
               blockExplorerUrls: ['https://www.polygonscan.com']

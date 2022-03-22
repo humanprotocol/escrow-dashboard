@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 import { isWalletConnected } from "../WalletProvider";
 
@@ -37,3 +37,12 @@ export const walletState = atom({
   default: defaultWalletState,
   effects: [initializeWalletEffect],
 });
+
+export const isConnectedSelector = selector({
+  key: 'isWalletConnected',
+  get: ({get}) => {
+    const wallet = get(walletState);
+
+    return wallet.isConnected;
+  }
+})
