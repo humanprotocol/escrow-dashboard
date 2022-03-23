@@ -1,6 +1,6 @@
 # HUMAN Escrow Factory Dashboard
 
-This is a readonly dashboard of the [https://github.com/humanprotocol/hmt-escrow/blob/master/contracts/EscrowFactory.sol](Escrow Factory) contract
+This is a readonly dashboard of the [Escrow Factory](https://github.com/humanprotocol/hmt-escrow/blob/master/contracts/EscrowFactory.sol) contract
 
 Escrow Factory is used for grouping Escrows in the blockchain. Everything is happening inside Polygon Mainnet. Other networks will be added later
 
