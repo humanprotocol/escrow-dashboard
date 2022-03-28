@@ -10,6 +10,7 @@ export default function Escrow(props) {
     address,
     latestEscrow,
     eventsUrl,
+    scanner,
   } = props;
 
   return (
@@ -18,7 +19,7 @@ export default function Escrow(props) {
           <CardTextBlock title="Address" value={address} />
           <CardTextBlock title="Latest Escrow" value={latestEscrow} />
           <CardTextBlock title="Amount of jobs" value={count} />
-          <Events url={eventsUrl} />
+          <Events url={eventsUrl} scanner={scanner}/>
       </CardContent>
     </Card>
   );
@@ -39,7 +40,7 @@ function CardTextBlock({ title, value }) {
   );
 }
 
-function Events({url}) {
+function Events({url, scanner}) {
   return (
     <Box textAlign="center">
       <Divider sx={{mt: 1}}>
@@ -48,7 +49,7 @@ function Events({url}) {
         </Typography>
       </Divider>
       <Link href={url} target="_blank" rel="noreferrer" align="center">
-        https://polygonscan.com
+        {scanner}
       </Link>
       <Typography
         variant="body2"

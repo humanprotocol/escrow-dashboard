@@ -4,19 +4,32 @@ import Box from "@mui/material/Box";
 import Header from "./Header";
 import Escrow from "./Escrow";
 import Search from "./Search";
+import NetworkSwitcher from './NetworkSwitcher';
 import Footer from "./Footer";
 
-function Main() {
-  const [escrowFactory, setEscrowFactory] = useState('0x45eBc3eAE6DA485097054ae10BA1A0f8e8c7f794');
+import { networkMap } from '../constants';
 
+function Main() {
+  const [network, setNetwork] = useState('polygon');
+  const [escrowFactory, setEscrowFactory] = useState(networkMap[network].defaultFactoryAddr);
+
+  const onNetworkChange = (networkKey) => {
+    setNetwork(networkKey);
+    setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
+  }
   return (
     <Box>
       <Header />
       <Box sx={{ display: "flex", justifyContent: "center", alignItems: 'center'}}>
         <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <NetworkSwitcher onNetworkChange={onNetworkChange} network={network}></NetworkSwitcher>
           <Search onSetEscrow={setEscrowFactory}></Search>
           <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", mt: 2 }}>
-            <Escrow address={escrowFactory} />
+            <Escrow
+              address={escrowFactory}
+              scanner={networkMap[network].scanner}
+              rpcUrl={networkMap[network].rpcUrl}
+            />
           </Box>
           <Footer />
         </Box>

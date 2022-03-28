@@ -7,7 +7,6 @@ export default function Escrow(props) {
   return (
     <Card variant="outlined" sx={{mt: 1}}>
       <CardContent>
-          <CardTextBlock value="Polygon Mainnet" />
           <CardTextBlock 
             value={
               <Link href="https://github.com/humanprotocol/hmt-escrow" target="_blank" rel="noreferrer">

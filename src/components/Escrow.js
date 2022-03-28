@@ -1,17 +1,18 @@
 import {useEffect, useState} from 'react';
 
-import web3 from '../web3';
+import getWeb3 from '../web3';
 import EscrowFactoryView from './EscrowFactoryView';
 import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 
-export default function EscrowContainer({address}) {
+export default function EscrowContainer({address, scanner, rpcUrl}) {
     const [latestEscrow, setLatestEscrow] = useState('');
     const [count, setCount] = useState(0);
-    const eventsUrl = `https://polygonscan.com/address/${address}#events`;
+    const eventsUrl = `${scanner}/address/${address}#events`;
 
     useEffect(() => {
         async function setupEscrow() {
             try {
+                const web3 = getWeb3(rpcUrl);
                 const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
                 const escrowCount = await EscrowFactory.methods.counter().call();
                 setCount(escrowCount);
@@ -34,6 +35,7 @@ export default function EscrowContainer({address}) {
           address={address}
           latestEscrow={latestEscrow}
           eventsUrl={eventsUrl}
+          scanner={scanner}
         />
     )
 }
