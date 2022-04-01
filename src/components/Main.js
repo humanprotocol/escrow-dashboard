@@ -16,7 +16,9 @@ function Main() {
   const onNetworkChange = (networkKey) => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
+    localStorage.setItem("defaultAddr", networkMap[networkKey].defaultFactoryAddr);
   }
+
   return (
     <Box>
       <Header />

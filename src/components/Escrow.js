@@ -8,11 +8,14 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
     const [latestEscrow, setLatestEscrow] = useState('');
     const [count, setCount] = useState(0);
     const eventsUrl = `${scanner}/address/${address}#events`;
+    const web3 = getWeb3(rpcUrl);
+    const EscrowDefaultFactory = new web3.eth.Contract(EscrowFactoryABI, localStorage.getItem("defaultAddr"));
+    console.log("contract", EscrowDefaultFactory.events);
+    // EscrowDefaultFactory.events.
 
     useEffect(() => {
         async function setupEscrow() {
             try {
-                const web3 = getWeb3(rpcUrl);
                 const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
                 const escrowCount = await EscrowFactory.methods.counter().call();
                 setCount(escrowCount);
@@ -20,7 +23,7 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
                 const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
                 setLatestEscrow(lastEscrow);
             } catch(err) {
-                console.error(err);
+                console.log("error_", err);
 
                 alert("Invalid escrow factory");
             }
