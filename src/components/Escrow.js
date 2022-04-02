@@ -8,6 +8,7 @@ import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 export default function EscrowContainer({address, scanner, rpcUrl}) {
     const [latestEscrow, setLatestEscrow] = useState('');
     const [count, setCount] = useState(0);
+    const [escrowCounters, setEscrowCounters] = useState(0);
     const eventsUrl = `${scanner}/address/${address}#events`;
     
     useEffect(() => {
@@ -16,16 +17,16 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
             try {
                 const provider = getWeb3(rpcUrl);
                 const EscrowDefaultFactory = new ethers.Contract(localStorage.getItem("defaultAddr"), EscrowFactoryABI, provider);
-                console.log("contract", EscrowDefaultFactory.events);
                 EscrowDefaultFactory.on('Launched', (eip, escrow) => {
                     console.log(eip, escrow);
                 });
                 const EscrowFactory = new ethers.Contract(address, EscrowFactoryABI, provider)
                 const escrowCount = await EscrowFactory.counter();
-                setCount(escrowCount);
-    
                 const lastEscrow = await EscrowFactory.lastEscrow();
+                const escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
+                setCount(ethers.utils.formatUnits(escrowCount, 0));
                 setLatestEscrow(lastEscrow);
+                setEscrowCounters(escrowCounters);
             } catch(err) {
                 console.log("error_", err);
 
@@ -38,7 +39,7 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
 
     return (
         <EscrowFactoryView
-          count={count}
+          count={ count }
           address={address}
           latestEscrow={latestEscrow}
           eventsUrl={eventsUrl}

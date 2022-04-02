@@ -28,7 +28,7 @@ export default function Escrow(props) {
 
   const columns = [
     { id: "escrow", label: "Escrow", minWidth: 170 },
-    { id: "childCounter", label: "Child Counter", minWidth: 100 },
+    { id: "escrowCounter", label: "Escrow Counter", minWidth: 100 },
     {
       id: "duration",
       label: "Duaration",
@@ -64,13 +64,30 @@ export default function Escrow(props) {
       </CardContent> */}
       <Box
         sx={{
-          fontSize: "18px",
-          color: "var(--primary-text)",
-          fontWeight: "700",
-          padding: "15px",
+          display: 'flex',
+          flexWrap: 'wrap'
         }}
       >
-        Address: {address}
+
+        <Typography variant="body1" 
+          sx={{
+            fontSize: "18px",
+            color: "var(--primary-text)",
+            fontWeight: "900",
+            padding: "15px",
+          }}>
+          Address: <span style={{color: "green"}}>{address}</span>      
+        </Typography>
+        
+        <Typography variant="body1"
+          sx={{
+            fontSize: "18px",
+            color: "var(--primary-text)",
+            fontWeight: "900",
+            padding: "15px",
+          }}>
+          Amount of jobs: <span style={{color: "green"}}>{count}</span>    
+        </Typography>
       </Box>
       <Paper className="table-wrap">
         <TableContainer>
@@ -99,13 +116,26 @@ export default function Escrow(props) {
                       tabIndex={-1}
                       key={`body_row_${row.code}`}
                     >
-                      {columns.map((column) => {
+                      {columns.map((column, index) => {
                         const value = row[column.id];
+                        console.log(index);
                         return (
                           <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number"
+                            {
+                              index === 0 && 
+                              <Link
+                                className="mr-3"
+                                href={eventsUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                align="center"
+                              >
+                                {value}
+                              </Link>
+                            }
+                            { index !== 0 && (column.format && typeof value === "number"
                               ? column.format(value)
-                              : value}
+                              : value)}
                           </TableCell>
                         );
                       })}
@@ -148,7 +178,7 @@ function CardTextBlock({ title, value }) {
 function Events({ url, scanner }) {
   return (
     <Box className="table-footer">
-      <Stack direction="row" alignItems="center">
+      {/* <Stack direction="row" alignItems="center">
         <Box mr={2}>All deployed escrows</Box>
         <Link
           className="mr-3"
@@ -159,7 +189,7 @@ function Events({ url, scanner }) {
         >
           {scanner}
         </Link>
-      </Stack>
+      </Stack> */}
 
       <Typography
         variant="body2"
