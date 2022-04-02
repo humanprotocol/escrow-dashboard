@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import getWeb3 from '../web3';
+import { ethers } from 'ethers';
 import EscrowFactoryView from './EscrowFactoryView';
 import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 
@@ -13,17 +14,17 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
         
         async function setupEscrow() {
             try {
-                const web3 = getWeb3(rpcUrl);
+                const provider = getWeb3(rpcUrl);
                 // const EscrowDefaultFactory = new web3.eth.Contract(EscrowFactoryABI, localStorage.getItem("defaultAddr"));
                 // console.log("contract", EscrowDefaultFactory.events);
                 // EscrowDefaultFactory.events.Launched({}, (error, data) => {
                 //     console.log(error, data);
                 // });
-                const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
-                const escrowCount = await EscrowFactory.methods.counter().call();
+                const EscrowFactory = new ethers.Contract(address, EscrowFactoryABI, provider)
+                const escrowCount = await EscrowFactory.counter();
                 setCount(escrowCount);
     
-                const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
+                const lastEscrow = await EscrowFactory.lastEscrow();
                 setLatestEscrow(lastEscrow);
             } catch(err) {
                 console.log("error_", err);

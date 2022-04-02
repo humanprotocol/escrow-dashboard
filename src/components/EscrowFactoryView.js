@@ -79,7 +79,7 @@ export default function Escrow(props) {
               <TableRow>
                 {columns.map((column) => (
                   <TableCell
-                    key={column.id}
+                    key={`header_row_${column.id}`}
                     align={column.align}
                     style={{ minWidth: column.minWidth }}
                   >
@@ -97,7 +97,7 @@ export default function Escrow(props) {
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={row.code}
+                      key={`body_row_${row.code}`}
                     >
                       {columns.map((column) => {
                         const value = row[column.id];
