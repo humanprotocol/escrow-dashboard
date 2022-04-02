@@ -1,5 +1,5 @@
-import Web3 from "web3";
+import { ethers } from "ethers";
 
 export default function getWeb3(rpcUrl) {
-  return new Web3(new Web3.providers.HttpProvider(rpcUrl));
+  return new ethers.providers.JsonRpcProvider(rpcUrl)
 }
