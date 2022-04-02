@@ -30,12 +30,20 @@ function Main() {
       sx={{
         minHeight: "100vh",
         height: "100vh",
-        position: "relative"
+        position: "relative",
       }}
     >
       <Header />
       <Box
-        sx={{ display: "flex",flexDirection:"row", justifyContent: "space-around", alignItems: "flex-start",minHeight: "calc(100vh - 350px)"}}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "flex-start",
+          minHeight: "calc(100vh - 114px)",
+          height: "auto",
+          backgroundImage: "linear-gradient(to bottom, #ffd255f2, white)",
+        }}
       >
         <Box
           my={4}

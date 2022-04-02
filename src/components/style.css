@@ -12,10 +12,6 @@
   box-sizing: border-box;
 }
 
-body {
-  /* background-color: #ffe67ba1; */
-  background-image: linear-gradient(to bottom, #ffd255f2, white);
-}
 
 /* ====================Header==================== */
 .header-container {
@@ -85,13 +81,17 @@ body {
 }
 .main-container table td,.main-container table th {
   border-bottom: 1px solid var(--primary-color-effect)!important;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
 }
 .main-container table th {
+  background-color: var(--primary-color);
   box-shadow: 0px 15px 37px -11px var(--primary-color);
-  background-color: var(--primary-color-effect);
   color: white;
 }
+.table-wrap {
+  background-color:#d6ff9069!important;
+}
+
 /* ====================TableFooter===================== */
 .table-footer {
   padding: 20px 16px 16px 16px;
