@@ -14,11 +14,11 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
         async function setupEscrow() {
             try {
                 const web3 = getWeb3(rpcUrl);
-                const EscrowDefaultFactory = new web3.eth.Contract(EscrowFactoryABI, localStorage.getItem("defaultAddr"));
-                console.log("contract", EscrowDefaultFactory.events);
-                EscrowDefaultFactory.events.allEvents().on('Launched', (e) => {
-                    console.log("event ", e);
-                })
+                // const EscrowDefaultFactory = new web3.eth.Contract(EscrowFactoryABI, localStorage.getItem("defaultAddr"));
+                // console.log("contract", EscrowDefaultFactory.events);
+                // EscrowDefaultFactory.events.Launched({}, (error, data) => {
+                //     console.log(error, data);
+                // });
                 const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
                 const escrowCount = await EscrowFactory.methods.counter().call();
                 setCount(escrowCount);

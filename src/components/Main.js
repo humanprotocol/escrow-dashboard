@@ -1,45 +1,84 @@
-import {useState} from 'react';
+import { useState } from "react";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 
 import Header from "./Header";
 import Escrow from "./Escrow";
 import Search from "./Search";
-import NetworkSwitcher from './NetworkSwitcher';
+import NetworkSwitcher from "./NetworkSwitcher";
 import Footer from "./Footer";
-
-import { networkMap } from '../constants';
+import "./style.css";
+import { networkMap } from "../constants";
 
 function Main() {
-  const [network, setNetwork] = useState('polygon');
-  const [escrowFactory, setEscrowFactory] = useState(networkMap[network].defaultFactoryAddr);
+  const [network, setNetwork] = useState("polygon");
+  const [escrowFactory, setEscrowFactory] = useState(
+    networkMap[network].defaultFactoryAddr
+  );
 
   const onNetworkChange = (networkKey) => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
-    localStorage.setItem("defaultAddr", networkMap[networkKey].defaultFactoryAddr);
-  }
+    localStorage.setItem(
+      "defaultAddr",
+      networkMap[networkKey].defaultFactoryAddr
+    );
+  };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        height: "100vh",
+        position: "relative"
+      }}
+    >
       <Header />
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: 'center'}}>
-        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <NetworkSwitcher onNetworkChange={onNetworkChange} network={network}></NetworkSwitcher>
-          <Search onSetEscrow={setEscrowFactory}></Search>
-          <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", mt: 2 }}>
+      <Box
+        sx={{ display: "flex",flexDirection:"row", justifyContent: "space-around", alignItems: "flex-start",minHeight: "calc(100vh - 350px)"}}
+      >
+        <Box
+          my={4}
+          sx={{
+            width: "calc(100% - 114px)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <Stack
+            className="search-wrap"
+            direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
+            spacing={2}
+            sx={{
+              width: "100%",
+            }}
+          >
+            <NetworkSwitcher
+              onNetworkChange={onNetworkChange}
+              network={network}
+            ></NetworkSwitcher>
+            <Search onSetEscrow={setEscrowFactory}></Search>
+          </Stack>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              mt: 2,
+            }}
+          >
             <Escrow
               address={escrowFactory}
               scanner={networkMap[network].scanner}
               rpcUrl={networkMap[network].rpcUrl}
             />
           </Box>
-          <Footer />
         </Box>
       </Box>
-      <Box>
 
-      </Box>
-
+      <Footer />
     </Box>
   );
 }

@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 function Header() {
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box className="header-container" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography

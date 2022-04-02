@@ -5,14 +5,26 @@ import Link from "@mui/material/Link";
 
 export default function Escrow(props) {
   return (
-    <Card variant="outlined" sx={{mt: 1}}>
+    <Card
+      className="footer-container"
+      sx={{
+        width: "100%",
+        bottom: "0px",
+        left: "0px",
+      }}
+    >
       <CardContent>
-          <CardTextBlock 
-            value={
-              <Link href="https://github.com/humanprotocol/hmt-escrow" target="_blank" rel="noreferrer">
-                HMT Escrow Source Code
-              </Link> }
-           />
+        <CardTextBlock
+          value={
+            <Link
+              href="https://github.com/humanprotocol/hmt-escrow"
+              target="_blank"
+              rel="noreferrer"
+            >
+              HMT Escrow Source Code
+            </Link>
+          }
+        />
       </CardContent>
     </Card>
   );
