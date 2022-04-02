@@ -24,9 +24,8 @@ function createData(escrow, eip, escrowCounters) {
 }
 
 export default function Escrow(props) {
-  const { count, address, eventsUrl, latestEscrow, scanner, contractData } = props;
+  const { count, address, eventsUrl, scanner, contractData } = props;
   const [rows, setRows] = useState([]);
-  console.log("escrowcounter", contractData);
 
   useEffect(() => {
     setRows([createData(...contractData), ...rows])
