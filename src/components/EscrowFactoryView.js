@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Divider,
   Typography,
@@ -19,26 +19,26 @@ import {
   TablePagination,
 } from "@mui/material";
 
-function createData(escrow, childCounter, duration) {
-  return { escrow, childCounter, duration};
+function createData(escrow, eip, escrowCounters) {
+  return { escrow, eip, escrowCounters};
 }
 
 export default function Escrow(props) {
-  const { count, address, latestEscrow, eventsUrl, scanner } = props;
+  const { count, address, latestEscrow, eventsUrl, scanner, escrowCounters, eip } = props;
+  const [rows, setRows] = useState([]);
+  console.log("escrowcounter", escrowCounters);
+  useEffect(() => {
+    setRows([createData(latestEscrow, eip, escrowCounters), ...rows])
+  }, [latestEscrow, eip, escrowCounters])
 
   const columns = [
     { id: "escrow", label: "Escrow", minWidth: 170 },
-    { id: "escrowCounter", label: "Escrow Counter", minWidth: 100 },
     {
-      id: "duration",
-      label: "Duaration",
+      id: "eip",
+      label: "Eip20",
       minWidth: 170,
-      format: (value: number) => value.toLocaleString("en-US"),
-    }
-  ];
-
-  const rows = [
-    createData("0x45eBc3eAE6DA485097054ae10BA1A0f8e8c7f794", 354, 32873),
+    },
+    { id: "escrowCounters", label: "Escrow Counter", minWidth: 100 }
   ];
 
   const [page, setPage] = React.useState(0);
@@ -108,17 +108,16 @@ export default function Escrow(props) {
             <TableBody>
               {rows
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
+                .map((row, index) => {
                   return (
                     <TableRow
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={`body_row_${row.code}`}
+                      key={`body_row_${index}`}
                     >
                       {columns.map((column, index) => {
                         const value = row[column.id];
-                        console.log(index);
                         return (
                           <TableCell key={column.id} align={column.align}>
                             {
@@ -133,9 +132,7 @@ export default function Escrow(props) {
                                 {value}
                               </Link>
                             }
-                            { index !== 0 && (column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value)}
+                            { index !== 0 && `${value}` }
                           </TableCell>
                         );
                       })}
