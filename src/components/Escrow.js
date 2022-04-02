@@ -15,18 +15,22 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
         async function setupEscrow() {
             try {
                 const provider = getWeb3(rpcUrl);
-                const EscrowDefaultFactory = new ethers.Contract(localStorage.getItem("defaultAddr"), EscrowFactoryABI, provider);
-                EscrowDefaultFactory.on('Launched', (eip, escrow) => {
-                    console.log(eip, escrow);
-                    // setContractData([lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
-                });
                 const EscrowFactory = new ethers.Contract(address, EscrowFactoryABI, provider)
-                const escrowCount = await EscrowFactory.counter();
-                const lastEscrow = await EscrowFactory.lastEscrow();
-                const eip = await EscrowFactory.eip20();
-                const escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
+                let escrowCount = await EscrowFactory.counter();
+                let lastEscrow = await EscrowFactory.lastEscrow();
+                let eip = await EscrowFactory.eip20();
+                let escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
                 setCount(ethers.utils.formatUnits(escrowCount, 0));
                 setContractData([lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
+
+                EscrowFactory.on('Launched', async (eip, escrow) => {
+                    console.log(eip, escrow);
+                    // setContractData([lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
+                    escrowCount = await EscrowFactory.counter();
+                    escrowCounters = await EscrowFactory.escrowCounters(escrow);
+                    setCount(ethers.utils.formatUnits(escrowCount, 0));
+                    setContractData([escrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
+                });
             } catch(err) {
                 console.log("error_", err);
 
