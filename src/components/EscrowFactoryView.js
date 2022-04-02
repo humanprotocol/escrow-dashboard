@@ -24,12 +24,13 @@ function createData(escrow, eip, escrowCounters) {
 }
 
 export default function Escrow(props) {
-  const { count, address, latestEscrow, eventsUrl, scanner, escrowCounters, eip } = props;
+  const { count, address, eventsUrl, latestEscrow, scanner, contractData } = props;
   const [rows, setRows] = useState([]);
-  console.log("escrowcounter", escrowCounters);
+  console.log("escrowcounter", contractData);
+
   useEffect(() => {
-    setRows([createData(latestEscrow, eip, escrowCounters), ...rows])
-  }, [latestEscrow, eip, escrowCounters])
+    setRows([createData(...contractData), ...rows])
+  }, contractData)
 
   const columns = [
     { id: "escrow", label: "Escrow", minWidth: 170 },
@@ -132,7 +133,7 @@ export default function Escrow(props) {
                                 {value}
                               </Link>
                             }
-                            { index !== 0 && `${value}` }
+                            { index !== 0 && value }
                           </TableCell>
                         );
                       })}
