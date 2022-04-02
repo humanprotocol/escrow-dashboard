@@ -27,6 +27,10 @@ export default function Escrow(props) {
   const { count, address, eventsUrl, scanner, contractData } = props;
   const [rows, setRows] = useState([]);
 
+  useEffect(() =>{
+    setRows([]);
+  }, [address])
+
   useEffect(() => {
     setRows([createData(...contractData), ...rows])
   }, contractData)
@@ -124,7 +128,7 @@ export default function Escrow(props) {
                               index === 0 && 
                               <Link
                                 className="mr-3"
-                                href={eventsUrl}
+                                href={`${scanner}/address/${value}`}
                                 target="_blank"
                                 rel="noreferrer"
                                 align="center"
@@ -175,7 +179,7 @@ function CardTextBlock({ title, value }) {
 function Events({ url, scanner }) {
   return (
     <Box className="table-footer">
-      {/* <Stack direction="row" alignItems="center">
+      <Stack direction="row" alignItems="center">
         <Box mr={2}>All deployed escrows</Box>
         <Link
           className="mr-3"
@@ -186,7 +190,7 @@ function Events({ url, scanner }) {
         >
           {scanner}
         </Link>
-      </Stack> */}
+      </Stack>
 
       <Typography
         variant="body2"
