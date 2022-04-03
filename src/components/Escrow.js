@@ -25,7 +25,6 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
 
                 EscrowFactory.on('Launched', async (eip, escrow) => {
                     console.log(eip, escrow);
-                    // setContractData([lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
                     escrowCount = await EscrowFactory.counter();
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
                     setCount(ethers.utils.formatUnits(escrowCount, 0));
