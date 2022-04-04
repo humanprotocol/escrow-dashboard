@@ -13,7 +13,7 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
 
     const notify = () => toast.info('Latest Escrow updated now!', {
                                     position: "top-center",
-                                    autoClose: 5000,
+                                    autoClose: 3000,
                                     hideProgressBar: true,
                                     closeOnClick: true,
                                     pauseOnHover: true,
