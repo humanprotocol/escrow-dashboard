@@ -36,13 +36,13 @@ export default function Escrow(props) {
   }, contractData)
 
   const columns = [
-    { id: "escrow", label: "Escrow", minWidth: 170 },
+    { id: "escrow", label: "Latest Escrow", minWidth: 170 },
     {
       id: "eip",
       label: "Eip20",
       minWidth: 170,
     },
-    { id: "escrowCounters", label: "Escrow Counter", minWidth: 100 }
+    { id: "escrowCounters", label: "Amount of jobs", minWidth: 100 }
   ];
 
   const [page, setPage] = React.useState(0);
