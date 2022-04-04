@@ -11,17 +11,18 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
     const [contractData, setContractData] = useState(['', '', '']);
     const eventsUrl = `${scanner}/address/${address}#events`;
 
-    const notify = () => toast.success('A new event has occurred.', {
-                            position: "top-center",
-                            autoClose: 3000,
-                            hideProgressBar: true,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                        });
+    const notify = () => toast.info('Latest Escrow updated now!', {
+                                    position: "top-center",
+                                    autoClose: 5000,
+                                    hideProgressBar: true,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                });
     
     useEffect(() => {
+        notify()
         async function setupEscrow() {
             try {
                 const provider = getWeb3(rpcUrl);
