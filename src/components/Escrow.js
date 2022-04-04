@@ -22,7 +22,6 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
                                 });
     
     useEffect(() => {
-        notify()
         async function setupEscrow() {
             try {
                 const provider = getWeb3(rpcUrl);
