@@ -4,14 +4,24 @@ import getWeb3 from '../web3';
 import { ethers } from 'ethers';
 import EscrowFactoryView from './EscrowFactoryView';
 import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
+import { toast } from 'react-toastify';
 
 export default function EscrowContainer({address, scanner, rpcUrl}) {
     const [count, setCount] = useState(0);
     const [contractData, setContractData] = useState(['', '', '']);
     const eventsUrl = `${scanner}/address/${address}#events`;
+
+    const notify = () => toast.success('A new event has occurred.', {
+                            position: "top-center",
+                            autoClose: 3000,
+                            hideProgressBar: true,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
     
     useEffect(() => {
-        
         async function setupEscrow() {
             try {
                 const provider = getWeb3(rpcUrl);
@@ -25,6 +35,7 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
 
                 EscrowFactory.on('Launched', async (eip, escrow) => {
                     console.log(eip, escrow);
+                    notify()
                     escrowCount = await EscrowFactory.counter();
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
                     setCount(ethers.utils.formatUnits(escrowCount, 0));
