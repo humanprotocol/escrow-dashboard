@@ -137,3 +137,27 @@ a, a:hover, a:active {
 .color--03 {
   color: #320A8D
 }
+
+.table-pagenation button {
+  background-color: #F0F2FC !important;
+  border-radius: 3px !important;
+  margin: 3px;
+}
+
+.table-pagenation p:nth-child(4) {
+  background-color: #F0F2FC !important;
+  border-radius: 3px !important;
+  margin: 3px;
+  padding: 8px;
+}
+
+.table-pagenation div[variant=standard] {
+  background-color: #F0F2FC !important;
+  border-radius: 3px !important;
+  margin: 3px;
+  margin-left: 10px;
+  padding: 3px;
+}
+.MuiTablePagination-actions {
+  margin-left: 0 !important;
+}

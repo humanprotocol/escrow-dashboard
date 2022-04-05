@@ -35,6 +35,10 @@ export default function Escrow(props) {
     setRows([createData(...contractData), ...rows])
   }, contractData)
 
+  useEffect(() => {
+    setRows([])
+  }, [address])
+
   const columns = [
     { id: "escrow", label: "Latest Escrow", minWidth: 170 },
     {
@@ -146,15 +150,17 @@ export default function Escrow(props) {
             </TableBody>
           </Table>
         </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+        <Box className="table-pagenation">
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Box>
       </Paper>
       <Events url={eventsUrl} scanner={scanner} />
     </Card>
@@ -180,7 +186,7 @@ function Events({ url, scanner }) {
   return (
     <Box className="table-footer">
       <Stack direction="row" alignItems="center">
-        <Box mr={2}>All deployed escrows</Box>
+        <Box mr={2} className='color--02' sx={{fontWeight:'600'}}>All deployed escrows</Box>
         <Link
           className="mr-3"
           href={url}
