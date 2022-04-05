@@ -13,7 +13,7 @@ export default function NetworkSwitcher({onNetworkChange, network}) {
       sx={{
         width: "100%",
         minWidth: "200px",
-        flexBasis: "30%" 
+        flexBasis: "30%",
       }}
       onChange={(event) => onNetworkChange(event.target.value)}
     >

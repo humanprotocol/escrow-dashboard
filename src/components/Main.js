@@ -40,8 +40,10 @@ function Main() {
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "flex-start",
-          minHeight: "calc(100vh - 114px)",
           height: "auto",
+          backgroundColor: '#F0F2FC',
+          paddingTop: '10px',
+          paddingBottom: '50px'
         }}
       >
         <Box
@@ -67,6 +69,26 @@ function Main() {
             ></NetworkSwitcher>
             <Search onSetEscrow={setEscrowFactory}></Search>
           </Stack>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "flex-start",
+          height: "auto",
+          marginTop: '-50px'
+        }}
+      >
+        <Box
+          sx={{
+            width: "calc(100% - 114px)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           <Box
             sx={{
               width: "100%",

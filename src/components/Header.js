@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <Box className="header-container" sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{padding: '0 40px', backgroundColor: 'white', boxShadow: 'none'}}>
         <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
           <img src={logoImg} />
           <Typography

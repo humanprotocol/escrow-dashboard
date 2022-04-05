@@ -32,7 +32,7 @@ export default function Escrow(props) {
   }, [address])
 
   useEffect(() => {
-    setRows([createData(...contractData)])
+    setRows([createData(...contractData), ...rows])
   }, contractData)
 
   const columns = [

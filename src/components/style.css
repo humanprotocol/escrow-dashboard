@@ -1,25 +1,29 @@
 :root {
   --primary-color: #fcfbfa;
-  --primary-color-effect: #be3b03;
-  --second-color: #952d00;
+  --primary-color-effect: #320A8D;
+  --second-color: #320A8D;
 
-  --primary-text: #702200;
-  --primary-text-effect: #b73508d4;
-  --second-text: #bd7823b8;
+  --primary-text: #320A8D;
+  --primary-text-effect: #320A8D;
+  --second-text: #320A8D;
+
+  --table-header-background-color: #320A8D;
 }
 
 * {
   box-sizing: border-box;
 }
 
+a, a:hover, a:active {
+  text-decoration: none !important;
+}
+
 
 /* ====================Header==================== */
 .header-container {
-  box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.8) !important;
 }
 
 .header-container .MuiToolbar-root {
-  background-color: var(--primary-color);
 }
 
 /* ====================Select & Search===================== */
@@ -66,29 +70,24 @@
 }
 /* ====================Table===================== */
 .main-container {
-  background-color: rgba(0, 0, 0, 0.03) !important;
-  border-radius: 0px !important;
-  border: 1px solid rgb(235 0 0 / 9%) !important;
+  border-radius: 5px !important;
   border-width: 1px !important;
   width: 100%;
-  box-shadow: 0px 55px 102px -87px var(--primary-color) !important;
-  color: var(--primary-text) !important;
+  box-shadow: 0px 0px 10px 1px rgb(204, 199, 199) !important;
 }
 .main-container table {
   color: var(--primary-text) !important;
-  border: 1px solid var(--primary-color-effect);
 }
 .main-container table td,.main-container table th {
   border-bottom: 1px solid var(--primary-color-effect)!important;
   padding: 10px 10px 10px 20px;
 }
 .main-container table th {
-  background-color: var(--primary-color);
-  box-shadow: 0px 15px 37px -11px var(--primary-color);
-  color: #320A8D;
+  background-color: var(--table-header-background-color);
+  color: white;
 }
 .table-wrap {
-  background-color:#d6ff9069!important;
+  /* background-color:#d6ff9069!important; */
 }
 
 /* ====================TableFooter===================== */

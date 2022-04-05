@@ -14,7 +14,7 @@ export default function Search({onSetEscrow}) {
     }
   };
   return (
-    <Box sx={{width: "calc(100%)", display: "flex", flexDirection: "row", flexGrow: 4}}>
+    <Box sx={{width: "calc(100%)", display: "flex", flexDirection: "row", flexGrow: 4, borderRadius: "3px"}}>
       <TextField
         variant="outlined"
         size="small"
