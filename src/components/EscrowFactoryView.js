@@ -80,7 +80,7 @@ export default function Escrow(props) {
             fontWeight: "900",
             padding: "15px",
           }}>
-          Address: <span style={{color: "green"}}>{address}</span>      
+          Address: <span style={{fontWeight: "400"}}>{address}</span>      
         </Typography>
         
         <Typography variant="body1"
@@ -90,7 +90,7 @@ export default function Escrow(props) {
             fontWeight: "900",
             padding: "15px",
           }}>
-          Amount of jobs: <span style={{color: "green"}}>{count}</span>    
+          Amount of jobs: <span style={{fontWeight: "400"}}>{count}</span>    
         </Typography>
       </Box>
       <Paper className="table-wrap">

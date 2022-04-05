@@ -1,6 +1,6 @@
 :root {
   --primary-color: #fcfbfa;
-  --primary-color-effect: #320A8D;
+  --primary-color-effect: #beb3d8;
   --second-color: #320A8D;
 
   --primary-text: #320A8D;
@@ -28,7 +28,7 @@ a, a:hover, a:active {
 
 /* ====================Select & Search===================== */
 #menu->.MuiPaper-root {
-  background-color: var(--second-color);
+  /* background-color: var(--second-color); */
 }
 #menu->.MuiPaper-root li {
   transition: all 0.3s;
@@ -55,7 +55,7 @@ a, a:hover, a:active {
 }
 
 .search-wrap fieldset.MuiOutlinedInput-notchedOutline {
-  border: 1px solid var(--primary-color);
+  border: 2px solid var(--second-color);
 }
 
 .search-wrap .Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
