@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #702200;
+  --primary-color: #fcfbfa;
   --primary-color-effect: #be3b03;
   --second-color: #952d00;
 
@@ -25,7 +25,6 @@
 /* ====================Select & Search===================== */
 #menu->.MuiPaper-root {
   background-color: var(--second-color);
-  color: white;
 }
 #menu->.MuiPaper-root li {
   transition: all 0.3s;
@@ -86,7 +85,7 @@
 .main-container table th {
   background-color: var(--primary-color);
   box-shadow: 0px 15px 37px -11px var(--primary-color);
-  color: white;
+  color: #320A8D;
 }
 .table-wrap {
   background-color:#d6ff9069!important;
@@ -115,15 +114,27 @@
 /* ====================Footer===================== */
 .footer-container {
   background-color: var(--primary-color) !important;
-  color: white;
+  color: #320A8D;
   padding: 15px;
   border-radius: 0px!important;
 }
 
 .footer-container a {
-  color: white;
+  color: #320A8D;
 }
 
 .footer-container div {
   padding: 0px !important;
+}
+
+.color--01 {
+  color: #6309FF
+}
+
+.color--02 {
+  color: #24046D
+}
+
+.color--03 {
+  color: #320A8D
 }

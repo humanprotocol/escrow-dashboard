@@ -30,7 +30,7 @@ function Main() {
       sx={{
         minHeight: "100vh",
         height: "100vh",
-        position: "relative",
+        position: "relative"
       }}
     >
       <Header />
@@ -42,7 +42,6 @@ function Main() {
           alignItems: "flex-start",
           minHeight: "calc(100vh - 114px)",
           height: "auto",
-          backgroundImage: "linear-gradient(to bottom, #ffd255f2, white)",
         }}
       >
         <Box
