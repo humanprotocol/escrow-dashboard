@@ -18,7 +18,7 @@ const CustomForm = ({ status, message, onValidated }) => {
     return (
       <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
         {status === "sending" && (
-          <div className="mc__alert mc__alert--sending">
+          <div className="mc__alert mc__alert--sending" style={{marginBottom: '20px'}}>
             sending...
           </div>
         )}
@@ -26,12 +26,14 @@ const CustomForm = ({ status, message, onValidated }) => {
           <div 
             className="mc__alert mc__alert--error"
             dangerouslySetInnerHTML={{ __html: message }}
+            style={{marginBottom: '20px'}}
           />
         )}
         {status === "success" && (
           <div
             className="mc__alert mc__alert--success"
             dangerouslySetInnerHTML={{ __html: message }}
+            style={{marginBottom: '20px'}}
           />
         )}
 
@@ -39,7 +41,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
             spacing={2}
             sx={{
-              width: "100%",
+              width: "100%"
             }}
           >
           <div className="mc__field-container">
