@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import MailchimpFormContainer from "./MailchimpFormContainer";
 
 import gitImg from '../assets/images/git.png';
 import discordImg from '../assets/images/discord.png';
@@ -14,7 +15,7 @@ import inImg from '../assets/images/in.png';
 import twitterImg from '../assets/images/twitter.png';
 
 export default function Footer(props) {
-  const[email, setEmail] = useState("");
+
   return (
     <>
       <Box sx={{paddingTop: '100px', paddingBottom: '100px'}} className='paddingX'>
@@ -34,20 +35,8 @@ export default function Footer(props) {
                   width: "100%",
                 }}
               >
-                <TextField
-                  variant="outlined"
-                  size="small"
-                  label="Email"
-                  sx={{width: "calc(100%)",  flexBasis: "100%"}}
-                  onChange={(e) => setEmail(e.target.value)}
-                >
-                  {email}
-                </TextField>
-                <Button
-                  sx={{backgroundColor: '#320A8D', color: 'white', textTransform: 'capitalize', padding:'0 50px', marginLeft: '20px'}}
-                >
-                    Subscribe
-                </Button>
+                <MailchimpFormContainer />
+                
               </Stack>
               <Stack className="footer-img-link-margin">
                 <ul className="footer-img-link">

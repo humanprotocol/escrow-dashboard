@@ -204,6 +204,10 @@ li {
   padding-right: 60px;
 }
 
+button:hover {
+  background-color: #320A8D !important;
+}
+
 @media (max-width: 902px) {
   .footer-img-link-margin {
     margin-top: 20px;
