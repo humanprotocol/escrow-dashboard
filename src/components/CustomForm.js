@@ -57,7 +57,7 @@ const CustomForm = ({ status, message, onValidated }) => {
           </div>
             <Button
               type="submit"
-              sx={{backgroundColor: '#320A8D', color: 'white', textTransform: 'capitalize', padding:'0 40px', marginLeft: '20px'}}
+              sx={{backgroundColor: '#320A8D', color: 'white', textTransform: 'capitalize', paddingLeft: '40px', paddingRight: '40px', marginLeft: '20px'}}
             >
                 Subscribe
             </Button>
