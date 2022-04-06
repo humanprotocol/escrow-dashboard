@@ -165,7 +165,7 @@ export default function Footer(props) {
             width: "100%",
           }}
         >
-          <Box className="color--01" sx={{fontSize: '14px', padding:'0 50px'}}>
+          <Box className="color--01" sx={{fontSize: '14px'}}>
             © 2021 HPF. HUMAN Protocol® is a registered trademark
           </Box>
           <Box>
@@ -173,10 +173,10 @@ export default function Footer(props) {
               direction={{ lg: "row", md: "row", sm: "row", xs: "row" }}
             >
               <Box className="color--01" sx={{fontSize: '14px', padding:'0 60px'}}>
-                contact@hmt.ai
+                <a>contact@hmt.ai</a>
               </Box>
               <Box className="color--01" sx={{fontSize: '14px'}}>
-                Terms and conditions
+                <a>Terms and conditions</a>
               </Box>
             </Stack>
           </Box>

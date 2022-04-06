@@ -1,6 +1,6 @@
 :root {
   --primary-color: #fcfbfa;
-  --primary-color-effect: #beb3d8;
+  --primary-color-effect: #320A8D;
   --second-color: #320A8D;
 
   --primary-text: #320A8D;
@@ -79,7 +79,7 @@ a, a:hover, a:active {
   color: var(--primary-text) !important;
 }
 .main-container table td,.main-container table th {
-  border-bottom: 1px solid var(--primary-color-effect)!important;
+  border-bottom: 1px solid #beb3d8 !important;
   padding: 10px 10px 10px 20px;
 }
 .main-container table th {
