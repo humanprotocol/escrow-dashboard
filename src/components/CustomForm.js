@@ -8,7 +8,7 @@ const CustomForm = ({ status, message, onValidated }) => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      email
+      email &&
       email.indexOf("@") > -1 &&
       onValidated({
           EMAIL: email,
@@ -34,7 +34,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             dangerouslySetInnerHTML={{ __html: message }}
           />
         )}
-        
+
         <Stack
             direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
             spacing={2}
