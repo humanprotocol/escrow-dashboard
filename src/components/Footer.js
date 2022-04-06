@@ -16,173 +16,172 @@ import twitterImg from '../assets/images/twitter.png';
 export default function Footer(props) {
   const[email, setEmail] = useState("");
   return (
-    <Box sx={{padding: '100px 60px'}}>
-      <Stack
-          direction={{ lg: "row", md: "row", sm: "column", xs: "column" }}
+    <>
+      <Box sx={{paddingTop: '100px', paddingBottom: '100px'}} className='paddingX'>
+        <Stack
+            direction={{ lg: "row", md: "row", sm: "column", xs: "column" }}
+            spacing={2}
+            justifyContent="space-between"
+            sx={{
+              width: "100%",
+            }}
+          >
+            <Box>
+              <Stack
+                direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
+                spacing={2}
+                sx={{
+                  width: "100%",
+                }}
+              >
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  label="Email"
+                  sx={{width: "calc(100%)",  flexBasis: "100%"}}
+                  onChange={(e) => setEmail(e.target.value)}
+                >
+                  {email}
+                </TextField>
+                <Button
+                  sx={{backgroundColor: '#320A8D', color: 'white', textTransform: 'capitalize', padding:'0 50px', marginLeft: '20px'}}
+                >
+                    Subscribe
+                </Button>
+              </Stack>
+              <Stack className="footer-img-link-margin">
+                <ul className="footer-img-link">
+                  <li style={{marginRight: '20px', marginLeft: '0px'}}>
+                    <a href="https://" target="_blank">
+                      <img src={gitImg} />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://" target="_blank">
+                      <img src={discordImg}/>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://" target="_blank">
+                      <img src={twitterImg}/>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://" target="_blank">
+                      <img src={inImg}/>
+                    </a>
+                  </li>
+                </ul>
+              </Stack>
+            </Box>
+            <Box>
+              <Stack
+                direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
+                spacing={2}
+                sx={{
+                  width: "100%"
+                }}
+              >
+                <ul className="footer-text-link">
+                  <li>
+                    <a>
+                      Lightpaper
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Whitepaper
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      AI Whitepater
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Token
+                    </a>
+                  </li>
+                </ul>
+
+                <ul className="footer-text-link">
+                  <li>
+                    <a>
+                      Technology
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Developers
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Blog
+                    </a>
+                  </li>
+                </ul>
+
+                <ul className="footer-text-link">
+                  <li>
+                    <a>
+                      Ambassador Hub
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Brand Assets
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Team
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      Carreers
+                    </a>
+                  </li>
+                </ul>
+
+              </Stack>
+            </Box>
+        </Stack>
+      </Box>
+      <Box sx={{padding: '50px 60px 0px', backgroundColor:' #F6F7FE', height:' 112px'}}>
+        <Stack
+          direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
           spacing={2}
           justifyContent="space-between"
+          alignItems="center"
           sx={{
             width: "100%",
           }}
         >
-          <Box>
-            <Stack
-              direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
-              spacing={2}
-              sx={{
-                width: "100%",
-              }}
-            >
-              <TextField
-                variant="outlined"
-                size="small"
-                label="Email"
-                sx={{width: "calc(100%)",  flexBasis: "100%"}}
-                onChange={(e) => setEmail(e.target.value)}
-              >
-                {email}
-              </TextField>
-              <Button
-                sx={{backgroundColor: '#320A8D', color: 'white', textTransform: 'capitalize', padding:'0 50px', marginLeft: '20px'}}
-              >
-                  Subscribe
-              </Button>
-            </Stack>
-            <Stack>
-              <ul className="footer-img-link">
-                <li style={{marginRight: '20px', marginLeft: '0px'}}>
-                  <a href="https://" target="_blank">
-                    <img src={gitImg} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://" target="_blank">
-                    <img src={discordImg}/>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://" target="_blank">
-                    <img src={twitterImg}/>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://" target="_blank">
-                    <img src={inImg}/>
-                  </a>
-                </li>
-              </ul>
-            </Stack>
+          <Box className="color--01" sx={{fontSize: '14px', padding:'0 50px'}}>
+            © 2021 HPF. HUMAN Protocol® is a registered trademark
           </Box>
           <Box>
             <Stack
-              direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
-              spacing={2}
-              sx={{
-                width: "100%"
-              }}
+              direction={{ lg: "row", md: "row", sm: "row", xs: "row" }}
             >
-              <ul className="footer-text-link">
-                <li>
-                  <a>
-                    Lightpaper
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Whitepaper
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    AI Whitepater
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Token
-                  </a>
-                </li>
-              </ul>
-
-              <ul className="footer-text-link">
-                <li>
-                  <a>
-                    Technology
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Developers
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Blog
-                  </a>
-                </li>
-              </ul>
-
-              <ul className="footer-text-link">
-                <li>
-                  <a>
-                    Ambassador Hub
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Brand Assets
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Team
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    Carreers
-                  </a>
-                </li>
-              </ul>
-
+              <Box className="color--01" sx={{fontSize: '14px', padding:'0 60px'}}>
+                contact@hmt.ai
+              </Box>
+              <Box className="color--01" sx={{fontSize: '14px'}}>
+                Terms and conditions
+              </Box>
             </Stack>
           </Box>
-      </Stack>
-    </Box>
-    // <Card
-    //   className="footer-container"
-    //   sx={{
-    //     width: "100%",
-    //     bottom: "0px",
-    //     left: "0px",
-    //   }}
-    // >
-    //   <CardContent>
-    //     <CardTextBlock
-    //       value={
-    //         <Link
-    //           href="https://github.com/humanprotocol/hmt-escrow"
-    //           target="_blank"
-    //           rel="noreferrer"
-    //         >
-    //           HMT Escrow Source Code
-    //         </Link>
-    //       }
-    //     />
-    //   </CardContent>
-    // </Card>
-  );
-}
-
-function CardTextBlock({ value }) {
-  return (
-    <Typography variant="body2" textAlign="center">
-      {value}
-    </Typography>
+        </Stack>
+      </Box>
+    </>
   );
 }

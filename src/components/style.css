@@ -190,6 +190,21 @@ li {
 }
 
 .footer-text-link li {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-align: right;
+}
+
+.footer-img-link-margin {
+  margin-top: 100px;
+}
+
+.paddingX {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+@media (max-width: 902px) {
+  .footer-img-link-margin {
+    margin-top: 20px;
+  }
 }
