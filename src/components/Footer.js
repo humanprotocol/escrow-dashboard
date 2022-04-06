@@ -155,7 +155,7 @@ export default function Footer(props) {
             </Box>
         </Stack>
       </Box>
-      <Box sx={{padding: '50px 60px 0px', backgroundColor:' #F6F7FE', height:' 112px'}}>
+      <Box sx={{padding: '43px 60px 0px', backgroundColor:' #F6F7FE', height:' 100px'}}>
         <Stack
           direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
           spacing={2}
