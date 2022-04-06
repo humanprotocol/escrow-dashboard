@@ -55,7 +55,7 @@ a, a:hover, a:active {
   color: var(--primary-text-effect) !important;
 }
 
-.search-wrap fieldset.MuiOutlinedInput-notchedOutline {
+.mc__field-container fieldset.MuiOutlinedInput-notchedOutline, .search-wrap fieldset.MuiOutlinedInput-notchedOutline {
   border: 2px solid var(--second-color);
 }
 

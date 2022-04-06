@@ -49,7 +49,7 @@ const CustomForm = ({ status, message, onValidated }) => {
                 variant="outlined"
                 size="small"
                 label="Email"
-                sx={{width: "calc(100%)",  flexBasis: "100%"}}
+                sx={{width: "calc(100%)",  flexBasis: "100%", borderColor:'#320A8D'}}
                 onChange={(e) => setEmail(e.target.value)}
               >
                 {email}

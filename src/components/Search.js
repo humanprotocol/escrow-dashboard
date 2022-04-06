@@ -3,13 +3,16 @@ import Web3 from 'web3';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+import IconButton from '@mui/material/IconButton';
 
 export default function Search({onSetEscrow}) {
   const [escrow, setEscrow] = useState('');
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
   const keyDownHandle = (e) => {
     if (e.code == "Enter") {
-      if (!escrow) return;
+      if (!escrow && !isEscrowValid ) return;
       onSetEscrow(escrow);
     }
   };
@@ -25,13 +28,9 @@ export default function Search({onSetEscrow}) {
         > 
           {escrow}
         </TextField>
-      {/* <Button
-        variant="outlined"
-        onClick={() => onSetEscrow(escrow)}
-        disabled={!isEscrowValid}
-      >
-          Search
-      </Button> */}
+        <IconButton type="submit" sx={{backgroundColor:'#320A8D', borderRadius:'0 3px 3px 0', color:'white', marginLeft:'-2px', cursor: 'pointer'}} aria-label="search" onClick={ keyDownHandle }>
+          <SearchIcon />
+        </IconButton>
     </Box>
   )
 }
