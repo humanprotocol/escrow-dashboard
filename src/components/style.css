@@ -161,3 +161,35 @@ a, a:hover, a:active {
 .MuiTablePagination-actions {
   margin-left: 0 !important;
 }
+
+li {
+  list-style: none;
+}
+
+.footer-img-link {
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+}
+
+.footer-img-link li {
+  margin: 0 20px;
+}
+
+.footer-img-link img {
+  width: 30px;
+}
+
+.footer-text-link {
+  margin: 0;
+}
+
+.footer-text-link a {
+  color: #320A8D;
+  font-size: 20px;
+}
+
+.footer-text-link li {
+  margin-bottom: 20px;
+  text-align: right;
+}
