@@ -40,7 +40,7 @@ export default function Footer(props) {
               </Stack>
               <Stack className="footer-img-link-margin">
                 <ul className="footer-img-link">
-                  <li style={{marginRight: '20px', marginLeft: '0px'}}>
+                  <li style={{marginRight: '15px', marginLeft: '0px'}}>
                     <a href="https://" target="_blank">
                       <img src={gitImg} />
                     </a>
