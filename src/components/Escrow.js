@@ -31,6 +31,29 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
                 let eip = await EscrowFactory.eip20();
                 let escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
                 setCount(ethers.utils.formatUnits(escrowCount, 0));
+                setContractData(['rinkeby', lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
+
+                EscrowFactory.on('Launched', async (eip, escrow) => {
+                    console.log(eip, escrow);
+                    notify()
+                    escrowCount = await EscrowFactory.counter();
+                    escrowCounters = await EscrowFactory.escrowCounters(escrow);
+                    setCount(ethers.utils.formatUnits(escrowCount, 0));
+                    setContractData(['rinkeby', escrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
+                });
+            } catch(err) {
+                console.log("error_", err);
+                alert("Invalid escrow factory");
+            }
+
+            try {
+                const provider = getWeb3(rpcUrl);
+                const EscrowFactory = new ethers.Contract(address, EscrowFactoryABI, provider)
+                let escrowCount = await EscrowFactory.counter();
+                let lastEscrow = await EscrowFactory.lastEscrow();
+                let eip = await EscrowFactory.eip20();
+                let escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
+                setCount(ethers.utils.formatUnits(escrowCount, 0));
                 setContractData([lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
 
                 EscrowFactory.on('Launched', async (eip, escrow) => {
@@ -39,11 +62,10 @@ export default function EscrowContainer({address, scanner, rpcUrl}) {
                     escrowCount = await EscrowFactory.counter();
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
                     setCount(ethers.utils.formatUnits(escrowCount, 0));
-                    setContractData([escrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
+                    setContractData(['RinkBy', escrow, eip, ethers.utils.formatUnits(escrowCounters, 0)]);
                 });
             } catch(err) {
                 console.log("error_", err);
-
                 alert("Invalid escrow factory");
             }
 

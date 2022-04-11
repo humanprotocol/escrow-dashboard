@@ -63,10 +63,10 @@ function Main() {
               width: "100%",
             }}
           >
-            <NetworkSwitcher
+            {/* <NetworkSwitcher
               onNetworkChange={onNetworkChange}
               network={network}
-            ></NetworkSwitcher>
+            ></NetworkSwitcher> */}
             <Search onSetEscrow={setEscrowFactory}></Search>
           </Stack>
         </Box>

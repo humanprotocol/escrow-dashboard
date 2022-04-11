@@ -19,27 +19,24 @@ import {
   TablePagination,
 } from "@mui/material";
 
-function createData(escrow, eip, escrowCounters) {
-  return { escrow, eip, escrowCounters};
+function createData(network, escrow, eip, escrowCounters) {
+  return { network, escrow, eip, escrowCounters};
 }
 
 export default function Escrow(props) {
   const { count, address, eventsUrl, scanner, contractData } = props;
   const [rows, setRows] = useState([]);
 
-  useEffect(() =>{
-    setRows([]);
-  }, [address])
+  // useEffect(() =>{
+  //   setRows([]);
+  // }, [address])
 
   useEffect(() => {
     setRows([createData(...contractData), ...rows])
   }, contractData)
 
-  useEffect(() => {
-    setRows([])
-  }, [address])
-
   const columns = [
+    {id: 'network', label: 'NetWork', minWidth: 170},
     { id: "escrow", label: "Latest Escrow", minWidth: 170 },
     {
       id: "eip",
