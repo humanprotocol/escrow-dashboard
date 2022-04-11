@@ -11,19 +11,20 @@ import "./style.css";
 import { networkMap } from "../constants";
 
 function Main() {
-  const [network, setNetwork] = useState("polygon");
-  const [escrowFactory, setEscrowFactory] = useState(
-    networkMap[network].defaultFactoryAddr
-  );
+  // const [network, setNetwork] = useState("polygon");
+  // const [escrowFactory, setEscrowFactory] = useState(
+  //   networkMap[network].defaultFactoryAddr
+  // );
+  const [escrowFactory, setEscrowFactory] = useState("");
 
-  const onNetworkChange = (networkKey) => {
-    setNetwork(networkKey);
-    setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
-    localStorage.setItem(
-      "defaultAddr",
-      networkMap[networkKey].defaultFactoryAddr
-    );
-  };
+  // const onNetworkChange = (networkKey) => {
+  //   setNetwork(networkKey);
+  //   setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
+  //   localStorage.setItem(
+  //     "defaultAddr",
+  //     networkMap[networkKey].defaultFactoryAddr
+  //   );
+  // };
 
   return (
     <Box
@@ -100,8 +101,9 @@ function Main() {
           >
             <Escrow
               address={escrowFactory}
-              scanner={networkMap[network].scanner}
-              rpcUrl={networkMap[network].rpcUrl}
+              // scanner={networkMap[network].scanner}
+              // rpcUrl={networkMap[network].rpcUrl}
+              networkMap={networkMap}
             />
           </Box>
         </Box>

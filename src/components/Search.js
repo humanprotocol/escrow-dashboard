@@ -21,7 +21,7 @@ export default function Search({onSetEscrow}) {
       <TextField
         variant="outlined"
         size="small"
-        label="Escrow Factory Address"
+        label="Escrow Address"
         sx={{width: "calc(100%)",  flexBasis: "100%"}}
         onChange={(e) => setEscrow(e.target.value)}
         onKeyDown={keyDownHandle}

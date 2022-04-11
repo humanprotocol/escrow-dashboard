@@ -24,7 +24,7 @@ function createData(network, escrow, eip, escrowCounters) {
 }
 
 export default function Escrow(props) {
-  const { count, address, eventsUrl, scanner, contractData } = props;
+  const { count, address, eventsUrl, scanner, contractData, networkMap } = props;
   const [rows, setRows] = useState([]);
 
   // useEffect(() =>{
@@ -36,7 +36,7 @@ export default function Escrow(props) {
   }, contractData)
 
   const columns = [
-    {id: 'network', label: 'NetWork', minWidth: 170},
+    {id: 'network', label: 'NetWork', minWidth: 150},
     { id: "escrow", label: "Latest Escrow", minWidth: 170 },
     {
       id: "eip",
@@ -67,7 +67,7 @@ export default function Escrow(props) {
         <CardTextBlock title="Latest Escrow" value={latestEscrow} />
         <CardTextBlock title="Amount of jobs" value={count} />
       </CardContent> */}
-      <Box
+      {/* <Box
         sx={{
           display: 'flex',
           flexWrap: 'wrap'
@@ -93,8 +93,8 @@ export default function Escrow(props) {
           }}>
           Amount of jobs: <span style={{fontWeight: "400"}}>{count}</span>    
         </Typography>
-      </Box>
-      <Paper className="table-wrap">
+      </Box> */}
+      <Paper className="table-wrap" sx={{marginBottom: '10px'}}>
         <TableContainer>
           <Table stickyHeader>
             <TableHead>
@@ -123,6 +123,7 @@ export default function Escrow(props) {
                     >
                       {columns.map((column, index) => {
                         const value = row[column.id];
+
                         return (
                           <TableCell key={column.id} align={column.align}>
                             {
@@ -137,7 +138,7 @@ export default function Escrow(props) {
                                 {value}
                               </Link>
                             }
-                            { index !== 0 && value }
+                            { index !== 0  && value }
                           </TableCell>
                         );
                       })}
@@ -159,7 +160,8 @@ export default function Escrow(props) {
           />
         </Box>
       </Paper>
-      <Events url={eventsUrl} scanner={scanner} />
+      <Events url={networkMap['polygon'].eventsUrl} scanner={networkMap['polygon'].scanner} />
+      <Events url={networkMap['rinkeby'].eventsUrl} scanner={networkMap['rinkeby'].scanner} />
     </Card>
   );
 }
@@ -181,7 +183,7 @@ function CardTextBlock({ title, value }) {
 
 function Events({ url, scanner }) {
   return (
-    <Box className="table-footer">
+    <Box className="table-footer" sx={{paddingTop: '0px'}}>
       <Stack direction="row" alignItems="center">
         <Box mr={2} className='color--02' sx={{fontWeight:'600'}}>All deployed escrows</Box>
         <Link
