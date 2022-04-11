@@ -19,8 +19,8 @@ import {
   TablePagination,
 } from "@mui/material";
 
-function createData(network, escrow, eip, escrowCounters) {
-  return { network, escrow, eip, escrowCounters};
+function createData(network, escrow, eip, escrowCounters, balance) {
+  return { network, escrow, eip, escrowCounters, balance};
 }
 
 export default function Escrow(props) {
@@ -43,7 +43,8 @@ export default function Escrow(props) {
       label: "Eip20",
       minWidth: 170,
     },
-    { id: "escrowCounters", label: "Amount of jobs", minWidth: 100 }
+    { id: "escrowCounters", label: "Amount of jobs", minWidth: 100 },
+    { id: "balance", label: "HMToken Balance", minWidth: 150}
   ];
 
   const [page, setPage] = React.useState(0);
