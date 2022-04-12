@@ -11,9 +11,9 @@ export default function Search({onSetEscrow}) {
   const [escrow, setEscrow] = useState('');
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
   const keyDownHandle = (e) => {
-    setEscrow(e.target.value);
-    if (!escrow && !isEscrowValid && escrow !== '' ) return;
-    onSetEscrow(escrow);
+    // setEscrow(e.target.value);
+    // if (!escrow && !isEscrowValid && escrow !== '' ) return;
+    onSetEscrow(e.target.value);
   };
   return (
     <Box sx={{width: "calc(100%)", display: "flex", flexDirection: "row", flexGrow: 4, borderRadius: "3px"}}>
