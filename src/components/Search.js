@@ -13,7 +13,7 @@ export default function Search({onSetEscrow}) {
   const keyDownHandle = (e) => {
     // setEscrow(e.target.value);
     // if (!escrow && !isEscrowValid && escrow !== '' ) return;
-    onSetEscrow(e.target.value);
+    onSetEscrow(e);
   };
   return (
     <Box sx={{width: "calc(100%)", display: "flex", flexDirection: "row", flexGrow: 4, borderRadius: "3px"}}>
@@ -22,7 +22,7 @@ export default function Search({onSetEscrow}) {
         size="small"
         label="Escrow Address"
         sx={{width: "calc(100%)",  flexBasis: "100%"}}
-        onChange={ keyDownHandle }
+        onChange={(e) => keyDownHandle(e.target.value) }
       > 
           {escrow}
         </TextField>
