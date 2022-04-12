@@ -7,9 +7,11 @@ import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 import EscrowABI from '../contracts/EscrowABI.json';
 import { toast } from 'react-toastify';
 
-export default function EscrowContainer({address, scanner, rpcUrl, networkMap}) {
+export default function EscrowContainer({address, networkMap}) {
     const [count, setCount] = useState(0);
     const [contractData, setContractData] = useState(['','', '', '', '']);
+    const [scanner, setScanner] = useState("");
+
     const eventsUrl = `${scanner}/address/${address}#events`;
 
     const notify = () => toast.info('Latest Escrow updated now!', {
@@ -33,9 +35,9 @@ export default function EscrowContainer({address, scanner, rpcUrl, networkMap}) 
                 let escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
                 let Escrow = new ethers.Contract(lastEscrow, EscrowABI, provider)
                 let balance = await Escrow.getBalance();
+                setScanner('https://polygonscan.com');
                 setCount(ethers.utils.formatUnits(escrowCount, 0));
                 setContractData(['Polygon', lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
-
                 EscrowFactory.on('Launched', async (eip, escrow) => {
                     console.log(eip, escrow);
                     notify()
@@ -43,6 +45,7 @@ export default function EscrowContainer({address, scanner, rpcUrl, networkMap}) 
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
                     Escrow = new ethers.Contract(escrow, EscrowABI, provider)
                     balance = await Escrow.getBalance();
+                    setScanner('https://polygonscan.com');
                     setCount(ethers.utils.formatUnits(escrowCount, 0));
                     setContractData(['Polygon', escrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
                 });
@@ -60,6 +63,7 @@ export default function EscrowContainer({address, scanner, rpcUrl, networkMap}) 
                 let escrowCounters = await EscrowFactory.escrowCounters(lastEscrow);
                 let Escrow = new ethers.Contract(lastEscrow, EscrowABI, provider)
                 let balance = await Escrow.getBalance();
+                setScanner('https://rinkeby.etherscan.io');
                 setCount(ethers.utils.formatUnits(escrowCount, 0));
                 setContractData(['Rinkeby', lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
 
@@ -70,6 +74,7 @@ export default function EscrowContainer({address, scanner, rpcUrl, networkMap}) 
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
                     Escrow = new ethers.Contract(escrow, EscrowABI, provider)
                     balance = await Escrow.getBalance();
+                    setScanner('https://rinkeby.etherscan.io');
                     setCount(ethers.utils.formatUnits(escrowCount, 0));
                     setContractData(['Rinkeby', escrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
                 });

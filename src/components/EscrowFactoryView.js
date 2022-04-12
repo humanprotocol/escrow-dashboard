@@ -63,38 +63,6 @@ export default function Escrow(props) {
 
   return (
     <Card className="main-container">
-      {/* <CardContent>
-        <CardTextBlock title="Address" value={address} />
-        <CardTextBlock title="Latest Escrow" value={latestEscrow} />
-        <CardTextBlock title="Amount of jobs" value={count} />
-      </CardContent> */}
-      {/* <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap'
-        }}
-      >
-
-        <Typography variant="body1" 
-          sx={{
-            fontSize: "18px",
-            color: "var(--primary-text)",
-            fontWeight: "900",
-            padding: "15px",
-          }}>
-          Address: <span style={{fontWeight: "400"}}>{address}</span>      
-        </Typography>
-        
-        <Typography variant="body1"
-          sx={{
-            fontSize: "18px",
-            color: "var(--primary-text)",
-            fontWeight: "900",
-            padding: "15px",
-          }}>
-          Amount of jobs: <span style={{fontWeight: "400"}}>{count}</span>    
-        </Typography>
-      </Box> */}
       <Paper className="table-wrap" sx={{marginBottom: '10px'}}>
         <TableContainer>
           <Table stickyHeader>
@@ -115,6 +83,10 @@ export default function Escrow(props) {
               {rows
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
+                  const net = rows[index].network;
+                  const escrowAddr = rows[index].escrow.toUpperCase();
+                  if( address.toUpperCase() !== escrowAddr && address !== '')
+                    return 
                   return (
                     <TableRow
                       hover
@@ -122,16 +94,14 @@ export default function Escrow(props) {
                       tabIndex={-1}
                       key={`body_row_${index}`}
                     >
-                      {columns.map((column, index) => {
+                      { columns.map((column, index) => {
                         const value = row[column.id];
-
                         return (
                           <TableCell key={column.id} align={column.align}>
                             {
-                              index === 0 && 
+                              index === 1 && 
                               <Link
-                                className="mr-3"
-                                href={`${scanner}/address/${value}`}
+                                href={`${ net === "Polygon" ? `${networkMap['polygon'].scanner}` : `${networkMap['rinkeby'].scanner}`}/address/${value}`}
                                 target="_blank"
                                 rel="noreferrer"
                                 align="center"
@@ -139,7 +109,7 @@ export default function Escrow(props) {
                                 {value}
                               </Link>
                             }
-                            { index !== 0  && value }
+                            { index !== 1  && value }
                           </TableCell>
                         );
                       })}
@@ -161,8 +131,8 @@ export default function Escrow(props) {
           />
         </Box>
       </Paper>
-      <Events url={networkMap['polygon'].eventsUrl} scanner={networkMap['polygon'].scanner} />
-      <Events url={networkMap['rinkeby'].eventsUrl} scanner={networkMap['rinkeby'].scanner} />
+      <Events url={`${networkMap['polygon'].scanner}/address/${networkMap['polygon'].defaultFactoryAddr}#events`} scanner={networkMap['polygon'].scanner} />
+      <Events url={`${networkMap['rinkeby'].scanner}/address/${networkMap['rinkeby'].defaultFactoryAddr}#events`} scanner={networkMap['rinkeby'].scanner} />
     </Card>
   );
 }
@@ -210,34 +180,5 @@ function Events({ url, scanner }) {
         address
       </Typography>
     </Box>
-    // <Box textAlign="center">
-    //   <Divider sx={{ mt: 1 }}>
-    //     <Typography variant="body2" color="text.secondary">
-    //       All deployed escrows
-    //     </Typography>
-    //   </Divider>
-    //   <Link href={url} target="_blank" rel="noreferrer" align="center">
-    //     {scanner}
-    //   </Link>
-    //   <Typography
-    //     variant="body2"
-    //     color="text.secondary"
-    //     sx={{
-    //       fontSize: 11,
-    //     }}
-    //   >
-    //     Each event has a payload of ERC20 token address and Escrow Address
-    //   </Typography>
-    //   <Typography
-    //     variant="body2"
-    //     color="text.secondary"
-    //     sx={{
-    //       fontSize: 11,
-    //     }}
-    //   >
-    //     Change the type of the second argument to "Address" to see an Escrow
-    //     address
-    //   </Typography>
-    // </Box>
   );
 }

@@ -12,7 +12,7 @@ export default function Search({onSetEscrow}) {
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
   const keyDownHandle = (e) => {
     if (e.code == "Enter") {
-      if (!escrow && !isEscrowValid ) return;
+      if (!escrow && !isEscrowValid && escrow !== '' ) return;
       onSetEscrow(escrow);
     }
   };
