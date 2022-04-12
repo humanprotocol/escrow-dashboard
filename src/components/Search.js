@@ -11,10 +11,9 @@ export default function Search({onSetEscrow}) {
   const [escrow, setEscrow] = useState('');
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
   const keyDownHandle = (e) => {
-    if (e.code == "Enter") {
-      if (!escrow && !isEscrowValid && escrow !== '' ) return;
-      onSetEscrow(escrow);
-    }
+    setEscrow(e.target.value);
+    if (!escrow && !isEscrowValid && escrow !== '' ) return;
+    onSetEscrow(escrow);
   };
   return (
     <Box sx={{width: "calc(100%)", display: "flex", flexDirection: "row", flexGrow: 4, borderRadius: "3px"}}>
@@ -23,9 +22,8 @@ export default function Search({onSetEscrow}) {
         size="small"
         label="Escrow Address"
         sx={{width: "calc(100%)",  flexBasis: "100%"}}
-        onChange={(e) => setEscrow(e.target.value)}
-        onKeyDown={keyDownHandle}
-        > 
+        onChange={ keyDownHandle }
+      > 
           {escrow}
         </TextField>
         <IconButton type="submit" sx={{backgroundColor:'#320A8D', borderRadius:'0 3px 3px 0', color:'white', marginLeft:'-2px', cursor: 'pointer'}} aria-label="search" onClick={ keyDownHandle }>

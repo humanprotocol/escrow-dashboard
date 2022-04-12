@@ -85,7 +85,7 @@ export default function Escrow(props) {
                 .map((row, index) => {
                   const net = rows[index].network;
                   const escrowAddr = rows[index].escrow.toUpperCase();
-                  if( address.toUpperCase() !== escrowAddr && address !== '')
+                  if( address.toUpperCase().includes(escrowAddr) && address !== '')
                     return 
                   return (
                     <TableRow
