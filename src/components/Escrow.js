@@ -39,7 +39,6 @@ export default function EscrowContainer({address, networkMap}) {
                 setCount(ethers.utils.formatUnits(escrowCount, 0));
                 setContractData(['Polygon', lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
                 EscrowFactory.on('Launched', async (eip, escrow) => {
-                    console.log(eip, escrow);
                     notify()
                     escrowCount = await EscrowFactory.counter();
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
@@ -50,7 +49,6 @@ export default function EscrowContainer({address, networkMap}) {
                     setContractData(['Polygon', escrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
                 });
             } catch(err) {
-                console.log("error_", err);
                 alert("Invalid escrow factory");
             }
 
@@ -68,7 +66,6 @@ export default function EscrowContainer({address, networkMap}) {
                 setContractData(['Rinkeby', lastEscrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
 
                 EscrowFactory.on('Launched', async (eip, escrow) => {
-                    console.log(eip, escrow);
                     notify()
                     escrowCount = await EscrowFactory.counter();
                     escrowCounters = await EscrowFactory.escrowCounters(escrow);
@@ -79,7 +76,6 @@ export default function EscrowContainer({address, networkMap}) {
                     setContractData(['Rinkeby', escrow, eip, ethers.utils.formatUnits(escrowCounters, 0), ethers.utils.formatUnits(balance, 18)]);
                 });
             } catch(err) {
-                console.log("error_", err);
                 alert("Invalid escrow factory");
             }
 
