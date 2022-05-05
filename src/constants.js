@@ -12,8 +12,7 @@ export const networkMap = {
     scanner: 'https://rinkeby.etherscan.io',
     rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
     defaultFactoryAddr: '0x925B24444511c86F4d4E63141D8Be0A025E2dca4'
-  }
-
+  },
   neonslabdev: {
     title: 'NeonsLab Devtestnet',
     key: 'neonslabdev',
