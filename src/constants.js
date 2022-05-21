@@ -18,7 +18,7 @@ export const networkMap = {
     key: 'neonslabdev',
     scanner: 'https://neonscan.org',
     rpcUrl: 'https://proxy.devnet.neonlabs.org/solana',
-    defaultFactoryAddr: '0xB46b95aa85D2085Bf6CCbb9cB953c28cc7DE6F4a'
+    defaultFactoryAddr: '0x75D377773aCf9eB1076B01c1698415Bfe2db6D9d'
   }
 }
 export const networks = Object.values(networkMap).map(network => network);
