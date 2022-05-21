@@ -13,12 +13,5 @@ export const networkMap = {
     rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
     defaultFactoryAddr: '0x925B24444511c86F4d4E63141D8Be0A025E2dca4'
   },
-  neonslabdev: {
-    title: 'NeonsLab Devtestnet',
-    key: 'neonslabdev',
-    scanner: 'https://neonscan.org',
-    rpcUrl: 'https://proxy.devnet.neonlabs.org/solana',
-    defaultFactoryAddr: '0x75D377773aCf9eB1076B01c1698415Bfe2db6D9d'
-  }
 }
 export const networks = Object.values(networkMap).map(network => network);
