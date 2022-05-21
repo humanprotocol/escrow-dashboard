@@ -6,6 +6,13 @@ export const networkMap = {
     rpcUrl: 'https://polygon-rpc.com/',
     defaultFactoryAddr: '0x45eBc3eAE6DA485097054ae10BA1A0f8e8c7f794'
   },
+  mumbai: {
+    title: "Polygon Mumbai Testnet",
+    key: "mumbai",
+    scanner: "https://mumbai.polygonscan.com",
+    rpcUrl: "https://rpc-mumbai.maticvigil.com",
+    defaultFactoryAddr: "0x558cd800f9F0B02f3B149667bDe003284c867E94",
+  },
   rinkeby: {
     title: 'Ethereum Rinkeby',
     key: 'rinkeby',
