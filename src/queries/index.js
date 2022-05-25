@@ -16,3 +16,11 @@ export const ESCROWFACTORIES_COUNT = gql`
     }
   }
 `;
+
+export const ESCROWFACTORY_COUNT = gql`
+  query GetEscrowFactoryCount($id: ID!) {
+    escrowFactory(id: $id) {
+      count
+    }
+  }
+`;

@@ -4,7 +4,7 @@ import getWeb3 from "../web3";
 import EscrowFactoryView from "./EscrowFactoryView";
 import EscrowFactoryABI from "../contracts/EscrowFactoryABI.json";
 import { useQuery } from "@apollo/client";
-import { ESCROWFACTORIES_COUNT } from "../queries";
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from "../queries";
 import AppContext from "../AppContext";
 import { networkMap } from "../constants";
 import { countEscrowFactory } from "../utils";
@@ -20,6 +20,12 @@ export default function EscrowContainer({ escrowFactory }) {
   const eventsUrl = `${scanner}/address/${address}#events`;
   const { data } = useQuery(ESCROWFACTORIES_COUNT);
 
+  const { data: dataFactory } = useQuery(ESCROWFACTORY_COUNT, {
+    variables: { id: escrowFactory },
+    skip: !escrowFactory,
+  });
+
+  console.log(dataFactory);
   useEffect(() => {
     async function setupEscrow() {
       try {
@@ -37,7 +43,11 @@ export default function EscrowContainer({ escrowFactory }) {
 
   return (
     <EscrowFactoryView
-      count={countEscrowFactory(data?.escrowFactories)}
+      count={countEscrowFactory(
+        dataFactory?.escrowFactory
+          ? [dataFactory.escrowFactory]
+          : data?.escrowFactories
+      )}
       address={address}
       latestEscrow={latestEscrow}
       eventsUrl={eventsUrl}
