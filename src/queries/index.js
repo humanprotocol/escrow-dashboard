@@ -1,0 +1,18 @@
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+import gql from "graphql-tag";
+
+export const getClient = graphqlClientUrl => {
+  return new ApolloClient({
+    uri: graphqlClientUrl,
+    credentials: "",
+    cache: new InMemoryCache(),
+  });
+};
+
+export const ESCROWFACTORIES_COUNT = gql`
+  query GetEscrowFactoriesCount {
+    escrowFactories {
+      count
+    }
+  }
+`;
