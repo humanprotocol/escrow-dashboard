@@ -25,7 +25,6 @@ export default function EscrowContainer({ escrowFactory }) {
     skip: !escrowFactory,
   });
 
-  console.log(dataFactory);
   useEffect(() => {
     async function setupEscrow() {
       try {
