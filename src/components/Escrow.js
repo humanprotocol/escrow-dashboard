@@ -1,41 +1,56 @@
-import {useEffect, useState} from 'react';
+import { useContext, useEffect, useState } from "react";
 
-import getWeb3 from '../web3';
-import EscrowFactoryView from './EscrowFactoryView';
-import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
+import getWeb3 from "../web3";
+import EscrowFactoryView from "./EscrowFactoryView";
+import EscrowFactoryABI from "../contracts/EscrowFactoryABI.json";
+import { useQuery } from "@apollo/client";
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from "../queries";
+import AppContext from "../AppContext";
+import { networkMap } from "../constants";
+import { countEscrowFactory } from "../utils";
 
-export default function EscrowContainer({address, scanner, rpcUrl}) {
-    const [latestEscrow, setLatestEscrow] = useState('');
-    const [count, setCount] = useState(0);
-    const eventsUrl = `${scanner}/address/${address}#events`;
+export default function EscrowContainer({ escrowFactory }) {
+  const [latestEscrow, setLatestEscrow] = useState("");
+  const { network } = useContext(AppContext);
 
-    useEffect(() => {
-        async function setupEscrow() {
-            try {
-                const web3 = getWeb3(rpcUrl);
-                const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
-                const escrowCount = await EscrowFactory.methods.counter().call();
-                setCount(escrowCount);
-    
-                const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
-                setLatestEscrow(lastEscrow);
-            } catch(err) {
-                console.error(err);
+  const scanner = networkMap[network].scanner;
+  const address = networkMap[network].defaultFactoryAddr || escrowFactory;
+  const rpcUrl = networkMap[network].rpcUrl;
 
-                alert("Invalid escrow factory");
-            }
+  const eventsUrl = `${scanner}/address/${address}#events`;
+  const { data } = useQuery(ESCROWFACTORIES_COUNT);
 
-        }
-        setupEscrow();
-    }, [address]);
+  const { data: dataFactory } = useQuery(ESCROWFACTORY_COUNT, {
+    variables: { id: escrowFactory },
+    skip: !escrowFactory,
+  });
 
-    return (
-        <EscrowFactoryView
-          count={count}
-          address={address}
-          latestEscrow={latestEscrow}
-          eventsUrl={eventsUrl}
-          scanner={scanner}
-        />
-    )
+  useEffect(() => {
+    async function setupEscrow() {
+      try {
+        const web3 = getWeb3(rpcUrl);
+        const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
+        const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
+        setLatestEscrow(lastEscrow);
+      } catch (err) {
+        console.error(err);
+        alert("Invalid escrow factory");
+      }
+    }
+    setupEscrow();
+  }, [address]);
+
+  return (
+    <EscrowFactoryView
+      count={countEscrowFactory(
+        dataFactory?.escrowFactory
+          ? [dataFactory.escrowFactory]
+          : data?.escrowFactories
+      )}
+      address={address}
+      latestEscrow={latestEscrow}
+      eventsUrl={eventsUrl}
+      scanner={scanner}
+    />
+  );
 }
