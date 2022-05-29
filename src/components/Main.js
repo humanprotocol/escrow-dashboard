@@ -36,8 +36,8 @@ function Main() {
           <NetworkSwitcher
             onNetworkChange={onNetworkChange}
             network={network}
-          ></NetworkSwitcher>
-          <Search onSetEscrow={setEscrowFactory}></Search>
+          />
+          <Search onSetEscrow={setEscrowFactory} />
           <Box
             sx={{
               display: "flex",
@@ -51,7 +51,6 @@ function Main() {
           <Footer />
         </Box>
       </Box>
-      <Box></Box>
     </Box>
   );
 }
