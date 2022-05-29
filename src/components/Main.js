@@ -25,13 +25,15 @@ function Main() {
   return (
     <Box>
       <Header />
-      <Box>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
         {!isActive ? (
           <Button onClick={connect} disabled={shouldDisable}>
             CONNECT
           </Button>
         ) : (
-          <Button onClick={disconnect}>DISCONNECT</Button>
+          <h1>{account}</h1>
         )}
       </Box>
       <Box
