@@ -25,7 +25,15 @@ function Main() {
   return (
     <Box>
       <Header />
-
+      <Box>
+        {!isActive ? (
+          <Button onClick={connect} disabled={shouldDisable}>
+            CONNECT
+          </Button>
+        ) : (
+          <Button onClick={disconnect}>DISCONNECT</Button>
+        )}
+      </Box>
       <Box
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
