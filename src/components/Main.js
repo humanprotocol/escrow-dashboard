@@ -33,7 +33,7 @@ function Main() {
             CONNECT
           </Button>
         ) : (
-          <h1>{account}</h1>
+          <h1>Connected with: {account}</h1>
         )}
       </Box>
       <Box
