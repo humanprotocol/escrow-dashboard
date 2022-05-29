@@ -11,26 +11,9 @@ function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h6"
-            component="div"
-            color="white"
-            sx={{
-              paddingLeft: 2,
-              paddingBottom: 2,
-              paddingTop: 2,
-            }}
-          >
-            HUMAN Escrow Factory Dashboard{" "}
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            HUMAN JOB LAUNCHER
           </Typography>
-        </Toolbar>
-        <Box
-          sx={{
-            // display: "flex",
-            // justifyContent: "center",
-            alignItems: "right",
-          }}
-        >
           {!isActive ? (
             <Button
               onClick={connect}
@@ -41,9 +24,9 @@ function Header() {
               CONNECT
             </Button>
           ) : (
-            <div>Connected with: {account}</div>
+            <span>Connected with Wallet:{account}</span>
           )}
-        </Box>
+        </Toolbar>
       </AppBar>
     </Box>
   );
