@@ -5,7 +5,7 @@ import { useWeb3React } from "@web3-react/core";
 export const MetaMaskContext = React.createContext(null);
 
 export const MetaMaskProvider = ({ children }) => {
-  const { activate, account, active, deactivate } = useWeb3React();
+  const { activate, account, active } = useWeb3React();
 
   const [isActive, setIsActive] = useState(false);
   const [shouldDisable, setShouldDisable] = useState(false); // Should disable connect button while connecting to MetaMask
@@ -23,7 +23,7 @@ export const MetaMaskProvider = ({ children }) => {
     console.log("App is connected with MetaMask ", active);
     setIsActive(active);
   }, [active]);
-
+  // Check hooks rules - Is this allowed?
   useEffect(() => {
     handleIsActive();
   }, [handleIsActive]);
@@ -41,23 +41,11 @@ export const MetaMaskProvider = ({ children }) => {
     }
   };
 
-  // Disconnect from Metamask wallet
-  const disconnect = async () => {
-    console.log("Disconnecting wallet from App...");
-    try {
-      await deactivate();
-    } catch (error) {
-      console.log("Error on disconnnect: ", error);
-    }
-  };
-
   const values = useMemo(
     () => ({
       isActive,
       account,
       isLoading,
-      connect,
-      disconnect,
       shouldDisable,
     }),
     [isActive, isLoading, shouldDisable, account]

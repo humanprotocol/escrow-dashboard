@@ -38,7 +38,7 @@ export default function EscrowContainer({ escrowFactory }) {
       }
     }
     setupEscrow();
-  }, [address]);
+  }, [address, rpcUrl]);
 
   return (
     <EscrowFactoryView
