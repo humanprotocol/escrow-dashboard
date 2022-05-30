@@ -23,7 +23,7 @@ export const MetaMaskProvider = ({ children }) => {
     console.log("App is connected with MetaMask ", active);
     setIsActive(active);
   }, [active]);
-  // Check hooks rules - Is this allowed?
+
   useEffect(() => {
     handleIsActive();
   }, [handleIsActive]);
