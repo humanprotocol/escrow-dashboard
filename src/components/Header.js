@@ -1,8 +1,8 @@
-import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Toolbar from "@mui/material/Toolbar";
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Toolbar from '@mui/material/Toolbar';
 
 function Header() {
   return (
@@ -19,7 +19,7 @@ function Header() {
               paddingTop: 2,
             }}
           >
-            HUMAN Escrow Factory Dashboard{" "}
+            HUMAN Escrow Factory Dashboard{' '}
           </Typography>
         </Toolbar>
       </AppBar>

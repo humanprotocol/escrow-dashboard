@@ -10,7 +10,7 @@
   ],
   "parserOptions": { "sourceType": "module" },
   "rules": {
-    "prettier/prettier": ["error", { "doubleQuote": true }],
+    "prettier/prettier": ["error", { "singleQuote": true }],
     "consistent-return": 0,
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,

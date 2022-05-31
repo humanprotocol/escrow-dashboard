@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
 export default React.createContext({
-  network: "polygon",
+  network: 'polygon',
   setNetwork: () => null,
 });

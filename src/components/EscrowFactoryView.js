@@ -1,9 +1,9 @@
-import React from "react";
-import { Divider, Typography } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
+import React from 'react';
+import { Divider, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
 
 export default function Escrow({
   count,

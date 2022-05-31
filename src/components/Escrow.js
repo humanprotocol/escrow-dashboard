@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
+import React, { useContext, useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
 
-import getWeb3 from "../web3";
-import EscrowFactoryView from "./EscrowFactoryView";
-import EscrowFactoryABI from "../contracts/EscrowFactoryABI.json";
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from "../queries";
-import AppContext from "../AppNetworkContext";
-import { networkMap } from "../constants";
-import { countEscrowFactory } from "../utils";
+import getWeb3 from '../web3';
+import EscrowFactoryView from './EscrowFactoryView';
+import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../queries';
+import AppContext from '../AppNetworkContext';
+import { networkMap } from '../constants';
+import { countEscrowFactory } from '../utils';
 
 export default function EscrowContainer({ escrowFactory }) {
-  const [latestEscrow, setLatestEscrow] = useState("");
+  const [latestEscrow, setLatestEscrow] = useState('');
   const { network } = useContext(AppContext);
 
   const { scanner } = networkMap[network];
@@ -34,7 +34,7 @@ export default function EscrowContainer({ escrowFactory }) {
         setLatestEscrow(lastEscrow);
       } catch (err) {
         console.error(err);
-        alert("Invalid escrow factory");
+        alert('Invalid escrow factory');
       }
     }
     setupEscrow();
