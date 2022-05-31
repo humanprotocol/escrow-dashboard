@@ -19,7 +19,7 @@ function Header() {
               paddingTop: 2,
             }}
           >
-            HUMAN Escrow Factory Dashboard{' '}
+            HUMAN Escrow Factory Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
