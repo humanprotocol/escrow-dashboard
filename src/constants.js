@@ -32,4 +32,4 @@ export const networkMap = {
     defaultFactoryAddr: "0x75D377773aCf9eB1076B01c1698415Bfe2db6D9d",
   },
 };
-export const networks = Object.values(networkMap).map(network => network);
+export const networks = Object.values(networkMap).map((network) => network);

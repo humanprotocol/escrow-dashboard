@@ -14,12 +14,26 @@
     "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.3.1",
     "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "serve": "^13.0.2",
     "web-vitals": "^2.1.4",
     "web3": "^1.7.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.26.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "2.4.1"
   },
   "scripts": {
     "lint": "eslint src",

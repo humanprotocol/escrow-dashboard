@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 
 import Header from "./Header";
@@ -6,9 +6,8 @@ import Escrow from "./Escrow";
 import Search from "./Search";
 import NetworkSwitcher from "./NetworkSwitcher";
 import Footer from "./Footer";
-
 import { networkMap } from "../constants";
-import AppContext from "../AppContext";
+import AppContext from "../AppNetworkContext";
 
 function Main() {
   const { network, setNetwork } = useContext(AppContext);
@@ -17,7 +16,7 @@ function Main() {
     networkMap[network].defaultFactoryAddr
   );
 
-  const onNetworkChange = networkKey => {
+  const onNetworkChange = (networkKey) => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
   };
@@ -37,8 +36,8 @@ function Main() {
           <NetworkSwitcher
             onNetworkChange={onNetworkChange}
             network={network}
-          ></NetworkSwitcher>
-          <Search onSetEscrow={setEscrowFactory}></Search>
+          />
+          <Search onSetEscrow={setEscrowFactory} />
           <Box
             sx={{
               display: "flex",
@@ -52,7 +51,7 @@ function Main() {
           <Footer />
         </Box>
       </Box>
-      <Box></Box>
+      <Box />
     </Box>
   );
 }
