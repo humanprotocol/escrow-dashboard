@@ -10,17 +10,20 @@
   ],
   "parserOptions": { "sourceType": "module" },
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }],
     "consistent-return": 0,
+    "import/prefer-default-export": 0,
+    "no-case-declarations": 0,
+    "no-alert":0,
+    "no-console":0,
+    "no-underscore-dangle": 0,
+    "prettier/prettier": ["error", { "singleQuote": true }],
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
-    "react/no-unescaped-entities": 0,
-    "no-case-declarations": 0,
-    "import/prefer-default-export": 0,
-    "no-underscore-dangle": 0
+    "react/no-unescaped-entities": 0
   },
   "env": {
     "browser": true,
+    "jest": true,
     "node": true
   }
 }
