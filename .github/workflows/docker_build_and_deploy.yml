@@ -73,7 +73,7 @@ jobs:
       uses: trstringer/manual-approval@v1
       with:
         secret: ${{ secrets.GH_TOKEN }}
-        approvers: vkomodey,AmrEssamSh,ivhus
+        approvers: vkomodey,AmrEssamSh,ivhus,posix4e
         minimum-approvals: 1
 
     - name: Get Github action IP
