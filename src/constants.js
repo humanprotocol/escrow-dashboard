@@ -8,12 +8,26 @@ export const networkMap = {
     graphqlClientUrl:
       "https://api.thegraph.com/subgraphs/name/posix4e/human-polygon",
   },
+  moonbeam: {
+    title: "Moonbeam Mainnet",
+    key: "moonbeam",
+    scanner: "https://moonbeam.moonscan.io",
+    rpcUrl: "https://moonbeam.blastapi.io/4bb67718-93b3-4698-92ab-8a7af3f94d08",
+    defaultFactoryAddr: "0x98108c28B7767a52BE38B4860832dd4e11A7ecad",
+  },
   mumbai: {
     title: "Polygon Mumbai Testnet",
     key: "mumbai",
     scanner: "https://mumbai.polygonscan.com",
     rpcUrl: "https://rpc-mumbai.maticvigil.com",
     defaultFactoryAddr: "0x558cd800f9F0B02f3B149667bDe003284c867E94",
+  },
+  moonbase: {
+    title: "Moonbase Alpha",
+    key: "moonbase",
+    scanner: "https://moonbase.moonscan.io",
+    rpcUrl: "https://moonbase-alpha.blastapi.io/4bb67718-93b3-4698-92ab-8a7af3f94d08",
+    defaultFactoryAddr: "0x3Cd0B117Be4CC1e31c8d7d1eD8b32208a2820902",
   },
   rinkeby: {
     title: "Ethereum Rinkeby",
@@ -31,5 +45,6 @@ export const networkMap = {
     rpcUrl: "https://proxy.devnet.neonlabs.org/solana",
     defaultFactoryAddr: "0x75D377773aCf9eB1076B01c1698415Bfe2db6D9d",
   },
+
 };
 export const networks = Object.values(networkMap).map(network => network);
