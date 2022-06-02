@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { AbiItem } from 'web3-utils'
 
 import getWeb3 from "../web3";
 import EscrowFactoryView from "./EscrowFactoryView";
@@ -9,7 +10,10 @@ import AppContext from "../AppContext";
 import { networkMap } from "../constants";
 import { countEscrowFactory } from "../utils";
 
-export default function EscrowContainer({ escrowFactory }) {
+interface Props {
+  escrowFactory: string
+}
+export default function EscrowContainer({ escrowFactory }: Props) {
   const [latestEscrow, setLatestEscrow] = useState("");
   const { network } = useContext(AppContext);
 
@@ -29,7 +33,7 @@ export default function EscrowContainer({ escrowFactory }) {
     async function setupEscrow() {
       try {
         const web3 = getWeb3(rpcUrl);
-        const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
+        const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI as AbiItem[], address);
         const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
         setLatestEscrow(lastEscrow);
       } catch (err) {

@@ -4,14 +4,20 @@ import CardContent from "@mui/material/CardContent";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 
-export default function Escrow(props) {
-  const {
-    count,
-    address,
-    latestEscrow,
-    eventsUrl,
-    scanner,
-  } = props;
+interface IEscrow {
+  count: string,
+  address: string,
+  latestEscrow:  string,
+  eventsUrl: string,
+  scanner: string
+}
+export default function Escrow({
+  count,
+  address,
+  latestEscrow,
+  eventsUrl,
+  scanner,
+}: IEscrow ){
 
   return (
     <Card variant="outlined">
@@ -25,7 +31,11 @@ export default function Escrow(props) {
   );
 }
 
-function CardTextBlock({ title, value }) {
+interface ICardTextBlock {
+  title: string;
+  value: string;
+}
+function CardTextBlock({ title, value }: ICardTextBlock) {
   return (
     <>
       <Divider textAlign="center" sx={{mt: 1}}>
@@ -39,8 +49,12 @@ function CardTextBlock({ title, value }) {
     </>
   );
 }
+interface IEvents {
+  url: string;
+  scanner: string;
+}
 
-function Events({url, scanner}) {
+function Events({url, scanner}: IEvents) {
   return (
     <Box textAlign="center">
       <Divider sx={{mt: 1}}>

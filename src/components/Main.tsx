@@ -17,7 +17,7 @@ function Main() {
     networkMap[network].defaultFactoryAddr
   );
 
-  const onNetworkChange = networkKey => {
+  const onNetworkChange = (networkKey: string) => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
   };

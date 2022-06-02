@@ -3,7 +3,7 @@
  * @param {*} escrowFactories Array of escrow Factories
  * @returns the total count of factory
  */
-export const countEscrowFactory = escrowFactories => {
+export const countEscrowFactory = (escrowFactories: Array<any>) => {
   if (!escrowFactories) {
     return 0;
   }

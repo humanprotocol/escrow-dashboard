@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Link from "@mui/material/Link";
 
-export default function Escrow(props) {
+export default function Escrow() {
   return (
     <Card variant="outlined" sx={{mt: 1}}>
       <CardContent>
@@ -18,7 +18,7 @@ export default function Escrow(props) {
   );
 }
 
-function CardTextBlock({ value }) {
+function CardTextBlock({ value }: {value: any}) {
   return (
     <Typography variant="body2" textAlign="center">
       {value}
