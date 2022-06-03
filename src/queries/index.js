@@ -1,10 +1,10 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import gql from "graphql-tag";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import gql from 'graphql-tag';
 
-export const getClient = graphqlClientUrl => {
+export const getClient = (graphqlClientUrl) => {
   return new ApolloClient({
     uri: graphqlClientUrl,
-    credentials: "",
+    credentials: '',
     cache: new InMemoryCache(),
   });
 };

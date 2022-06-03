@@ -1,25 +1,24 @@
-import { Divider, Typography } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
+import React from 'react';
+import { Divider, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
 
-export default function Escrow(props) {
-  const {
-    count,
-    address,
-    latestEscrow,
-    eventsUrl,
-    scanner,
-  } = props;
-
+export default function Escrow({
+  count,
+  address,
+  latestEscrow,
+  eventsUrl,
+  scanner,
+}) {
   return (
     <Card variant="outlined">
       <CardContent>
-          <CardTextBlock title="Address" value={address} />
-          <CardTextBlock title="Latest Escrow" value={latestEscrow} />
-          <CardTextBlock title="Amount of jobs" value={count} />
-          <Events url={eventsUrl} scanner={scanner}/>
+        <CardTextBlock title="Address" value={address} />
+        <CardTextBlock title="Latest Escrow" value={latestEscrow} />
+        <CardTextBlock title="Amount of jobs" value={count} />
+        <Events url={eventsUrl} scanner={scanner} />
       </CardContent>
     </Card>
   );
@@ -28,7 +27,7 @@ export default function Escrow(props) {
 function CardTextBlock({ title, value }) {
   return (
     <>
-      <Divider textAlign="center" sx={{mt: 1}}>
+      <Divider textAlign="center" sx={{ mt: 1 }}>
         <Typography variant="body2" color="text.secondary">
           {title}
         </Typography>
@@ -40,10 +39,10 @@ function CardTextBlock({ title, value }) {
   );
 }
 
-function Events({url, scanner}) {
+function Events({ url, scanner }) {
   return (
     <Box textAlign="center">
-      <Divider sx={{mt: 1}}>
+      <Divider sx={{ mt: 1 }}>
         <Typography variant="body2" color="text.secondary">
           All deployed escrows
         </Typography>
@@ -55,20 +54,21 @@ function Events({url, scanner}) {
         variant="body2"
         color="text.secondary"
         sx={{
-          fontSize: 11
+          fontSize: 11,
         }}
-        >
-          Each event has a payload of ERC20 token address and Escrow Address
-        </Typography>
-        <Typography
+      >
+        Each event has a payload of ERC20 token address and Escrow Address
+      </Typography>
+      <Typography
         variant="body2"
         color="text.secondary"
         sx={{
-          fontSize: 11
+          fontSize: 11,
         }}
-        >
-          Change the type of the second argument to "Address" to see an Escrow address
-        </Typography>
+      >
+        Change the type of the second argument to "Address" to see an Escrow
+        address
+      </Typography>
     </Box>
-  )
+  );
 }
