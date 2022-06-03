@@ -14,6 +14,8 @@ export const networkMap = {
     scanner: "https://moonbeam.moonscan.io",
     rpcUrl: "https://moonbeam.blastapi.io/4bb67718-93b3-4698-92ab-8a7af3f94d08",
     defaultFactoryAddr: "0x98108c28B7767a52BE38B4860832dd4e11A7ecad",
+    graphqlClientUrl:
+      "https://api.thegraph.com/subgraphs/name/menezesphill/hmtmoonbeam",
   },
   mumbai: {
     title: "Polygon Mumbai Testnet",
@@ -28,6 +30,8 @@ export const networkMap = {
     scanner: "https://moonbase.moonscan.io",
     rpcUrl: "https://moonbase-alpha.blastapi.io/4bb67718-93b3-4698-92ab-8a7af3f94d08",
     defaultFactoryAddr: "0x3Cd0B117Be4CC1e31c8d7d1eD8b32208a2820902",
+    graphqlClientUrl:
+    "https://api.thegraph.com/subgraphs/name/menezesphill/hmtmoonbase",
   },
   rinkeby: {
     title: "Ethereum Rinkeby",
