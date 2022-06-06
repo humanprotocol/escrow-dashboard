@@ -26,7 +26,7 @@ fi
 if ! docker pull $IMAGE; then
 	docker logout "${REGISTRY}"
 	dockerlogin
-	docker pull $IMAGE || echo "Failed to pull docker image $IMAGE"
+	docker pull $IMAGE
 fi
 
 if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
