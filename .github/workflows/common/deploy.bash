@@ -19,7 +19,7 @@ function dockerlogin() {
         #aws ecr get-login-password --region "${REGION}" | docker login -u AWS "${REPO}" -p
 }
 
-if ! grep -q "${REGISTRY}" ~/.docker/config.json ; then
+if ! grep -q "${REGISTRY}\|credsStore.\+ecr-login" ~/.docker/config.json; then
 	dockerlogin
 fi
 
