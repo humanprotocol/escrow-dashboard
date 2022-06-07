@@ -11,13 +11,13 @@ interface INetworkMap  {
 
 export const networkMap: INetworkMap = {
   polygon: {
-    title: "Polygon Mainnet",
-    key: "polygon",
-    scanner: "https://polygonscan.com",
-    rpcUrl: "https://polygon-rpc.com/",
-    defaultFactoryAddr: "0x45eBc3eAE6DA485097054ae10BA1A0f8e8c7f794",
+    title: 'Polygon Mainnet',
+    key: 'polygon',
+    scanner: 'https://polygonscan.com',
+    rpcUrl: 'https://polygon-rpc.com/',
+    defaultFactoryAddr: '0x45eBc3eAE6DA485097054ae10BA1A0f8e8c7f794',
     graphqlClientUrl:
-      "https://api.thegraph.com/subgraphs/name/posix4e/human-polygon",
+      'https://api.thegraph.com/subgraphs/name/posix4e/human-polygon',
   },
   mumbai: {
     title: "Polygon Mumbai Testnet",
@@ -29,13 +29,13 @@ export const networkMap: INetworkMap = {
       "https://api.thegraph.com",
   },
   rinkeby: {
-    title: "Ethereum Rinkeby",
-    key: "rinkeby",
-    scanner: "https://rinkeby.etherscan.io",
-    rpcUrl: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-    defaultFactoryAddr: "0x925B24444511c86F4d4E63141D8Be0A025E2dca4",
+    title: 'Ethereum Rinkeby',
+    key: 'rinkeby',
+    scanner: 'https://rinkeby.etherscan.io',
+    rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    defaultFactoryAddr: '0x925B24444511c86F4d4E63141D8Be0A025E2dca4',
     graphqlClientUrl:
-      "https://api.thegraph.com/subgraphs/name/posix4e/humanrinkeby",
+      'https://api.thegraph.com/subgraphs/name/posix4e/humanrinkeby',
   },
   neonslabdev: {
     title: "NeonsLab Devtestnet",
@@ -47,4 +47,4 @@ export const networkMap: INetworkMap = {
       "https://api.thegraph.com",
   },
 };
-export const networks = Object.values(networkMap).map(network => network);
+export const networks = Object.values(networkMap).map((network) => network);

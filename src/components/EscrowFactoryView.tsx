@@ -19,13 +19,20 @@ export default function Escrow({
   scanner,
 }: IEscrow ){
 
+export default function Escrow({
+  count,
+  address,
+  latestEscrow,
+  eventsUrl,
+  scanner,
+}) {
   return (
     <Card variant="outlined">
       <CardContent>
-          <CardTextBlock title="Address" value={address} />
-          <CardTextBlock title="Latest Escrow" value={latestEscrow} />
-          <CardTextBlock title="Amount of jobs" value={count} />
-          <Events url={eventsUrl} scanner={scanner}/>
+        <CardTextBlock title="Address" value={address} />
+        <CardTextBlock title="Latest Escrow" value={latestEscrow} />
+        <CardTextBlock title="Amount of jobs" value={count} />
+        <Events url={eventsUrl} scanner={scanner} />
       </CardContent>
     </Card>
   );
@@ -38,7 +45,7 @@ interface ICardTextBlock {
 function CardTextBlock({ title, value }: ICardTextBlock) {
   return (
     <>
-      <Divider textAlign="center" sx={{mt: 1}}>
+      <Divider textAlign="center" sx={{ mt: 1 }}>
         <Typography variant="body2" color="text.secondary">
           {title}
         </Typography>
@@ -57,7 +64,7 @@ interface IEvents {
 function Events({url, scanner}: IEvents) {
   return (
     <Box textAlign="center">
-      <Divider sx={{mt: 1}}>
+      <Divider sx={{ mt: 1 }}>
         <Typography variant="body2" color="text.secondary">
           All deployed escrows
         </Typography>
@@ -69,20 +76,21 @@ function Events({url, scanner}: IEvents) {
         variant="body2"
         color="text.secondary"
         sx={{
-          fontSize: 11
+          fontSize: 11,
         }}
-        >
-          Each event has a payload of ERC20 token address and Escrow Address
-        </Typography>
-        <Typography
+      >
+        Each event has a payload of ERC20 token address and Escrow Address
+      </Typography>
+      <Typography
         variant="body2"
         color="text.secondary"
         sx={{
-          fontSize: 11
+          fontSize: 11,
         }}
-        >
-          Change the type of the second argument to "Address" to see an Escrow address
-        </Typography>
+      >
+        Change the type of the second argument to "Address" to see an Escrow
+        address
+      </Typography>
     </Box>
-  )
+  );
 }

@@ -13,7 +13,7 @@ const theme = createTheme({
     info: {
       main: '#eeeeee',
       light: '#f5f5f5',
-      dark: '#bdbdbd'
+      dark: '#bdbdbd',
     },
   },
 });

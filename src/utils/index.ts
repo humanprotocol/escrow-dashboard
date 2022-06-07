@@ -10,7 +10,7 @@ export const countEscrowFactory = (escrowFactories: Array<any>) => {
 
   return escrowFactories.reduce(
     (previousValue, currentValue) =>
-      previousValue + parseInt(currentValue.count),
+      previousValue + parseInt(currentValue.count, 10),
     0
   );
 };

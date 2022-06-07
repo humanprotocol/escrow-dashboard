@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AbiItem } from 'web3-utils'
 
-import getWeb3 from "../web3";
-import EscrowFactoryView from "./EscrowFactoryView";
-import EscrowFactoryABI from "../contracts/EscrowFactoryABI.json";
-import { useQuery } from "@apollo/client";
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from "../queries";
-import AppContext from "../AppContext";
-import { networkMap } from "../constants";
-import { countEscrowFactory } from "../utils";
+import getWeb3 from '../web3';
+import EscrowFactoryView from './EscrowFactoryView';
+import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../queries';
+import AppContext from '../AppNetworkContext';
+import { networkMap } from '../constants';
+import { countEscrowFactory } from '../utils';
 
 interface Props {
   escrowFactory: string
@@ -17,9 +16,9 @@ export default function EscrowContainer({ escrowFactory }: Props) {
   const [latestEscrow, setLatestEscrow] = useState("");
   const { network } = useContext(AppContext);
 
-  const scanner = networkMap[network].scanner;
+  const { scanner } = networkMap[network];
   const address = networkMap[network].defaultFactoryAddr || escrowFactory;
-  const rpcUrl = networkMap[network].rpcUrl;
+  const { rpcUrl } = networkMap[network];
 
   const eventsUrl = `${scanner}/address/${address}#events`;
   const { data } = useQuery(ESCROWFACTORIES_COUNT);
@@ -38,7 +37,7 @@ export default function EscrowContainer({ escrowFactory }: Props) {
         setLatestEscrow(lastEscrow);
       } catch (err) {
         console.error(err);
-        alert("Invalid escrow factory");
+        alert('Invalid escrow factory');
       }
     }
     setupEscrow();
