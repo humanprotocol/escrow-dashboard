@@ -24,7 +24,7 @@ export default function Escrow() {
   );
 }
 
-function CardTextBlock({ value }: {value: any}) {
+function CardTextBlock({ value }: { value: any }) {
   return (
     <Typography variant="body2" textAlign="center">
       {value}

@@ -1,4 +1,4 @@
-interface INetworkMap  {
+interface INetworkMap {
   [key: string]: {
     title: string;
     key: string;
@@ -6,7 +6,7 @@ interface INetworkMap  {
     rpcUrl: string;
     defaultFactoryAddr: string;
     graphqlClientUrl: string;
-  }
+  };
 }
 
 export const networkMap: INetworkMap = {
@@ -20,13 +20,12 @@ export const networkMap: INetworkMap = {
       'https://api.thegraph.com/subgraphs/name/posix4e/human-polygon',
   },
   mumbai: {
-    title: "Polygon Mumbai Testnet",
-    key: "mumbai",
-    scanner: "https://mumbai.polygonscan.com",
-    rpcUrl: "https://rpc-mumbai.maticvigil.com",
-    defaultFactoryAddr: "0x558cd800f9F0B02f3B149667bDe003284c867E94",
-    graphqlClientUrl:
-      "https://api.thegraph.com",
+    title: 'Polygon Mumbai Testnet',
+    key: 'mumbai',
+    scanner: 'https://mumbai.polygonscan.com',
+    rpcUrl: 'https://rpc-mumbai.maticvigil.com',
+    defaultFactoryAddr: '0x558cd800f9F0B02f3B149667bDe003284c867E94',
+    graphqlClientUrl: 'https://api.thegraph.com',
   },
   rinkeby: {
     title: 'Ethereum Rinkeby',
@@ -38,13 +37,12 @@ export const networkMap: INetworkMap = {
       'https://api.thegraph.com/subgraphs/name/posix4e/humanrinkeby',
   },
   neonslabdev: {
-    title: "NeonsLab Devtestnet",
-    key: "neonslabdev",
-    scanner: "https://neonscan.org",
-    rpcUrl: "https://proxy.devnet.neonlabs.org/solana",
-    defaultFactoryAddr: "0x75D377773aCf9eB1076B01c1698415Bfe2db6D9d",
-    graphqlClientUrl:
-      "https://api.thegraph.com",
+    title: 'NeonsLab Devtestnet',
+    key: 'neonslabdev',
+    scanner: 'https://neonscan.org',
+    rpcUrl: 'https://proxy.devnet.neonlabs.org/solana',
+    defaultFactoryAddr: '0x75D377773aCf9eB1076B01c1698415Bfe2db6D9d',
+    graphqlClientUrl: 'https://api.thegraph.com',
   },
 };
 export const networks = Object.values(networkMap).map((network) => network);

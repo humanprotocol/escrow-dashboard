@@ -1,19 +1,21 @@
-import { useContext, useEffect, useState } from "react";
-import { AbiItem } from 'web3-utils'
+import React, { useContext, useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
 
 import getWeb3 from '../web3';
 import EscrowFactoryView from './EscrowFactoryView';
-import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../queries';
 import AppContext from '../AppNetworkContext';
 import { networkMap } from '../constants';
 import { countEscrowFactory } from '../utils';
 
+const EscrowFactoryABI = require('../contracts/EscrowFactoryABI.json');
+
 interface Props {
-  escrowFactory: string
+  escrowFactory: string;
 }
+
 export default function EscrowContainer({ escrowFactory }: Props) {
-  const [latestEscrow, setLatestEscrow] = useState("");
+  const [latestEscrow, setLatestEscrow] = useState('');
   const { network } = useContext(AppContext);
 
   const { scanner } = networkMap[network];
@@ -32,7 +34,7 @@ export default function EscrowContainer({ escrowFactory }: Props) {
     async function setupEscrow() {
       try {
         const web3 = getWeb3(rpcUrl);
-        const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI as AbiItem[], address);
+        const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
         const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
         setLatestEscrow(lastEscrow);
       } catch (err) {

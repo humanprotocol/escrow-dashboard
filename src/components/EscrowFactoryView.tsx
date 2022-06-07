@@ -1,15 +1,16 @@
-import { Divider, Typography } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
+import React from 'react';
+import { Divider, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
 
 interface IEscrow {
-  count: string,
-  address: string,
-  latestEscrow:  string,
-  eventsUrl: string,
-  scanner: string
+  count: string;
+  address: string;
+  latestEscrow: string;
+  eventsUrl: string;
+  scanner: string;
 }
 export default function Escrow({
   count,
@@ -17,15 +18,7 @@ export default function Escrow({
   latestEscrow,
   eventsUrl,
   scanner,
-}: IEscrow ){
-
-export default function Escrow({
-  count,
-  address,
-  latestEscrow,
-  eventsUrl,
-  scanner,
-}) {
+}: IEscrow) {
   return (
     <Card variant="outlined">
       <CardContent>
@@ -61,7 +54,7 @@ interface IEvents {
   scanner: string;
 }
 
-function Events({url, scanner}: IEvents) {
+function Events({ url, scanner }: IEvents) {
   return (
     <Box textAlign="center">
       <Divider sx={{ mt: 1 }}>
