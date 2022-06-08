@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 
 interface IEscrow {
-  count: string;
+  count: number;
   address: string;
   latestEscrow: string;
   eventsUrl: string;
@@ -33,7 +33,7 @@ export default function Escrow({
 
 interface ICardTextBlock {
   title: string;
-  value: string;
+  value: number | string;
 }
 function CardTextBlock({ title, value }: ICardTextBlock) {
   return (

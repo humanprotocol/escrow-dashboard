@@ -3,5 +3,5 @@ import * as React from 'react';
 export default React.createContext({
   network: 'polygon',
   // eslint-disable-next-line no-unused-vars
-  setNetwork: (v: string): void => {},
+  setNetwork: (value: string): void => {},
 });

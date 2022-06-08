@@ -3,7 +3,14 @@
  * @param {*} escrowFactories Array of escrow Factories
  * @returns the total count of factory
  */
-export const countEscrowFactory = (escrowFactories: Array<any>) => {
+interface IEscrowFactory {
+  [k: string]: string;
+  count: string;
+}
+
+type IEscrowFactories = IEscrowFactory[];
+
+export const countEscrowFactory = (escrowFactories: IEscrowFactories) => {
   if (!escrowFactories) {
     return 0;
   }
