@@ -3,13 +3,18 @@ import { useQuery } from '@apollo/client';
 
 import getWeb3 from '../web3';
 import EscrowFactoryView from './EscrowFactoryView';
-import EscrowFactoryABI from '../contracts/EscrowFactoryABI.json';
 import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../queries';
 import AppContext from '../AppNetworkContext';
 import { networkMap } from '../constants';
 import { countEscrowFactory } from '../utils';
 
-export default function EscrowContainer({ escrowFactory }) {
+const EscrowFactoryABI = require('../contracts/EscrowFactoryABI.json');
+
+interface Props {
+  escrowFactory: string;
+}
+
+export default function EscrowContainer({ escrowFactory }: Props) {
   const [latestEscrow, setLatestEscrow] = useState('');
   const { network } = useContext(AppContext);
 

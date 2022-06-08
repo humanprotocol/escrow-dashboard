@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import gql from 'graphql-tag';
 
-export const getClient = (graphqlClientUrl) => {
+export const getClient = (graphqlClientUrl: string) => {
   return new ApolloClient({
     uri: graphqlClientUrl,
     credentials: '',

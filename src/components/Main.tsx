@@ -7,16 +7,16 @@ import Search from './Search';
 import NetworkSwitcher from './NetworkSwitcher';
 import Footer from './Footer';
 import { networkMap } from '../constants';
-import AppContext from '../AppNetworkContext';
+import AppNetworkContext from '../AppNetworkContext';
 
 function Main() {
-  const { network, setNetwork } = useContext(AppContext);
+  const { network, setNetwork } = useContext(AppNetworkContext);
 
   const [escrowFactory, setEscrowFactory] = useState(
     networkMap[network].defaultFactoryAddr
   );
 
-  const onNetworkChange = (networkKey) => {
+  const onNetworkChange = (networkKey: string) => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
   };

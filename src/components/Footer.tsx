@@ -8,26 +8,27 @@ export default function Escrow() {
   return (
     <Card variant="outlined" sx={{ mt: 1 }}>
       <CardContent>
-        <CardTextBlock
-          value={
-            <Link
-              href="https://github.com/humanprotocol/hmt-escrow"
-              target="_blank"
-              rel="noreferrer"
-            >
-              HMT Escrow Source Code
-            </Link>
-          }
-        />
+        <CardTextBlock>
+          <Link
+            href="https://github.com/humanprotocol/hmt-escrow"
+            target="_blank"
+            rel="noreferrer"
+          >
+            HMT Escrow Source Code
+          </Link>
+        </CardTextBlock>
       </CardContent>
     </Card>
   );
 }
 
-function CardTextBlock({ value }) {
+interface ICardTextBlock {
+  children: JSX.Element;
+}
+function CardTextBlock({ children }: ICardTextBlock) {
   return (
     <Typography variant="body2" textAlign="center">
-      {value}
+      {children}
     </Typography>
   );
 }
