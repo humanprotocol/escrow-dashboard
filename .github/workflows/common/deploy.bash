@@ -19,14 +19,14 @@ function dockerlogin() {
         #aws ecr get-login-password --region "${REGION}" | docker login -u AWS "${REPO}" -p
 }
 
-if ! grep -q "${REGISTRY}" ~/.docker/config.json ; then
+if ! grep -q "${REGISTRY}\|credsStore.\+ecr-login" ~/.docker/config.json; then
 	dockerlogin
 fi
 
 if ! docker pull $IMAGE; then
 	docker logout "${REGISTRY}"
 	dockerlogin
-	docker pull $IMAGE || echo "Failed to pull docker image $IMAGE"
+	docker pull $IMAGE
 fi
 
 if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
