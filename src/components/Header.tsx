@@ -1,27 +1,18 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
-import Navbar from './Navbar';
 
-const Header: React.FC = (): React.ReactElement => (
-  <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="fixed">
-      <Toolbar>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            width: '100%',
-          }}
-        >
+function Header() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
           <Typography
             variant="h6"
             component="div"
-            color="info.main"
+            color="white"
             sx={{
               paddingLeft: 2,
               paddingBottom: 2,
@@ -30,11 +21,10 @@ const Header: React.FC = (): React.ReactElement => (
           >
             HUMAN Escrow Factory Dashboard
           </Typography>
-          <Navbar />
-        </Box>
-      </Toolbar>
-    </AppBar>
-  </Box>
-);
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}
 
 export default Header;
