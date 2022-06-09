@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import BulkTransfer from './pages/BulkTransfer';
-import Main from './pages/Main';
+import { Main } from 'src/pages';
 
 interface Route {
   key: string;
@@ -17,12 +16,5 @@ export const routes: Array<Route> = [
     path: '/',
     enabled: true,
     component: Main,
-  },
-  {
-    key: 'bulk-transfer-route',
-    title: 'Bulk Transfer',
-    path: '/bulk-transfer',
-    enabled: true,
-    component: BulkTransfer,
   },
 ];

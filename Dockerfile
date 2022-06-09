@@ -2,15 +2,16 @@ FROM node:16.13-buster
 
 WORKDIR /usr/src/app
 
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
+COPY tsconfig.json ./
 
-RUN npm install
+RUN yarn
 
 COPY ./public ./public
 COPY ./src ./src
 
-RUN npm run build
+RUN yarn run build
 
 EXPOSE 3000
 
-CMD npm run start-prod
+CMD yarn run start-prod

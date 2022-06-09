@@ -2,7 +2,7 @@ import * as React from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
-const SkeletonView: React.FC = (): React.ReactElement => {
+export const SkeletonBulkTransfer: React.FC = (): React.ReactElement => {
   return (
     <>
       <Stack spacing={1}>
@@ -18,5 +18,3 @@ const SkeletonView: React.FC = (): React.ReactElement => {
     </>
   );
 };
-
-export default SkeletonView;

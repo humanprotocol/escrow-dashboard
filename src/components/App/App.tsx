@@ -1,19 +1,18 @@
 import * as React from 'react';
-
 import { ThemeProvider } from '@mui/material/styles';
 import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { routes as appRoutes } from 'src/routes';
 
-import theme from './theme';
+import theme from 'src/theme';
+import { getClient } from 'src/queries';
+import { networkMap } from 'src/constants';
+import Layout from 'src/components/Layout';
+import { AppNetworkContext } from './AppNetworkContext';
+
 import './App.css';
-import { getClient } from './queries';
-import { networkMap } from './constants';
-import AppNetworkContext from './AppNetworkContext';
 
-import { routes as appRoutes } from './routes';
-import Layout from './components/Layout';
-
-const App: React.FC = (): React.ReactElement => {
+export const App: React.FC = (): React.ReactElement => {
   const [network, setNetwork] = React.useState<string>('polygon');
 
   return (
@@ -38,5 +37,3 @@ const App: React.FC = (): React.ReactElement => {
     </AppNetworkContext.Provider>
   );
 };
-
-export default App;

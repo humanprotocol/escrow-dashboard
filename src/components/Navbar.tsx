@@ -1,16 +1,23 @@
 import * as React from 'react';
-import { Box, Link, Container, Menu, Toolbar } from '@mui/material';
+import {
+  Box,
+  Link,
+  Container,
+  Menu,
+  Toolbar,
+  MenuItem,
+  Button,
+} from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { routes } from '../routes';
+import { routes } from 'src/routes';
 
 const Navbar: React.FC = (): React.ReactElement => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  const handleCloseNavMenu = () => {
+  const open = Boolean(anchorEl);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloseNavMenu = (): void => {
     setAnchorEl(null);
   };
 
@@ -22,49 +29,50 @@ const Navbar: React.FC = (): React.ReactElement => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: 'flex' } }}>
+            <Button
+              id="demo-positioned-button"
+              aria-controls={open ? 'demo-positioned-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleOpenNavMenu}
+            >
+              Jobs
+            </Button>
             <Menu
-              id="menu-appbar"
+              id="demo-positioned-menu"
+              aria-labelledby="demo-positioned-button"
               anchorEl={anchorEl}
+              open={open}
+              onClose={handleCloseNavMenu}
               anchorOrigin={{
-                vertical: 'bottom',
+                vertical: 'top',
                 horizontal: 'left',
               }}
-              keepMounted
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'left',
               }}
-              open={Boolean(anchorEl)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            />
-          </Box>
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-              }}
             >
               {routes.map((page) => (
-                <Link
+                <MenuItem
                   key={page.key}
-                  component={NavLink}
-                  to={page.path}
                   color="info.main"
-                  underline="none"
-                  variant="button"
-                  sx={{ fontSize: 'large', marginLeft: '2rem' }}
+                  onClick={handleCloseNavMenu}
                 >
-                  {page.title}
-                </Link>
+                  <Link
+                    component={NavLink}
+                    to={page.path}
+                    color="primary.main"
+                    underline="none"
+                    variant="button"
+                    sx={{ fontSize: 'large' }}
+                  >
+                    {page.title}
+                  </Link>
+                </MenuItem>
               ))}
-            </Box>
+            </Menu>
           </Box>
         </Toolbar>
       </Container>
