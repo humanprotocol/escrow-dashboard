@@ -1,21 +1,28 @@
-import { useContext, useEffect, useState } from "react";
+import * as React from 'react';
+import { useQuery } from '@apollo/client';
 
-import getWeb3 from "../web3";
-import EscrowFactoryView from "./EscrowFactoryView";
-import EscrowFactoryABI from "../contracts/EscrowFactoryABI.json";
-import { useQuery } from "@apollo/client";
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from "../queries";
-import AppContext from "../AppContext";
-import { networkMap } from "../constants";
-import { countEscrowFactory } from "../utils";
+import getWeb3 from '../../web3';
+import EscrowFactoryView from './EscrowFactoryView';
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../../queries';
+import AppContext from '../../AppNetworkContext';
+import { networkMap } from '../../constants';
+import { countEscrowFactory } from '../../utils';
 
-export default function EscrowContainer({ escrowFactory }) {
-  const [latestEscrow, setLatestEscrow] = useState("");
-  const { network } = useContext(AppContext);
+const EscrowFactoryABI = require('../../contracts/EscrowFactoryABI.json');
 
-  const scanner = networkMap[network].scanner;
+interface IEscrowContainer {
+  escrowFactory: string;
+}
+
+export const EscrowContainer: React.FC<IEscrowContainer> = ({
+  escrowFactory,
+}): React.ReactElement => {
+  const [latestEscrow, setLatestEscrow] = React.useState('');
+  const { network } = React.useContext(AppContext);
+
+  const { scanner } = networkMap[network];
   const address = networkMap[network].defaultFactoryAddr || escrowFactory;
-  const rpcUrl = networkMap[network].rpcUrl;
+  const { rpcUrl } = networkMap[network];
 
   const eventsUrl = `${scanner}/address/${address}#events`;
   const { data } = useQuery(ESCROWFACTORIES_COUNT);
@@ -25,7 +32,7 @@ export default function EscrowContainer({ escrowFactory }) {
     skip: !escrowFactory,
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     async function setupEscrow() {
       try {
         const web3 = getWeb3(rpcUrl);
@@ -34,7 +41,7 @@ export default function EscrowContainer({ escrowFactory }) {
         setLatestEscrow(lastEscrow);
       } catch (err) {
         console.error(err);
-        alert("Invalid escrow factory");
+        alert('Invalid escrow factory');
       }
     }
     setupEscrow();
@@ -54,4 +61,4 @@ export default function EscrowContainer({ escrowFactory }) {
       scanner={scanner}
     />
   );
-}
+};
