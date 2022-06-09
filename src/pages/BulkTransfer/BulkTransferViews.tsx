@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
 import BulkTransferCard, { IBulkTransferEvent } from './BulkTransferCard';
 

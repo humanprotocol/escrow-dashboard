@@ -24,3 +24,62 @@ export const ESCROWFACTORY_COUNT = gql`
     }
   }
 `;
+
+export const IS_EVENT = gql`
+  query GetIsEnent($id: ID!) {
+    isevents(id: $id) {
+      id
+    }
+  }
+`;
+
+export const IS_EVENTS = gql`
+  query GetIsEvents {
+    isevents {
+      id
+      count
+      _url
+      _hash
+    }
+  }
+`;
+
+export const PEVENTS = gql`
+  query GetPevents {
+    pevents {
+      id
+      count
+      _url
+      _hash
+    }
+  }
+`;
+
+export const BULK_TRANSFER_EVENTS = gql`
+  query GetBulkTransferEvents {
+    bulkTransferEvents {
+      id
+      escrow
+      bulkCount
+      txId
+      block
+      timestamp
+      transaction
+    }
+  }
+`;
+
+export const HMTRANSFER_EVENTS = gql`
+  query GetHmtransferEvents {
+    hmtransferEvents {
+      id
+      token
+      from
+      to
+      value
+      block
+      timestamp
+      transaction
+    }
+  }
+`;
