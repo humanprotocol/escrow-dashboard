@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Main, BulkTransfer, Hmtransfer } from 'src/pages';
+import { BulkCount } from 'src/pages/BulkCount';
 
 interface Route {
   key: string;
@@ -30,5 +31,12 @@ export const routes: Array<Route> = [
     path: '/hmTransfer',
     enabled: true,
     component: Hmtransfer,
+  },
+  {
+    key: 'bulk-count-route',
+    title: 'BulkCount',
+    path: '/bulk-count',
+    enabled: true,
+    component: BulkCount,
   },
 ];

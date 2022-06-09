@@ -79,6 +79,14 @@ export const BULK_TRANSFER_EVENTS_FULL = gql`
   }
 `;
 
+export const BULK_COUNT = gql`
+  query GetBulkCount {
+    bulkTransferEvents {
+      bulkCount
+    }
+  }
+`;
+
 export const HMTRANSFER_EVENTS = gql`
   query GetHmtransferEvents {
     hmtransferEvents {
