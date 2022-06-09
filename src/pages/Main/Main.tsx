@@ -8,6 +8,8 @@ import { Escrow } from 'src/components/Escrow';
 import { networkMap } from 'src/constants';
 import AppNetworkContext from 'src/AppNetworkContext';
 
+import './main.css';
+
 export const Main: React.FC = (): React.ReactElement => {
   const { network, setNetwork } = React.useContext(AppNetworkContext);
 
@@ -21,26 +23,16 @@ export const Main: React.FC = (): React.ReactElement => {
   };
   return (
     <Box>
-      <Box
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
+      <Box className="wrapper">
+        <Box className="inner-wrapper">
           <NetworkSwitcher
             onNetworkChange={onNetworkChange}
             network={network}
           />
           <Search onSetEscrow={setEscrowFactory} />
           <Box
+            className="escrow-wrapper"
             sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
               mt: INDENT.M,
             }}
           >
@@ -48,7 +40,6 @@ export const Main: React.FC = (): React.ReactElement => {
           </Box>
         </Box>
       </Box>
-      <Box />
     </Box>
   );
 };
