@@ -2,11 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 
 import { INDENT } from 'src/ui';
-import NetworkSwitcher from 'src/components/NetworkSwitcher';
 import Search from 'src/components/Search';
-import { Escrow } from 'src/components/Escrow';
 import { networkMap } from 'src/constants';
-import { AppNetworkContext } from 'src/components/App';
+import { Escrow, AppNetworkContext } from 'src/components';
+import NetworkSwitcher from 'src/components/NetworkSwitcher';
 
 import './main.css';
 
