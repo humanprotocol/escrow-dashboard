@@ -4,15 +4,15 @@ import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes as appRoutes } from 'src/routes';
 
-import theme from './theme';
-import { getClient } from './queries';
-import { networkMap } from './constants/networkConstants';
-import AppNetworkContext from './AppNetworkContext';
-import Layout from './components/Layout';
+import theme from 'src/theme';
+import { getClient } from 'src/queries';
+import { networkMap } from 'src/constants';
+import Layout from 'src/components/Layout';
+import { AppNetworkContext } from './AppNetworkContext';
 
 import './App.css';
 
-const App: React.FC = (): React.ReactElement => {
+export const App: React.FC = (): React.ReactElement => {
   const [network, setNetwork] = React.useState<string>('polygon');
 
   return (
@@ -37,5 +37,3 @@ const App: React.FC = (): React.ReactElement => {
     </AppNetworkContext.Provider>
   );
 };
-
-export default App;

@@ -6,7 +6,7 @@ import NetworkSwitcher from 'src/components/NetworkSwitcher';
 import Search from 'src/components/Search';
 import { Escrow } from 'src/components/Escrow';
 import { networkMap } from 'src/constants';
-import AppNetworkContext from 'src/AppNetworkContext';
+import { AppNetworkContext } from 'src/components/App';
 
 import './main.css';
 
