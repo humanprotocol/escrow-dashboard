@@ -11,7 +11,7 @@ interface INetworkSwitcher {
 const NetworkSwitcher: React.FC<INetworkSwitcher> = ({
   onNetworkChange,
   network,
-}) => (
+}): React.ReactElement => (
   <Select
     id="network-select"
     value={network}

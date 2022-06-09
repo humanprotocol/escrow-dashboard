@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export interface IBulkTransferEvent {
+export interface IHmTransferEvent {
   id: string;
   block: string;
   escrow: string;
@@ -15,7 +15,7 @@ export interface IBulkTransferEvent {
   transaction: string;
 }
 
-const BulkTransferCard: React.FC<IBulkTransferEvent> = ({
+const HmTransferCard: React.FC<IHmTransferEvent> = ({
   escrow,
   block,
   timestamp,
@@ -44,4 +44,4 @@ const BulkTransferCard: React.FC<IBulkTransferEvent> = ({
   );
 };
 
-export default BulkTransferCard;
+export default HmTransferCard;

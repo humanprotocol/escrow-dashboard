@@ -7,7 +7,7 @@ interface ILayout {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<ILayout> = ({ children }) => (
+const Layout: React.FC<ILayout> = ({ children }): React.ReactElement => (
   <Box
     sx={{
       marginTop: '120px',

@@ -1,6 +1,8 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import gql from 'graphql-tag';
 
+// TO-DO Makarov inject fragments
+
 export const getClient = (graphqlClientUrl: string) => {
   return new ApolloClient({
     uri: graphqlClientUrl,
@@ -55,7 +57,15 @@ export const PEVENTS = gql`
   }
 `;
 
-export const BULK_TRANSFER_EVENTS = gql`
+export const PEVENTS_COUNT = gql`
+  query GetPevents {
+    pevents {
+      count
+    }
+  }
+`;
+
+export const BULK_TRANSFER_EVENTS_FULL = gql`
   query GetBulkTransferEvents {
     bulkTransferEvents {
       id

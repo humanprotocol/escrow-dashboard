@@ -7,7 +7,7 @@ import AppNetworkContext from '../../AppNetworkContext';
 import Search from '../../components/Search';
 import { Escrow } from '../../components/Escrow';
 
-export function Main() {
+export const Main: React.FC = (): React.ReactElement => {
   const { network, setNetwork } = React.useContext(AppNetworkContext);
 
   const [escrowFactory, setEscrowFactory] = React.useState(
@@ -50,4 +50,4 @@ export function Main() {
       <Box />
     </Box>
   );
-}
+};

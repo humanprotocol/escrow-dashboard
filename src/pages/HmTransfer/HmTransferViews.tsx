@@ -1,11 +1,11 @@
 import * as React from 'react';
-import BulkTransferCard, { IBulkTransferEvent } from './BulkTransferCard';
+import HmTransferCard, { IHmTransferEvent } from './HmTransferCard';
 
 interface IBulksTransferEvents {
-  bulkTransferEvents: IBulkTransferEvent[];
+  bulkTransferEvents: IHmTransferEvent[];
 }
 
-const BulkTransferViews: React.FC<IBulksTransferEvents> = ({
+const HmTransferViews: React.FC<IBulksTransferEvents> = ({
   bulkTransferEvents,
 }): React.ReactElement | null => {
   if (!bulkTransferEvents) return null;
@@ -20,8 +20,8 @@ const BulkTransferViews: React.FC<IBulksTransferEvents> = ({
           block,
           timestamp,
           transaction,
-        }: IBulkTransferEvent) => (
-          <BulkTransferCard
+        }: IHmTransferEvent) => (
+          <HmTransferCard
             id={id}
             key={id}
             txId={txId}
@@ -37,4 +37,4 @@ const BulkTransferViews: React.FC<IBulksTransferEvents> = ({
   );
 };
 
-export default BulkTransferViews;
+export default HmTransferViews;
