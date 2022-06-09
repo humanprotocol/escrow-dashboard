@@ -14,10 +14,10 @@ const BulkTransferViews: React.FC<IBulksTransferEvents> = ({
       {bulkTransferEvents.map(
         ({
           id,
-          escrow,
-          bulkCount,
           txId,
           block,
+          escrow,
+          bulkCount,
           timestamp,
           transaction,
         }: IBulkTransferEvent) => (

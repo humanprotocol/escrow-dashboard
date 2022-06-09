@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
-import getWeb3 from '../../web3';
+import getWeb3 from 'src/web3';
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from 'src/queries';
+import AppContext from 'src/AppNetworkContext';
+import { networkMap } from 'src/constants';
+import { countEscrowFactory } from 'src/utils';
 import EscrowFactoryView from './EscrowFactoryView';
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../../queries';
-import AppContext from '../../AppNetworkContext';
-import { networkMap } from '../../constants';
-import { countEscrowFactory } from '../../utils';
 
-const EscrowFactoryABI = require('../../contracts/EscrowFactoryABI.json');
+const EscrowFactoryABI = require('src/contracts/EscrowFactoryABI.json');
 
 interface IEscrowContainer {
   escrowFactory: string;

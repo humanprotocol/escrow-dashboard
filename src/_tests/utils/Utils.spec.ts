@@ -1,4 +1,4 @@
-import { countEscrowFactory } from '../../utils';
+import { countEscrowFactory } from 'src/utils';
 
 test('countEscrowFactory should return 13', () => {
   const escrowFactories = [

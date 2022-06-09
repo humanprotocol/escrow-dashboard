@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
-import { HMTRANSFER_EVENTS } from '../../queries';
-import { SkeletonHmtransfer } from '../../components/Skeletons';
+import { SkeletonHmtransfer } from 'src/components/Skeletons';
+import { HMTRANSFER_EVENTS } from 'src/queries';
 import HmtransferViews from './HmtransferViews';
 
 export const Hmtransfer: React.FC = (): React.ReactElement => {

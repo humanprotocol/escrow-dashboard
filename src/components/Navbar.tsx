@@ -9,7 +9,7 @@ import {
   Button,
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { routes } from '../routes';
+import { routes } from 'src/routes';
 
 const Navbar: React.FC = (): React.ReactElement => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

@@ -7,17 +7,17 @@ import Typography from '@mui/material/Typography';
 
 export interface IBulkTransferEvent {
   id: string;
+  txId: string;
   block: string;
   escrow: string;
-  txId: string;
   bulkCount: string;
   timestamp: string;
   transaction: string;
 }
 
 const BulkTransferCard: React.FC<IBulkTransferEvent> = ({
-  escrow,
   block,
+  escrow,
   timestamp,
   transaction,
 }): React.ReactElement => {

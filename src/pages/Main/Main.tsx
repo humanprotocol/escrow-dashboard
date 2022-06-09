@@ -1,11 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 
-import NetworkSwitcher from '../../components/NetworkSwitcher';
-import { networkMap } from '../../constants';
-import AppNetworkContext from '../../AppNetworkContext';
-import Search from '../../components/Search';
-import { Escrow } from '../../components/Escrow';
+import { INDENT } from 'src/ui';
+import NetworkSwitcher from 'src/components/NetworkSwitcher';
+import Search from 'src/components/Search';
+import { Escrow } from 'src/components/Escrow';
+import { networkMap } from 'src/constants';
+import AppNetworkContext from 'src/AppNetworkContext';
 
 export const Main: React.FC = (): React.ReactElement => {
   const { network, setNetwork } = React.useContext(AppNetworkContext);
@@ -40,7 +41,7 @@ export const Main: React.FC = (): React.ReactElement => {
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'center',
-              mt: 2,
+              mt: INDENT.M,
             }}
           >
             <Escrow escrowFactory={escrowFactory} />
