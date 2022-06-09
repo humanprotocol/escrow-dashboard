@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Main, BulkTransfer, Hmtransfer } from './pages';
+import { Main, BulkTransfer, Hmtransfer } from 'src/pages';
 
 interface Route {
   key: string;

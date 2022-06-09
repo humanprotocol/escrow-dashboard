@@ -1,17 +1,16 @@
 import * as React from 'react';
-
 import { ThemeProvider } from '@mui/material/styles';
 import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { routes as appRoutes } from 'src/routes';
 
 import theme from './theme';
-import './App.css';
 import { getClient } from './queries';
-import { networkMap } from './constants';
+import { networkMap } from './constants/networkConstants';
 import AppNetworkContext from './AppNetworkContext';
-
-import { routes as appRoutes } from './routes';
 import Layout from './components/Layout';
+
+import './App.css';
 
 const App: React.FC = (): React.ReactElement => {
   const [network, setNetwork] = React.useState<string>('polygon');
