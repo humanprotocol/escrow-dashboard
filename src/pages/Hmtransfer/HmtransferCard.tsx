@@ -5,19 +5,22 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export interface IHmTransferEvent {
+export interface IHmtransferEvent {
   id: string;
+  to: string;
+  txId: string;
+  from: string;
   block: string;
   escrow: string;
-  txId: string;
-  bulkCount: string;
   timestamp: string;
   transaction: string;
 }
 
-const HmTransferCard: React.FC<IHmTransferEvent> = ({
-  escrow,
+const HmtransferCard: React.FC<IHmtransferEvent> = ({
+  to,
+  from,
   block,
+  escrow,
   timestamp,
   transaction,
 }): React.ReactElement => {
@@ -36,6 +39,12 @@ const HmTransferCard: React.FC<IHmTransferEvent> = ({
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           block: {block}
         </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          from: {from}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          to: {to}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Do something</Button>
@@ -44,4 +53,4 @@ const HmTransferCard: React.FC<IHmTransferEvent> = ({
   );
 };
 
-export default HmTransferCard;
+export default HmtransferCard;

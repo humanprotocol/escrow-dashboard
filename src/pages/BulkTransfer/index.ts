@@ -1,1 +1,1 @@
-export { BulkTransfer as default } from './BulkTransfer';
+export { BulkTransfer } from './BulkTransfer';

@@ -1,2 +1,2 @@
 export { SkeletonBulkTransfer } from './SkeletonBulkTransfer';
-export { SkeletonHmTransfer } from './SkeletonHmTransfer';
+export { SkeletonHmtransfer } from './SkeletonHmtransfer';

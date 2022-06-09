@@ -2,19 +2,19 @@ import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
 import { HMTRANSFER_EVENTS } from '../../queries';
-import HmTransferViews from './HmTransferViews';
-import { SkeletonHmTransfer } from '../../components/Skeletons';
+import { SkeletonHmtransfer } from '../../components/Skeletons';
+import HmtransferViews from './HmtransferViews';
 
-export const HmTransfer: React.FC = (): React.ReactElement => {
+export const Hmtransfer: React.FC = (): React.ReactElement => {
   // TO-DO Makarov need to unsubscribe   // https://www.foo.software/posts/managing-data-and-state-react-hooks-recoil-and-apollo-graphql-client
   const { loading, error, data } = useQuery(HMTRANSFER_EVENTS);
-  const { bulkTransferEvents } = data || {};
+  const { hmtransferEvents } = data || {};
 
   return (
     <>
-      {loading && !error && <SkeletonHmTransfer />}
+      {loading && !error && <SkeletonHmtransfer />}
       {!loading && data && (
-        <HmTransferViews bulkTransferEvents={bulkTransferEvents} />
+        <HmtransferViews hmtransferEvents={hmtransferEvents} />
       )}
       {!loading && error && <div>Refresh please</div>}
     </>
