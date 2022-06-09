@@ -43,6 +43,9 @@
     "lint-staged": "^10.0.8",
     "prettier": "2.4.1"
   },
+  "optionalDependencies": {
+    "babel-loader": "8.1.0"
+  },
   "scripts": {
     "lint": "eslint src",
     "start": "react-scripts start",
