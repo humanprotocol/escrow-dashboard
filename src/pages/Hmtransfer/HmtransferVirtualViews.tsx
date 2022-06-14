@@ -2,11 +2,11 @@ import * as React from 'react';
 import { FixedSizeList as List } from 'react-window';
 import HmtransferCard, { IHmtransferEvent } from './HmtransferCard';
 
-interface IBulksTransferEvents {
+interface IHmtransferEvents {
   hmtransferEvents: IHmtransferEvent[];
 }
 
-const HmtransferVirtualViews: React.FC<IBulksTransferEvents> = ({
+const HmtransferVirtualViews: React.FC<IHmtransferEvents> = ({
   hmtransferEvents,
 }): React.ReactElement | null => {
   if (!hmtransferEvents) return null;

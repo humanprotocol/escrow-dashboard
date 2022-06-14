@@ -11,15 +11,6 @@ export const getClient = (graphqlClientUrl: string) => {
   });
 };
 
-// export const ESCROWFACTORIES_COUNT = gql`
-//   query GetEscrowFactoriesCount($first: var) {
-//     escrowFactories(first: var) {
-//       count
-//       escrow
-//     }
-//   }
-// `;
-
 export const ESCROWFACTORIES_COUNT = gql`
   query GetEscrowFactoriesCount {
     escrowFactories {
