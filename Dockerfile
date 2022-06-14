@@ -3,12 +3,13 @@ FROM node:16.13-buster
 WORKDIR /usr/src/app
 
 COPY package.json yarn.lock ./
-COPY tsconfig.json ./
 
-RUN yarn
+RUN yarn install --production=true
 
 COPY ./public ./public
 COPY ./src ./src
+
+COPY tsconfig.json ./
 
 RUN yarn run build
 
