@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
-import Navbar from './Navbar';
 
 const Header: React.FC = (): React.ReactElement => (
   <Box sx={{ flexGrow: 1 }}>
@@ -30,7 +29,6 @@ const Header: React.FC = (): React.ReactElement => (
           >
             HUMAN Escrow Factory Dashboard
           </Typography>
-          <Navbar />
         </Box>
       </Toolbar>
     </AppBar>

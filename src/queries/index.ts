@@ -11,10 +11,20 @@ export const getClient = (graphqlClientUrl: string) => {
   });
 };
 
+// export const ESCROWFACTORIES_COUNT = gql`
+//   query GetEscrowFactoriesCount($first: var) {
+//     escrowFactories(first: var) {
+//       count
+//       escrow
+//     }
+//   }
+// `;
+
 export const ESCROWFACTORIES_COUNT = gql`
   query GetEscrowFactoriesCount {
     escrowFactories {
       count
+      escrow
     }
   }
 `;
@@ -35,24 +45,10 @@ export const IS_EVENT = gql`
   }
 `;
 
-export const IS_EVENTS = gql`
-  query GetIsEvents {
+export const IS_EVENTS_COUNT = gql`
+  query GetIsEventsCount {
     isevents {
-      id
       count
-      _url
-      _hash
-    }
-  }
-`;
-
-export const PEVENTS = gql`
-  query GetPevents {
-    pevents {
-      id
-      count
-      _url
-      _hash
     }
   }
 `;

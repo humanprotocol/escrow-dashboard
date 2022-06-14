@@ -21,7 +21,7 @@ const HmtransferVirtualViews: React.FC<IBulksTransferEvents> = ({
     >
       {({ index }) => {
         const event = hmtransferEvents[index];
-        console.log(event);
+
         return React.useMemo(
           () => (
             <>
