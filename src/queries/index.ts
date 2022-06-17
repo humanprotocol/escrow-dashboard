@@ -13,6 +13,7 @@ export const ESCROWFACTORIES_COUNT = gql`
   query GetEscrowFactoriesCount {
     escrowFactories {
       count
+      escrow
     }
   }
 `;

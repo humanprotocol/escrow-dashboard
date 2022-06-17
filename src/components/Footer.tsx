@@ -1,34 +1,24 @@
-import React from 'react';
-import { Typography } from '@mui/material';
+import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Link from '@mui/material/Link';
+import { INDENT } from 'src/ui';
+import { CardBlockWithChildren } from './Cards';
 
-export default function Escrow() {
-  return (
-    <Card variant="outlined" sx={{ mt: 1 }}>
-      <CardContent>
-        <CardTextBlock>
-          <Link
-            href="https://github.com/humanprotocol/hmt-escrow"
-            target="_blank"
-            rel="noreferrer"
-          >
-            HMT Escrow Source Code
-          </Link>
-        </CardTextBlock>
-      </CardContent>
-    </Card>
-  );
-}
+const Footer: React.FC = (): React.ReactElement => (
+  <Card variant="outlined" sx={{ mt: INDENT.S }}>
+    <CardContent>
+      <CardBlockWithChildren>
+        <Link
+          href="https://github.com/humanprotocol/hmt-escrow"
+          target="_blank"
+          rel="noreferrer"
+        >
+          HMT Escrow Source Code
+        </Link>
+      </CardBlockWithChildren>
+    </CardContent>
+  </Card>
+);
 
-interface ICardTextBlock {
-  children: JSX.Element;
-}
-function CardTextBlock({ children }: ICardTextBlock) {
-  return (
-    <Typography variant="body2" textAlign="center">
-      {children}
-    </Typography>
-  );
-}
+export default Footer;

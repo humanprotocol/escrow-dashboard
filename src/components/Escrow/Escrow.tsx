@@ -1,22 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react';
+import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
-import getWeb3 from '../web3';
+import { getWeb3 } from 'src/helpers';
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from 'src/queries';
+import { networkMap } from 'src/constants';
+import { countEscrowFactory } from 'src/utils';
+import { AppNetworkContext } from 'src/components/App';
 import EscrowFactoryView from './EscrowFactoryView';
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from '../queries';
-import AppContext from '../AppNetworkContext';
-import { networkMap } from '../constants';
-import { countEscrowFactory } from '../utils';
 
-const EscrowFactoryABI = require('../contracts/EscrowFactoryABI.json');
+const EscrowFactoryABI = require('src/contracts/EscrowFactoryABI.json');
 
-interface Props {
+interface IEscrowContainer {
   escrowFactory: string;
 }
 
-export default function EscrowContainer({ escrowFactory }: Props) {
-  const [latestEscrow, setLatestEscrow] = useState('');
-  const { network } = useContext(AppContext);
+export const EscrowContainer: React.FC<IEscrowContainer> = ({
+  escrowFactory,
+}): React.ReactElement => {
+  const [latestEscrow, setLatestEscrow] = React.useState('');
+  const { network } = React.useContext(AppNetworkContext);
 
   const { scanner } = networkMap[network];
   const address = networkMap[network].defaultFactoryAddr || escrowFactory;
@@ -30,7 +32,7 @@ export default function EscrowContainer({ escrowFactory }: Props) {
     skip: !escrowFactory,
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     async function setupEscrow() {
       try {
         const web3 = getWeb3(rpcUrl);
@@ -59,4 +61,4 @@ export default function EscrowContainer({ escrowFactory }: Props) {
       scanner={scanner}
     />
   );
-}
+};

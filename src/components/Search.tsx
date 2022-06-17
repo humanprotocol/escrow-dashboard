@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import Web3 from 'web3';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { INDENT } from 'src/ui';
 
-export default function Search({ onSetEscrow }) {
-  const [escrow, setEscrow] = useState('');
+interface ISearch {
+  onSetEscrow: (value: string) => void;
+}
+
+const Search: React.FC<ISearch> = ({ onSetEscrow }): React.ReactElement => {
+  const [escrow, setEscrow] = React.useState('');
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', mt: 3, flexGrow: 4 }}>
+    <Box
+      sx={{ display: 'flex', flexDirection: 'row', mt: INDENT.L, flexGrow: 4 }}
+    >
       <TextField
         variant="outlined"
         size="small"
@@ -28,4 +35,6 @@ export default function Search({ onSetEscrow }) {
       </Button>
     </Box>
   );
-}
+};
+
+export default Search;
