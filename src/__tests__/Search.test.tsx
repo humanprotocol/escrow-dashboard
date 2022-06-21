@@ -3,19 +3,19 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Search from 'src/components/Search';
 
-const props = {
+const mock = {
   onSetEscrow: () => {},
 };
 
-describe('when rendered with a `name` prop', () => {
-  it('should paste it into the greetings text', () => {
-    render(<Search onSetEscrow={props.onSetEscrow} />);
+describe('when rendered CardTextBlock component', () => {
+  it('should render passed prop `onSetEscrow` function', () => {
+    render(<Search onSetEscrow={mock.onSetEscrow} />);
   });
 });
 
-it('renders correctly', () => {
+it('Search component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
-    .create(<Search onSetEscrow={props.onSetEscrow} />)
+    .create(<Search onSetEscrow={mock.onSetEscrow} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

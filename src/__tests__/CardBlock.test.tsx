@@ -9,18 +9,18 @@ const mock = {
 };
 
 describe('when rendered CardTextBlock component', () => {
-  it('should render passed prop value', () => {
+  it('should render passed prop `value`', () => {
     render(<CardTextBlock value={mock.value} title={mock.title} />);
     expect(screen.findByLabelText(mock.value)).toBeTruthy();
   });
 
-  it('should render passed prop title', () => {
+  it('should render passed prop `title`', () => {
     render(<CardTextBlock value={mock.value} title={mock.title} />);
     expect(screen.findByLabelText(mock.title)).toBeTruthy();
   });
 });
 
-it('renders correctly', () => {
+it('CardTextBlock component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
     .create(<CardTextBlock value={mock.value} title={mock.title} />)
     .toJSON();

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Search component renders correctly, corresponds to the snapshot 1`] = `
 <div
   className="MuiBox-root css-uq2i2m"
 >

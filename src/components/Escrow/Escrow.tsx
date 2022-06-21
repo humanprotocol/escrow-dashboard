@@ -2,18 +2,11 @@ import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
 import { getWeb3 } from 'src/helpers';
-import {
-  // BULK_COUNT,
-  ESCROWFACTORIES_COUNT,
-  ESCROWFACTORY_COUNT,
-  // IS_EVENTS_COUNT,
-  // PEVENTS_COUNT,
-} from 'src/queries';
+import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from 'src/queries';
 import { networkMap } from 'src/constants';
 import { countEscrowFactory } from 'src/utils';
 import { AppNetworkContext } from 'src/components/App';
 import { EscrowFactoryView } from './EscrowFactoryView';
-// import { useMultyQuerries } from './hooks';
 
 const EscrowFactoryABI = require('src/contracts/EscrowFactoryABI.json');
 
@@ -35,8 +28,6 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
   const { data } = useQuery(ESCROWFACTORIES_COUNT, {
     variables: { skip: 2 },
   });
-
-  // useMultyQuerries();
 
   const { data: dataFactory } = useQuery(ESCROWFACTORY_COUNT, {
     variables: { id: escrowFactory },

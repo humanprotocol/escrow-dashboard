@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Footer component renders correctly, corresponds to the snapshot 1`] = `
 <div
   className="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-iey0vv-MuiPaper-root-MuiCard-root"
 >

@@ -11,17 +11,8 @@ const mock = {
   scanner: 'test-scanner',
 };
 
-describe('when rendered with a `count` prop', () => {
-  // const container = render(
-  //   <EscrowFactoryView
-  //     count={mock.count}
-  //     address={mock.address}
-  //     latestEscrow={mock.latestEscrow}
-  //     eventsUrl={mock.eventsUrl}
-  //     scanner={mock.scanner}
-  //   />
-  // );
-  it('should paste it into the component', () => {
+describe('when rendered CardTextBlock component', () => {
+  it('should render passed prop `count`', () => {
     render(
       <EscrowFactoryView
         count={mock.count}
@@ -33,10 +24,8 @@ describe('when rendered with a `count` prop', () => {
     );
     expect(screen.getByText(mock.count)).toBeInTheDocument();
   });
-});
 
-describe('when rendered with a `address` prop', () => {
-  it('should paste it into the component', () => {
+  it('should render passed prop `address`', () => {
     render(
       <EscrowFactoryView
         count={mock.count}
@@ -48,10 +37,8 @@ describe('when rendered with a `address` prop', () => {
     );
     expect(screen.findByLabelText(mock.address)).toBeTruthy();
   });
-});
 
-describe('when rendered with a `latestEscrow` prop', () => {
-  it('should paste it into the component', () => {
+  it('should render passed prop `latestEscrow`', () => {
     render(
       <EscrowFactoryView
         count={mock.count}
@@ -63,10 +50,8 @@ describe('when rendered with a `latestEscrow` prop', () => {
     );
     expect(screen.findByLabelText(mock.latestEscrow)).toBeTruthy();
   });
-});
 
-describe('when rendered with a `eventsUrl` prop', () => {
-  it('should paste it into the component', () => {
+  it('should render passed prop `eventsUrl`', () => {
     render(
       <EscrowFactoryView
         count={mock.count}
@@ -78,10 +63,8 @@ describe('when rendered with a `eventsUrl` prop', () => {
     );
     expect(screen.findByLabelText(mock.eventsUrl)).toBeTruthy();
   });
-});
 
-describe('when rendered with a `scanner` prop', () => {
-  it('should paste it into the component', () => {
+  it('should render passed prop `scanner`', () => {
     render(
       <EscrowFactoryView
         count={mock.count}
@@ -95,7 +78,7 @@ describe('when rendered with a `scanner` prop', () => {
   });
 });
 
-it('renders correctly', () => {
+it('EscrowFactoryView component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
     .create(
       <EscrowFactoryView

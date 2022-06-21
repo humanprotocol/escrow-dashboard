@@ -3,11 +3,11 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Layout from 'src/components/Layout';
 
-describe('when rendered with a `name` prop', () => {
-  it('should paste it into the greetings text', () => {
-    const { getByRole, getByTestId } = render(
+describe('when rendered Layout component', () => {
+  it('should render passed `children` prop', () => {
+    const { getByTestId } = render(
       <Layout>
-        <div role="root">
+        <div data-testid="root">
           <div data-testid="parent">
             <div data-testid="child">content</div>
           </div>
@@ -15,7 +15,7 @@ describe('when rendered with a `name` prop', () => {
       </Layout>
     );
 
-    const root = getByRole('root');
+    const root = getByTestId('root');
     const parent = getByTestId('parent');
     const child = getByTestId('child');
     expect(root).toContainElement(parent);
@@ -24,11 +24,11 @@ describe('when rendered with a `name` prop', () => {
   });
 });
 
-it('renders correctly', () => {
+it('Layout component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
     .create(
       <Layout>
-        <div role="root">
+        <div data-testid="root">
           <div data-testid="parent">
             <div data-testid="child">content</div>
           </div>

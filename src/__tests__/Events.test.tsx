@@ -13,33 +13,33 @@ const mock = {
 };
 
 describe('when rendered Events component', () => {
-  it('should render passed prop url', () => {
+  it('should render passed prop `url`', () => {
     render(<Events url={mock.url} scanner={mock.scanner} />);
     expect(screen.findByLabelText(mock.url)).toBeTruthy();
   });
 
-  it('should render passed prop scanner', () => {
+  it('should render passed prop `scanner`', () => {
     render(<Events url={mock.url} scanner={mock.scanner} />);
     expect(screen.findByLabelText(mock.scanner)).toBeTruthy();
   });
 
-  it('should render prop text1', () => {
+  it('should render prop `text1`', () => {
     render(<Events url={mock.url} scanner={mock.scanner} />);
     expect(screen.findByLabelText(mock.text1)).toBeTruthy();
   });
 
-  it('should render prop text2', () => {
+  it('should render prop `text2`', () => {
     render(<Events url={mock.url} scanner={mock.scanner} />);
     expect(screen.findByLabelText(mock.text2)).toBeTruthy();
   });
 
-  it('should render prop text3', () => {
+  it('should render prop `text3`', () => {
     render(<Events url={mock.url} scanner={mock.scanner} />);
     expect(screen.findByLabelText(mock.text3)).toBeTruthy();
   });
 });
 
-it('renders correctly', () => {
+it('Events component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
     .create(<Events url={mock.url} scanner={mock.scanner} />)
     .toJSON();

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CardTextBlock component renders correctly, corresponds to the snapshot 1`] = `
 Array [
   <div
     className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"

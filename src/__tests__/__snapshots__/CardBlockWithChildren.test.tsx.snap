@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CardBlockWithChildren component renders correctly, corresponds to the snapshot 1`] = `
 <p
   className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
 >
   <div
-    role="root"
+    data-testid="root"
   >
     <span>
       Test

@@ -4,11 +4,11 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { CardBlockWithChildren } from 'src/components';
 
-describe('when rendered with a `name` prop', () => {
-  it('should paste it into the greetings text', () => {
-    const { getByRole, getByTestId } = render(
+describe('when rendered CardBlockWithChildren component', () => {
+  it('should render passed `children` prop', () => {
+    const { getByTestId } = render(
       <CardBlockWithChildren>
-        <div role="root">
+        <div data-testid="root">
           <div data-testid="parent">
             <div data-testid="child">content</div>
           </div>
@@ -16,7 +16,7 @@ describe('when rendered with a `name` prop', () => {
       </CardBlockWithChildren>
     );
 
-    const root = getByRole('root');
+    const root = getByTestId('root');
     const parent = getByTestId('parent');
     const child = getByTestId('child');
     expect(root).toContainElement(parent);
@@ -25,11 +25,11 @@ describe('when rendered with a `name` prop', () => {
   });
 });
 
-describe('when rendered with a `name` prop', () => {
-  it('should paste it into the greetings text', () => {
+describe('when rendered CardBlockWithChildren component with a `text` prop', () => {
+  it('should render passed `children` prop with passed `Test` text prop', () => {
     const { getByText } = render(
       <CardBlockWithChildren>
-        <div role="root">
+        <div data-testid="root">
           <span>Test</span>
         </div>
       </CardBlockWithChildren>
@@ -39,11 +39,11 @@ describe('when rendered with a `name` prop', () => {
   });
 });
 
-it('renders correctly', () => {
+it('CardBlockWithChildren component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
     .create(
       <CardBlockWithChildren>
-        <div role="root">
+        <div data-testid="root">
           <span>Test</span>
         </div>
       </CardBlockWithChildren>

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Layout component renders correctly, corresponds to the snapshot 1`] = `
 <div
-  className="MuiBox-root css-0"
+  className="MuiBox-root css-z1460q"
 >
   <div
     className="MuiBox-root css-i9gxme"
@@ -26,7 +26,7 @@ exports[`renders correctly 1`] = `
     </header>
   </div>
   <div
-    role="root"
+    data-testid="root"
   >
     <div
       data-testid="parent"
