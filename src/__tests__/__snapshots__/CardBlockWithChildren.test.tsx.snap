@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+>
+  <div
+    role="root"
+  >
+    <span>
+      Test
+    </span>
+  </div>
+</p>
+`;

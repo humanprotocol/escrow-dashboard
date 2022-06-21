@@ -3,7 +3,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes as appRoutes } from 'src/routes';
-
 import theme from 'src/theme';
 import { getClient } from 'src/queries';
 import { networkMap } from 'src/constants';

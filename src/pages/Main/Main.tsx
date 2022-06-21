@@ -21,6 +21,7 @@ export const Main: React.FC = (): React.ReactElement => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
   };
+
   return (
     <Box>
       <Box className="wrapper">

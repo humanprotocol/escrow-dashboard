@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiBox-root css-xi606m"
+>
+  <div
+    className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"
+    role="separator"
+  >
+    <span
+      className="MuiDivider-wrapper css-qywfm8-MuiDivider-wrapper"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+      >
+        All deployed escrows
+      </p>
+    </span>
+  </div>
+  <a
+    className="MuiTypography-root MuiTypography-inherit MuiTypography-alignCenter MuiLink-root MuiLink-underlineAlways css-8wztv5-MuiTypography-root-MuiLink-root"
+    href="Url"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    rel="noreferrer"
+    target="_blank"
+  >
+    TestScanner
+  </a>
+  <p
+    className="MuiTypography-root MuiTypography-body2 css-1ncpc4g-MuiTypography-root"
+  >
+    Each event has a payload of ERC20 token address and Escrow Address
+  </p>
+  <p
+    className="MuiTypography-root MuiTypography-body2 css-1ncpc4g-MuiTypography-root"
+  >
+    Change the type of the second argument to "Address" to see an Escrow address
+  </p>
+</div>
+`;
