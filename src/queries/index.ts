@@ -1,8 +1,6 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import gql from 'graphql-tag';
 
-// TO-DO Makarov inject fragments
-
 export const getClient = (graphqlClientUrl: string) => {
   return new ApolloClient({
     uri: graphqlClientUrl,

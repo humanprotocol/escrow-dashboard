@@ -1,6 +1,5 @@
-import { Box } from '@mui/material';
 import * as React from 'react';
-import Footer from './Footer';
+import { Box } from '@mui/material';
 import Header from './Header';
 
 interface ILayout {
@@ -8,14 +7,9 @@ interface ILayout {
 }
 
 const Layout: React.FC<ILayout> = ({ children }): React.ReactElement => (
-  <Box
-    sx={{
-      marginTop: '120px',
-    }}
-  >
+  <Box>
     <Header />
     {children}
-    <Footer />
   </Box>
 );
 

@@ -6,6 +6,7 @@ import Search from 'src/components/Search';
 import { networkMap } from 'src/constants';
 import { Escrow, AppNetworkContext } from 'src/components';
 import NetworkSwitcher from 'src/components/NetworkSwitcher';
+import Footer from 'src/components/Footer';
 
 import './main.css';
 
@@ -20,6 +21,7 @@ export const Main: React.FC = (): React.ReactElement => {
     setNetwork(networkKey);
     setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
   };
+
   return (
     <Box>
       <Box className="wrapper">
@@ -37,6 +39,7 @@ export const Main: React.FC = (): React.ReactElement => {
           >
             <Escrow escrowFactory={escrowFactory} />
           </Box>
+          <Footer />
         </Box>
       </Box>
     </Box>
