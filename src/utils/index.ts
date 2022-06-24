@@ -8,6 +8,10 @@ interface IEscrowFactory {
   count: string;
 }
 
+interface ILaunchedEscrows {
+  launchedEscrows: [];
+}
+
 type IEscrowFactories = IEscrowFactory[];
 
 export const countEscrowFactory = (escrowFactories: IEscrowFactories) => {
@@ -21,3 +25,6 @@ export const countEscrowFactory = (escrowFactories: IEscrowFactories) => {
     0
   );
 };
+
+export const launchedEscrowsCount = (data: ILaunchedEscrows) =>
+  data?.launchedEscrows?.length;

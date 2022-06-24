@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
 import { getWeb3 } from 'src/helpers';
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from 'src/queries';
+import { LAUNCHED_ESCROWS } from 'src/queries';
 import { networkMap } from 'src/constants';
-import { countEscrowFactory } from 'src/utils';
+import { launchedEscrowsCount } from 'src/utils';
 import { AppNetworkContext } from 'src/components/App';
 import EscrowFactoryView from './EscrowFactoryView';
 
@@ -25,12 +25,7 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
   const { rpcUrl } = networkMap[network];
 
   const eventsUrl = `${scanner}/address/${address}#events`;
-  const { data } = useQuery(ESCROWFACTORIES_COUNT);
-
-  const { data: dataFactory } = useQuery(ESCROWFACTORY_COUNT, {
-    variables: { id: escrowFactory },
-    skip: !escrowFactory,
-  });
+  const { data } = useQuery(LAUNCHED_ESCROWS);
 
   React.useEffect(() => {
     async function setupEscrow() {
@@ -45,16 +40,11 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
       }
     }
     setupEscrow();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address]);
 
   return (
     <EscrowFactoryView
-      count={countEscrowFactory(
-        dataFactory?.escrowFactory
-          ? [dataFactory.escrowFactory]
-          : data?.escrowFactories
-      )}
+      count={launchedEscrowsCount(data)}
       address={address}
       latestEscrow={latestEscrow}
       eventsUrl={eventsUrl}
