@@ -6,7 +6,7 @@ import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from 'src/queries';
 import { networkMap } from 'src/constants';
 import { countEscrowFactory } from 'src/utils';
 import { AppNetworkContext } from 'src/components/App';
-import EscrowFactoryView from './EscrowFactoryView';
+import { EscrowFactoryView } from './EscrowFactoryView';
 
 const EscrowFactoryABI = require('src/contracts/EscrowFactoryABI.json');
 
@@ -25,7 +25,9 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
   const { rpcUrl } = networkMap[network];
 
   const eventsUrl = `${scanner}/address/${address}#events`;
-  const { data } = useQuery(ESCROWFACTORIES_COUNT);
+  const { data } = useQuery(ESCROWFACTORIES_COUNT, {
+    variables: { skip: 2 },
+  });
 
   const { data: dataFactory } = useQuery(ESCROWFACTORY_COUNT, {
     variables: { id: escrowFactory },

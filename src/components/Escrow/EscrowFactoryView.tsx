@@ -12,7 +12,7 @@ interface IEscrow {
   scanner: string;
 }
 
-const Escrow: React.FC<IEscrow> = ({
+export const EscrowFactoryView: React.FC<IEscrow> = ({
   count,
   address,
   latestEscrow,
@@ -30,5 +30,3 @@ const Escrow: React.FC<IEscrow> = ({
     </Card>
   );
 };
-
-export default Escrow;

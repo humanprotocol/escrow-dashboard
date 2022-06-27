@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders correctly, corresponds to the snapshot 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-iey0vv-MuiPaper-root-MuiCard-root"
+>
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+    >
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+        href="https://github.com/humanprotocol/hmt-escrow"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        rel="noreferrer"
+        target="_blank"
+      >
+        HMT Escrow Source Code
+      </a>
+    </p>
+  </div>
+</div>
+`;

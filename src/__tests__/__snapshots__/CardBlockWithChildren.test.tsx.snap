@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardBlockWithChildren component renders correctly, corresponds to the snapshot 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+>
+  <div
+    data-testid="root"
+  >
+    <span>
+      Test
+    </span>
+  </div>
+</p>
+`;
