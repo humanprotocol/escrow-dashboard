@@ -5,7 +5,7 @@ import Events from '../Events';
 import { CardTextBlock } from '../Cards';
 
 interface IEscrow {
-  count: number;
+  count: string;
   address: string;
   latestEscrow: string;
   eventsUrl: string;

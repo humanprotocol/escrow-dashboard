@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { useQuery } from '@apollo/client';
 
 import { getWeb3 } from 'src/helpers';
-import { ESCROWFACTORIES_COUNT, ESCROWFACTORY_COUNT } from 'src/queries';
 import { networkMap } from 'src/constants';
-import { countEscrowFactory } from 'src/utils';
-import { AppNetworkContext } from 'src/components/App';
+import { AppNetworkContext } from 'src/components';
 import { EscrowFactoryView } from './EscrowFactoryView';
 
 const EscrowFactoryABI = require('src/contracts/EscrowFactoryABI.json');
@@ -17,7 +14,8 @@ interface IEscrowContainer {
 export const EscrowContainer: React.FC<IEscrowContainer> = ({
   escrowFactory,
 }): React.ReactElement => {
-  const [latestEscrow, setLatestEscrow] = React.useState('');
+  const [latestEscrow, setLatestEscrow] = React.useState(' ');
+  const [counter, setCounter] = React.useState('0');
   const { network } = React.useContext(AppNetworkContext);
 
   const { scanner } = networkMap[network];
@@ -25,22 +23,18 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
   const { rpcUrl } = networkMap[network];
 
   const eventsUrl = `${scanner}/address/${address}#events`;
-  const { data } = useQuery(ESCROWFACTORIES_COUNT, {
-    variables: { skip: 2 },
-  });
-
-  const { data: dataFactory } = useQuery(ESCROWFACTORY_COUNT, {
-    variables: { id: escrowFactory },
-    skip: !escrowFactory,
-  });
 
   React.useEffect(() => {
     async function setupEscrow() {
       try {
         const web3 = getWeb3(rpcUrl);
         const EscrowFactory = new web3.eth.Contract(EscrowFactoryABI, address);
+
         const lastEscrow = await EscrowFactory.methods.lastEscrow().call();
         setLatestEscrow(lastEscrow);
+
+        const count = await EscrowFactory.methods.counter().call();
+        setCounter(count);
       } catch (err) {
         console.error(err);
         alert('Invalid escrow factory');
@@ -52,11 +46,7 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
 
   return (
     <EscrowFactoryView
-      count={countEscrowFactory(
-        dataFactory?.escrowFactory
-          ? [dataFactory.escrowFactory]
-          : data?.escrowFactories
-      )}
+      count={counter}
       address={address}
       latestEscrow={latestEscrow}
       eventsUrl={eventsUrl}

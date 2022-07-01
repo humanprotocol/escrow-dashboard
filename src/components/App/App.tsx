@@ -6,7 +6,7 @@ import { routes as appRoutes } from 'src/routes';
 import theme from 'src/theme';
 import { getClient } from 'src/queries';
 import { networkMap } from 'src/constants';
-import Layout from 'src/components/Layout';
+import { Layout } from 'src/components';
 import { AppNetworkContext } from './AppNetworkContext';
 
 import './App.css';

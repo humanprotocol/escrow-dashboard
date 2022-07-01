@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Header from 'src/components/Header';
+import { Header } from 'src/components';
 
 describe('when rendered Header component', () => {
   it('should render `text` prop', () => {

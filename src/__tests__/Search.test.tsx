@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Search from 'src/components/Search';
+import { Search } from 'src/components';
 
 const mock = {
   onSetEscrow: () => {},

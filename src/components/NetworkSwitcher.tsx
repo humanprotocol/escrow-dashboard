@@ -9,7 +9,7 @@ interface INetworkSwitcher {
   network: string;
 }
 
-const NetworkSwitcher: React.FC<INetworkSwitcher> = ({
+export const NetworkSwitcher: React.FC<INetworkSwitcher> = ({
   onNetworkChange,
   network,
 }): React.ReactElement => (
@@ -27,5 +27,3 @@ const NetworkSwitcher: React.FC<INetworkSwitcher> = ({
     ))}
   </Select>
 );
-
-export default NetworkSwitcher;

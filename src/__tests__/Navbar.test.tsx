@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Navbar from '../components/Navbar';
+import { Navbar } from '../components/Navbar';
 
 describe('when rendered Navbar component', () => {
   it('should paste it into the greetings text', () => {

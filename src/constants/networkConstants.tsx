@@ -1,11 +1,11 @@
 interface INetworkMap {
   [key: string]: {
-    title: string;
     key: string;
-    scanner: string;
+    title: string;
     rpcUrl: string;
-    defaultFactoryAddr: string;
+    scanner: string;
     graphqlClientUrl: string;
+    defaultFactoryAddr: string;
   };
 }
 
@@ -17,7 +17,7 @@ export const networkMap: INetworkMap = {
     rpcUrl: 'https://polygon-rpc.com/',
     defaultFactoryAddr: '0x45eBc3eAE6DA485097054ae10BA1A0f8e8c7f794',
     graphqlClientUrl:
-      'https://api.thegraph.com/subgraphs/name/posix4e/human-polygon',
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/polygon',
   },
   mumbai: {
     title: 'Polygon Mumbai Testnet',
@@ -34,7 +34,7 @@ export const networkMap: INetworkMap = {
     rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
     defaultFactoryAddr: '0x925B24444511c86F4d4E63141D8Be0A025E2dca4',
     graphqlClientUrl:
-      'https://api.thegraph.com/subgraphs/name/posix4e/humanrinkeby',
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/rinkeby',
   },
   neonslabdev: {
     title: 'NeonsLab Devtestnet',

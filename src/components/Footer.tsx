@@ -5,7 +5,7 @@ import Link from '@mui/material/Link';
 import { INDENT } from 'src/ui';
 import { CardBlockWithChildren } from './Cards';
 
-const Footer: React.FC = (): React.ReactElement => (
+export const Footer: React.FC = (): React.ReactElement => (
   <Card variant="outlined" sx={{ mt: INDENT.S }}>
     <CardContent>
       <CardBlockWithChildren>
@@ -20,5 +20,3 @@ const Footer: React.FC = (): React.ReactElement => (
     </CardContent>
   </Card>
 );
-
-export default Footer;

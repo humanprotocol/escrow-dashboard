@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { EscrowFactoryView } from 'src/components/Escrow';
 
 const mock = {
-  count: 10,
+  count: '10',
   address: '63fea823365f1c81fad234abdf5a1f43',
   latestEscrow: 'eaac4d45c3c41f449cf7c94622afacbc',
   eventsUrl: 'test.url',

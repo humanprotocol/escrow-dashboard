@@ -9,7 +9,9 @@ interface ISearch {
   onSetEscrow: (value: string) => void;
 }
 
-const Search: React.FC<ISearch> = ({ onSetEscrow }): React.ReactElement => {
+export const Search: React.FC<ISearch> = ({
+  onSetEscrow,
+}): React.ReactElement => {
   const [escrow, setEscrow] = React.useState('');
   const isEscrowValid = Boolean(escrow) && Web3.utils.isAddress(escrow);
 
@@ -36,5 +38,3 @@ const Search: React.FC<ISearch> = ({ onSetEscrow }): React.ReactElement => {
     </Box>
   );
 };
-
-export default Search;

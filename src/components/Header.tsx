@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 
-const Header: React.FC = (): React.ReactElement => (
+export const Header: React.FC = (): React.ReactElement => (
   <Box sx={{ flexGrow: 1 }}>
     <AppBar position="fixed">
       <Toolbar>
@@ -34,5 +34,3 @@ const Header: React.FC = (): React.ReactElement => (
     </AppBar>
   </Box>
 );
-
-export default Header;

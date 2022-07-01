@@ -9,19 +9,20 @@ export const getClient = (graphqlClientUrl: string) => {
   });
 };
 
-export const ESCROWFACTORIES_COUNT = gql`
-  query GetEscrowFactoriesCount {
-    escrowFactories {
-      count
-      escrow
+export const LAUNCHED_ESCROWS = gql`
+  query GetLaunchedEscrows($skip: Int = 0) {
+    launchedEscrows(first: 10, skip: $skip) {
+      id
+      eip20
+      from
     }
   }
 `;
 
-export const ESCROWFACTORY_COUNT = gql`
-  query GetEscrowFactoryCount($id: ID!) {
-    escrowFactory(id: $id) {
-      count
+export const LAUNCHED_ESCROW = gql`
+  query GetLaunchedEscrow($id: ID!) {
+    launchedEscrow(id: $id) {
+      eip20
     }
   }
 `;

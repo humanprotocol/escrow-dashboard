@@ -1,26 +1,15 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-
+import { Search, Escrow, NetworkSwitcher, Footer } from 'src/components';
+import { LaunchedEscrows } from 'src/pages/LaunchedEscrows';
+import { useOnNetworkChange } from 'src/hooks';
 import { INDENT } from 'src/ui';
-import Search from 'src/components/Search';
-import { networkMap } from 'src/constants';
-import { Escrow, AppNetworkContext } from 'src/components';
-import NetworkSwitcher from 'src/components/NetworkSwitcher';
-import Footer from 'src/components/Footer';
 
 import './main.css';
 
 export const Main: React.FC = (): React.ReactElement => {
-  const { network, setNetwork } = React.useContext(AppNetworkContext);
-
-  const [escrowFactory, setEscrowFactory] = React.useState(
-    networkMap[network].defaultFactoryAddr
-  );
-
-  const onNetworkChange = (networkKey: string) => {
-    setNetwork(networkKey);
-    setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
-  };
+  const { onNetworkChange, escrowFactory, setEscrowFactory, network } =
+    useOnNetworkChange();
 
   return (
     <Box>
@@ -39,6 +28,7 @@ export const Main: React.FC = (): React.ReactElement => {
           >
             <Escrow escrowFactory={escrowFactory} />
           </Box>
+          <LaunchedEscrows />
           <Footer />
         </Box>
       </Box>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Layout from 'src/components/Layout';
+import { Layout } from 'src/components';
 
 describe('when rendered Layout component', () => {
   it('should render passed `children` prop', () => {

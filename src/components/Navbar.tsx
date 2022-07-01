@@ -11,7 +11,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { routes } from 'src/routes';
 
-const Navbar: React.FC = (): React.ReactElement => {
+export const Navbar: React.FC = (): React.ReactElement => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -31,8 +31,8 @@ const Navbar: React.FC = (): React.ReactElement => {
         <Toolbar disableGutters>
           <Box sx={{ display: { xs: 'flex' } }}>
             <Button
-              id="demo-positioned-button"
-              aria-controls={open ? 'demo-positioned-menu' : undefined}
+              id="positioned-button"
+              aria-controls={open ? 'positioned-menu' : undefined}
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleOpenNavMenu}
@@ -40,8 +40,8 @@ const Navbar: React.FC = (): React.ReactElement => {
               Jobs
             </Button>
             <Menu
-              id="demo-positioned-menu"
-              aria-labelledby="demo-positioned-button"
+              id="positioned-menu"
+              aria-labelledby="positioned-button"
               anchorEl={anchorEl}
               open={open}
               onClose={handleCloseNavMenu}
@@ -79,5 +79,3 @@ const Navbar: React.FC = (): React.ReactElement => {
     </Box>
   );
 };
-
-export default Navbar;
