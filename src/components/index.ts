@@ -1,7 +1,8 @@
-export { Escrow, EscrowFactoryView } from './Escrow';
-export { App, AppNetworkContext } from './App';
-export { NetworkSwitcher } from './NetworkSwitcher';
 export { CardBlockWithChildren, CardTextBlock } from './Cards';
+export { Escrow, EscrowFactoryView } from './Escrow';
+export { NetworkSwitcher } from './NetworkSwitcher';
+export { LaunchedEscrows } from './LaunchedEscrows';
+export { App, AppNetworkContext } from './App';
 export { SkeletonLaunched } from './Skeletons';
 export { Navbar } from './Navbar';
 export { Header } from './Header';

@@ -1,7 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Search, Escrow, NetworkSwitcher, Footer } from 'src/components';
-import { LaunchedEscrows } from 'src/pages/LaunchedEscrows';
+import {
+  Search,
+  Escrow,
+  Footer,
+  LaunchedEscrows,
+  NetworkSwitcher,
+} from 'src/components';
 import { useOnNetworkChange } from 'src/hooks';
 import { INDENT } from 'src/ui';
 

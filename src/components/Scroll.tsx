@@ -3,23 +3,23 @@ import * as React from 'react';
 
 type IInfiniteScroll = {
   onBottomHit: () => void;
-  onCalled: boolean;
+  onPressed: boolean;
   isLoading: boolean;
 };
 
 export const InfiniteScroll: React.FC<IInfiniteScroll> = ({
   onBottomHit,
-  onCalled,
+  onPressed,
   isLoading,
   children,
 }) => {
   const contentRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    if (onCalled && !isLoading) {
+    if (onPressed && !isLoading) {
       onBottomHit();
     }
-  }, [onCalled, isLoading, onBottomHit]);
+  }, [onPressed, isLoading, onBottomHit]);
 
   return <Box ref={contentRef}>{children}</Box>;
 };
