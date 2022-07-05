@@ -5,16 +5,24 @@ import { InfiniteScroll } from 'src/components/Scroll';
 import { LaunchedEscrowsView } from './LaunchedEscrowsView';
 import { useLaunchedEscrowsHook } from './hooks';
 
-export const LaunchedEscrows: React.FC = (): React.ReactElement => {
+export type ILaunchedEscrows = {
+  scanner: string;
+};
+
+export const LaunchedEscrows: React.FC<ILaunchedEscrows> = ({
+  scanner,
+}): React.ReactElement | null => {
   const {
+    data,
+    error,
     escrows,
     loading,
-    error,
-    data,
+    onPressed,
     handlePress,
     loadMoreNumbers,
-    onPressed,
-  } = useLaunchedEscrowsHook();
+  } = useLaunchedEscrowsHook(scanner);
+
+  if (!scanner) return null;
 
   return (
     <Box>
@@ -31,7 +39,7 @@ export const LaunchedEscrows: React.FC = (): React.ReactElement => {
         >
           {loading && !error && <SkeletonLaunched />}
           {!loading && data && (
-            <LaunchedEscrowsView launchedEscrows={escrows} />
+            <LaunchedEscrowsView launchedEscrows={escrows} scanner={scanner} />
           )}
         </Box>
       </InfiniteScroll>

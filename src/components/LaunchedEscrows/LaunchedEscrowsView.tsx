@@ -7,12 +7,14 @@ import {
 
 interface ILaunchedEscrows {
   launchedEscrows: ILaunchedEscrowsCard[];
+  scanner: string;
 }
 
 export const LaunchedEscrowsView: React.FC<ILaunchedEscrows> = ({
   launchedEscrows,
+  scanner,
 }): React.ReactElement | null => {
-  if (!launchedEscrows) return null;
+  if (!scanner || !launchedEscrows) return null;
   return (
     <Box
       sx={{
@@ -23,7 +25,7 @@ export const LaunchedEscrowsView: React.FC<ILaunchedEscrows> = ({
       }}
     >
       {launchedEscrows.map(({ id }: ILaunchedEscrowsCard) => (
-        <LaunchedEscrowsCard id={id} key={id} />
+        <LaunchedEscrowsCard id={id} key={id} scanner={scanner} />
       ))}
     </Box>
   );

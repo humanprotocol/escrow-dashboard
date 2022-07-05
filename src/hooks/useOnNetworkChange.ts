@@ -4,16 +4,27 @@ import { networkMap } from 'src/constants';
 
 export const useOnNetworkChange = () => {
   const { network, setNetwork } = React.useContext(AppNetworkContext);
-
-  const [escrowFactory, setEscrowFactory] = React.useState(
+  const [scannerUrl, setScannerUrl] = React.useState<string>('');
+  const [escrowFactory, setEscrowFactory] = React.useState<string>(
     networkMap[network].defaultFactoryAddr
   );
 
-  const onNetworkChange = (networkKey: string) => {
-    const validKey = networkKey.replace(/\W/g, '');
-    setNetwork(validKey);
-    setEscrowFactory(networkMap[validKey].defaultFactoryAddr);
-  };
+  const onNetworkChange = React.useCallback(
+    (networkKey: string) => {
+      const validKey = networkKey.replace(/\W/g, '');
+      setNetwork(validKey);
+      setEscrowFactory(networkMap[network].defaultFactoryAddr);
+      setScannerUrl('');
+    },
+    [network, setNetwork]
+  );
 
-  return { onNetworkChange, escrowFactory, setEscrowFactory, network };
+  return {
+    setEscrowFactory,
+    onNetworkChange,
+    setScannerUrl,
+    escrowFactory,
+    scannerUrl,
+    network,
+  };
 };

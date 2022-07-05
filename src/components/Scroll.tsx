@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
 import * as React from 'react';
 
-type IInfiniteScroll = {
+interface IInfiniteScroll {
   onBottomHit: () => void;
   onPressed: boolean;
   isLoading: boolean;
-};
+}
 
 export const InfiniteScroll: React.FC<IInfiniteScroll> = ({
   onBottomHit,

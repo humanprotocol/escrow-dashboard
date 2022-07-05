@@ -13,8 +13,14 @@ import { INDENT } from 'src/ui';
 import './main.css';
 
 export const Main: React.FC = (): React.ReactElement => {
-  const { onNetworkChange, escrowFactory, setEscrowFactory, network } =
-    useOnNetworkChange();
+  const {
+    setEscrowFactory,
+    onNetworkChange,
+    setScannerUrl,
+    escrowFactory,
+    scannerUrl,
+    network,
+  } = useOnNetworkChange();
 
   return (
     <Box>
@@ -31,10 +37,13 @@ export const Main: React.FC = (): React.ReactElement => {
               mt: INDENT.M,
             }}
           >
-            <Escrow escrowFactory={escrowFactory} />
+            <Escrow
+              escrowFactory={escrowFactory}
+              setScannerUrl={setScannerUrl}
+            />
           </Box>
-          <LaunchedEscrows />
           <Footer />
+          <LaunchedEscrows scanner={scannerUrl} />
         </Box>
       </Box>
     </Box>

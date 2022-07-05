@@ -2,7 +2,7 @@ import { LAUNCHED_ESCROWS } from 'src/queries';
 import * as React from 'react';
 import { useQuery } from '@apollo/client';
 
-export const useLaunchedEscrowsHook = () => {
+export const useLaunchedEscrowsHook = (scanner: string) => {
   const [page, setPage] = React.useState(0);
 
   const { loading, error, data, refetch } = useQuery(LAUNCHED_ESCROWS, {
@@ -17,7 +17,12 @@ export const useLaunchedEscrowsHook = () => {
     () => data?.launchedEscrows || [],
     [data]
   );
+
   const [escrows, setEscrows] = React.useState(launchedEscrows || []);
+  React.useEffect(() => {
+    setEscrows(launchedEscrows);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scanner]);
 
   React.useEffect(() => {
     if (!loading) {
@@ -35,12 +40,12 @@ export const useLaunchedEscrowsHook = () => {
   const handlePress = () => setOnPressed((prev) => !prev);
 
   return {
+    data,
+    error,
     escrows,
     loading,
-    error,
+    onPressed,
     handlePress,
     loadMoreNumbers,
-    onPressed,
-    data,
   };
 };
