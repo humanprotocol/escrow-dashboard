@@ -8,28 +8,28 @@ export const SkeletonLaunched: React.FC = (): React.ReactElement => {
       <Stack spacing={1}>
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="rectangular"
-          width={450}
+          width={430}
           height={120}
           animation="wave"
           style={{ marginBottom: 10 }}
@@ -37,28 +37,28 @@ export const SkeletonLaunched: React.FC = (): React.ReactElement => {
 
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="rectangular"
-          width={450}
+          width={430}
           height={120}
           animation="wave"
           style={{ marginBottom: 10 }}
@@ -66,28 +66,28 @@ export const SkeletonLaunched: React.FC = (): React.ReactElement => {
 
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="text"
-          width={450}
+          width={430}
           height={20}
           animation="wave"
           style={{ marginBottom: 10 }}
         />
         <Skeleton
           variant="rectangular"
-          width={450}
+          width={430}
           height={120}
           animation="wave"
           style={{ marginBottom: 10 }}

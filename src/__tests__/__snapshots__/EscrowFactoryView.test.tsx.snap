@@ -86,7 +86,7 @@ exports[`EscrowFactoryView component renders correctly, corresponds to the snaps
         href="test.url"
         onBlur={[Function]}
         onFocus={[Function]}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
       >
         test-scanner

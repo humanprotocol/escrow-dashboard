@@ -12,7 +12,7 @@ export const Footer: React.FC = (): React.ReactElement => (
         <Link
           href="https://github.com/humanprotocol/hmt-escrow"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           HMT Escrow Source Code
         </Link>

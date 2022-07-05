@@ -26,22 +26,15 @@ export const LaunchedEscrowsCard: React.FC<ILaunchedEscrowsCard> = ({
       <CardContent>
         {id && (
           <>
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              Escrow Address:
+            </Typography>
             <Link
               href={`${scanner}${id}`}
-              underline="hover"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Escrow Address:
-              </Typography>
-              <Typography
-                sx={{ mb: 1.5 }}
-                variant="body2"
-                color="text.secondary"
-              >
-                {id}
-              </Typography>
+              {id}
             </Link>
           </>
         )}

@@ -33,7 +33,7 @@ export const LaunchedEscrows: React.FC<ILaunchedEscrows> = ({
       >
         <Box
           sx={{
-            width: '450px',
+            width: '430px',
             margin: '0 auto',
           }}
         >

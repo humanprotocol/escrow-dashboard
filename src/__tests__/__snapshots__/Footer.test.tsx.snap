@@ -15,7 +15,7 @@ exports[`Footer component renders correctly, corresponds to the snapshot 1`] = `
         href="https://github.com/humanprotocol/hmt-escrow"
         onBlur={[Function]}
         onFocus={[Function]}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
       >
         HMT Escrow Source Code

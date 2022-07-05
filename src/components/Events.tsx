@@ -17,7 +17,7 @@ const Events: React.FC<IEvents> = ({ url, scanner }): React.ReactElement => {
           All deployed escrows
         </Typography>
       </Divider>
-      <Link href={url} target="_blank" rel="noreferrer" align="center">
+      <Link href={url} target="_blank" rel="noopener noreferrer" align="center">
         {scanner}
       </Link>
       <Typography

@@ -23,7 +23,7 @@ exports[`Events component renders correctly, corresponds to the snapshot 1`] = `
     href="Url"
     onBlur={[Function]}
     onFocus={[Function]}
-    rel="noreferrer"
+    rel="noopener noreferrer"
     target="_blank"
   >
     TestScanner
