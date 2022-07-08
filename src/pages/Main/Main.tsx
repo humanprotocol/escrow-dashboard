@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 import { INDENT } from 'src/ui';
 import { networkMap } from 'src/constants';
-import { Escrow, AppNetworkContext } from 'src/components';
+import { Escrow, Token, AppNetworkContext } from 'src/components';
 import NetworkSwitcher from 'src/components/NetworkSwitcher';
 import Footer from 'src/components/Footer';
 
@@ -15,6 +15,7 @@ export const Main: React.FC = (): React.ReactElement => {
   const [escrowFactory, setEscrowFactory] = React.useState(
     networkMap[network].defaultFactoryAddr
   );
+  const { showTokenStats } = networkMap[network];
 
   const onNetworkChange = (networkKey: string) => {
     setNetwork(networkKey);
@@ -37,6 +38,15 @@ export const Main: React.FC = (): React.ReactElement => {
           >
             <Escrow escrowFactory={escrowFactory} />
           </Box>
+          {showTokenStats && (
+            <Box
+              sx={{
+                mt: INDENT.M,
+              }}
+            >
+              <Token />
+            </Box>
+          )}
           <Footer />
         </Box>
       </Box>

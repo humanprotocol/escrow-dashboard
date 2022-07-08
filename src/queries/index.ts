@@ -18,3 +18,15 @@ export const ESCROW_STATS = gql`
     }
   }
 `;
+
+export const TOKEN_STATS = gql`
+  query GetHmtStatistics {
+    hmtokenStatistics(id: "hmt-statistics-1") {
+      transferEventCount
+      bulkTransferEventCount
+      approvalEventCount
+      bulkApprovalEventCount
+      token
+    }
+  }
+`;

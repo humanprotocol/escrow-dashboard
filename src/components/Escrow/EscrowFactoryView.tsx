@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Events from '../Events';
-import { CardTextBlock } from '../Cards';
+import { CardTextBlock, CardLinkBox } from '../Cards';
 
 interface IEscrow {
   count: number;
@@ -55,17 +54,27 @@ export const EscrowFactoryView: React.FC<IEscrow> = ({
         <CardTextBlock title="Escrow Factory Address" value={address} />
         <CardTextBlock title="Latest Escrow" value={latestEscrow} />
         <CardTextBlock title="Amount Of Escrows" value={count} />
-        <CardTextBlock title="Pending Events" value={pendingEventCount} />
         <CardTextBlock
-          title="BulkTransfer Events"
+          title="All Escrows Pending Events"
+          value={pendingEventCount}
+        />
+        <CardTextBlock
+          title="All Escrows BulkTransfer Events"
           value={bulkTransferEventCount}
         />
         <CardTextBlock
-          title="IntermediateStorage Events"
+          title="All Escrows IntermediateStorage Events"
           value={intermediateStorageEventCount}
         />
-        <CardTextBlock title="Total Number Of events" value={totalEvents} />
-        <Events url={eventsUrl} scanner={scanner} />
+        <CardTextBlock
+          title="Total Number Of Escrows Events"
+          value={totalEvents}
+        />
+        <CardLinkBox
+          url={eventsUrl}
+          text={scanner}
+          header="All Launched Escrows"
+        />
       </CardContent>
     </Card>
   );
