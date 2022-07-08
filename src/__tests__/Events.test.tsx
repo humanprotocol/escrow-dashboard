@@ -1,47 +1,42 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Events from '../components/Events';
+import { CardLinkBox } from '../components/Cards';
 
 const mock = {
   url: 'Url',
-  scanner: 'TestScanner',
-  text1: 'All deployed escrows',
-  text2: 'Each event has a payload of ERC20 token address and Escrow Address',
-  text3:
-    'Change the type of the second argument to "Address" to see an Escrow address',
+  text: 'TestScanner',
+  header: 'All Deployed Escrows',
 };
 
-describe('when rendered Events component', () => {
+describe('when rendered CardLinkBox component', () => {
   it('should render passed prop `url`', () => {
-    render(<Events url={mock.url} scanner={mock.scanner} />);
+    render(
+      <CardLinkBox url={mock.url} text={mock.text} header={mock.header} />
+    );
     expect(screen.findByLabelText(mock.url)).toBeTruthy();
   });
 
   it('should render passed prop `scanner`', () => {
-    render(<Events url={mock.url} scanner={mock.scanner} />);
+    render(
+      <CardLinkBox url={mock.url} text={mock.text} header={mock.header} />
+    );
     expect(screen.findByLabelText(mock.scanner)).toBeTruthy();
   });
 
-  it('should render prop `text1`', () => {
-    render(<Events url={mock.url} scanner={mock.scanner} />);
-    expect(screen.findByLabelText(mock.text1)).toBeTruthy();
-  });
-
-  it('should render prop `text2`', () => {
-    render(<Events url={mock.url} scanner={mock.scanner} />);
-    expect(screen.findByLabelText(mock.text2)).toBeTruthy();
-  });
-
-  it('should render prop `text3`', () => {
-    render(<Events url={mock.url} scanner={mock.scanner} />);
-    expect(screen.findByLabelText(mock.text3)).toBeTruthy();
+  it('should render prop `header`', () => {
+    render(
+      <CardLinkBox url={mock.url} text={mock.text} header={mock.header} />
+    );
+    expect(screen.findByLabelText(mock.header)).toBeTruthy();
   });
 });
 
-it('Events component renders correctly, corresponds to the snapshot', () => {
+it('CardLinkBox component renders correctly, corresponds to the snapshot', () => {
   const tree = renderer
-    .create(<Events url={mock.url} scanner={mock.scanner} />)
+    .create(
+      <CardLinkBox url={mock.url} scanner={mock.scanner} header={mock.header} />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
