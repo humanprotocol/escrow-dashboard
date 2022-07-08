@@ -10,21 +10,61 @@ interface IEscrow {
   latestEscrow: string;
   eventsUrl: string;
   scanner: string;
+  pendingEventCount?: number | string;
+  bulkTransferEventCount?: number | string;
+  intermediateStorageEventCount?: number | string;
 }
 
+function getTotal(
+  pendingEventCount: number | string,
+  bulkTransferEventCount: number | string,
+  intermediateStorageEventCount: number | string
+): number | string {
+  if (
+    typeof pendingEventCount === 'string' &&
+    typeof bulkTransferEventCount === 'string' &&
+    typeof intermediateStorageEventCount === 'string'
+  ) {
+    return 'N/A';
+  }
+
+  return (
+    Number(pendingEventCount) +
+    Number(bulkTransferEventCount) +
+    Number(intermediateStorageEventCount)
+  );
+}
 export const EscrowFactoryView: React.FC<IEscrow> = ({
   count,
   address,
   latestEscrow,
   eventsUrl,
   scanner,
+  pendingEventCount = 'N/A',
+  bulkTransferEventCount = 'N/A',
+  intermediateStorageEventCount = 'N/A',
 }): React.ReactElement => {
+  const totalEvents = getTotal(
+    pendingEventCount,
+    bulkTransferEventCount,
+    intermediateStorageEventCount
+  );
   return (
     <Card variant="outlined">
       <CardContent>
-        <CardTextBlock title="Address" value={address} />
+        <CardTextBlock title="Escrow Factory Address" value={address} />
         <CardTextBlock title="Latest Escrow" value={latestEscrow} />
-        <CardTextBlock title="Amount of jobs" value={count} />
+        <CardTextBlock title="Amount Of Escrows" value={count} />
+        <CardTextBlock title="Pending Events" value={pendingEventCount} />
+        <CardTextBlock
+          title="BulkTransfer Events"
+          value={bulkTransferEventCount}
+        />
+        <CardTextBlock
+          title="IntermediateStorage Events"
+          value={intermediateStorageEventCount}
+        />
+        <CardTextBlock title="Total Number Of events" value={totalEvents} />
         <Events url={eventsUrl} scanner={scanner} />
       </CardContent>
     </Card>

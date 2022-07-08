@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 
 import { INDENT } from 'src/ui';
-import Search from 'src/components/Search';
 import { networkMap } from 'src/constants';
 import { Escrow, AppNetworkContext } from 'src/components';
 import NetworkSwitcher from 'src/components/NetworkSwitcher';
@@ -30,7 +29,6 @@ export const Main: React.FC = (): React.ReactElement => {
             onNetworkChange={onNetworkChange}
             network={network}
           />
-          <Search onSetEscrow={setEscrowFactory} />
           <Box
             className="escrow-wrapper"
             sx={{

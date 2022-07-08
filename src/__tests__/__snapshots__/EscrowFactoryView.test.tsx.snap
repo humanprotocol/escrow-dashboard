@@ -17,7 +17,7 @@ exports[`EscrowFactoryView component renders correctly, corresponds to the snaps
         <p
           className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
         >
-          Address
+          Escrow Factory Address
         </p>
       </span>
     </div>
@@ -55,7 +55,7 @@ exports[`EscrowFactoryView component renders correctly, corresponds to the snaps
         <p
           className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
         >
-          Amount of jobs
+          Amount Of Escrows
         </p>
       </span>
     </div>
@@ -63,6 +63,82 @@ exports[`EscrowFactoryView component renders correctly, corresponds to the snaps
       className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
     >
       10
+    </p>
+    <div
+      className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"
+      role="separator"
+    >
+      <span
+        className="MuiDivider-wrapper css-qywfm8-MuiDivider-wrapper"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
+          Pending Events
+        </p>
+      </span>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+    >
+      1
+    </p>
+    <div
+      className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"
+      role="separator"
+    >
+      <span
+        className="MuiDivider-wrapper css-qywfm8-MuiDivider-wrapper"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
+          BulkTransfer Events
+        </p>
+      </span>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+    >
+      1
+    </p>
+    <div
+      className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"
+      role="separator"
+    >
+      <span
+        className="MuiDivider-wrapper css-qywfm8-MuiDivider-wrapper"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
+          IntermediateStorage Events
+        </p>
+      </span>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+    >
+      1
+    </p>
+    <div
+      className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"
+      role="separator"
+    >
+      <span
+        className="MuiDivider-wrapper css-qywfm8-MuiDivider-wrapper"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
+          Total Number Of events
+        </p>
+      </span>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+    >
+      3
     </p>
     <div
       className="MuiBox-root css-xi606m"
