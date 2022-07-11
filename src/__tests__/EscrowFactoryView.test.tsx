@@ -9,6 +9,9 @@ const mock = {
   latestEscrow: 'eaac4d45c3c41f449cf7c94622afacbc',
   eventsUrl: 'test.url',
   scanner: 'test-scanner',
+  pendingEventCount: 1,
+  bulkTransferEventCount: 1,
+  intermediateStorageEventCount: 1,
 };
 
 describe('when rendered CardTextBlock component', () => {
@@ -20,6 +23,9 @@ describe('when rendered CardTextBlock component', () => {
         latestEscrow={mock.latestEscrow}
         eventsUrl={mock.eventsUrl}
         scanner={mock.scanner}
+        pendingEventCount={mock.pendingEventCount}
+        bulkTransferEventCount={mock.bulkTransferEventCount}
+        intermediateStorageEventCount={mock.intermediateStorageEventCount}
       />
     );
     expect(screen.getByText(mock.count)).toBeInTheDocument();
@@ -33,6 +39,9 @@ describe('when rendered CardTextBlock component', () => {
         latestEscrow={mock.latestEscrow}
         eventsUrl={mock.eventsUrl}
         scanner={mock.scanner}
+        pendingEventCount={mock.pendingEventCount}
+        bulkTransferEventCount={mock.bulkTransferEventCount}
+        intermediateStorageEventCount={mock.intermediateStorageEventCount}
       />
     );
     expect(screen.findByLabelText(mock.address)).toBeTruthy();
@@ -46,6 +55,9 @@ describe('when rendered CardTextBlock component', () => {
         latestEscrow={mock.latestEscrow}
         eventsUrl={mock.eventsUrl}
         scanner={mock.scanner}
+        pendingEventCount={mock.pendingEventCount}
+        bulkTransferEventCount={mock.bulkTransferEventCount}
+        intermediateStorageEventCount={mock.intermediateStorageEventCount}
       />
     );
     expect(screen.findByLabelText(mock.latestEscrow)).toBeTruthy();
@@ -59,6 +71,9 @@ describe('when rendered CardTextBlock component', () => {
         latestEscrow={mock.latestEscrow}
         eventsUrl={mock.eventsUrl}
         scanner={mock.scanner}
+        pendingEventCount={mock.pendingEventCount}
+        bulkTransferEventCount={mock.bulkTransferEventCount}
+        intermediateStorageEventCount={mock.intermediateStorageEventCount}
       />
     );
     expect(screen.findByLabelText(mock.eventsUrl)).toBeTruthy();
@@ -72,6 +87,9 @@ describe('when rendered CardTextBlock component', () => {
         latestEscrow={mock.latestEscrow}
         eventsUrl={mock.eventsUrl}
         scanner={mock.scanner}
+        pendingEventCount={mock.pendingEventCount}
+        bulkTransferEventCount={mock.bulkTransferEventCount}
+        intermediateStorageEventCount={mock.intermediateStorageEventCount}
       />
     );
     expect(screen.findByLabelText(mock.scanner)).toBeTruthy();
@@ -87,6 +105,9 @@ it('EscrowFactoryView component renders correctly, corresponds to the snapshot',
         latestEscrow={mock.latestEscrow}
         eventsUrl={mock.eventsUrl}
         scanner={mock.scanner}
+        pendingEventCount={mock.pendingEventCount}
+        bulkTransferEventCount={mock.bulkTransferEventCount}
+        intermediateStorageEventCount={mock.intermediateStorageEventCount}
       />
     )
     .toJSON();

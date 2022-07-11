@@ -12,7 +12,7 @@ export const CardTextBlock: React.FC<ICardTextBlock> = ({
   value,
 }): React.ReactElement => (
   <>
-    <Divider textAlign="center" sx={{ mt: INDENT.S }}>
+    <Divider textAlign="center" sx={{ my: INDENT.S }}>
       <Typography variant="body2" color="text.secondary">
         {title}
       </Typography>
