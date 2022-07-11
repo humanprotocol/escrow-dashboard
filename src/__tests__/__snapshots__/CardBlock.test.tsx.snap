@@ -3,7 +3,7 @@
 exports[`CardTextBlock component renders correctly, corresponds to the snapshot 1`] = `
 Array [
   <div
-    className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-n4pdsy-MuiDivider-root"
+    className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-16qoh2c-MuiDivider-root"
     role="separator"
   >
     <span
