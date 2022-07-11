@@ -17,7 +17,7 @@ export const CardLinkBox: React.FC<ICardLinkBox> = ({
 }): React.ReactElement => {
   return (
     <Box textAlign="center">
-      <Divider sx={{ mt: INDENT.S }}>
+      <Divider sx={{ my: INDENT.S }}>
         <Typography variant="body2" color="text.secondary">
           {header}
         </Typography>

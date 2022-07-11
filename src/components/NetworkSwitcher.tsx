@@ -17,7 +17,7 @@ const NetworkSwitcher: React.FC<INetworkSwitcher> = ({
     id="network-select"
     value={network}
     size="small"
-    sx={{ mt: INDENT.L, minWidth: '350px' }}
+    sx={{ mt: INDENT.L }}
     onChange={(event) => onNetworkChange(event.target.value)}
   >
     {networks.map((net) => (

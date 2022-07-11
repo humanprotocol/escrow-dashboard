@@ -34,17 +34,14 @@ export const Main: React.FC = (): React.ReactElement => {
             className="escrow-wrapper"
             sx={{
               mt: INDENT.M,
-              minWidth: '350px',
             }}
           >
             <Escrow escrowFactory={escrowFactory} />
           </Box>
           {showTokenStats && (
             <Box
-              className="escrow-wrapper"
               sx={{
                 mt: INDENT.M,
-                minWidth: '350px',
               }}
             >
               <Token />
