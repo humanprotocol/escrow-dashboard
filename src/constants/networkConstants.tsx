@@ -57,5 +57,16 @@ export const networkMap: INetworkMap = {
     // the graph is not implemented yet
     showTokenStats: false,
   },
+  moonbeam: {
+    title: 'Moonbeam Mainnet',
+    key: 'moonbeam',
+    scanner: 'https://moonbeam.moonscan.io',
+    rpcUrl: 'https://rpc.api.moonbeam.network',
+    defaultFactoryAddr: '0x98108c28B7767a52BE38B4860832dd4e11A7ecad',
+    hmtAddr: '0x3b25BC1dC591D24d60560d0135D6750A561D4764',
+    graphqlClientUrl:
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/moonbeam',
+    showTokenStats: true,
+  },
 };
 export const networks = Object.values(networkMap).map((network) => network);
