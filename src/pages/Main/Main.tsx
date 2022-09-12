@@ -1,54 +1,21 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 
-import { INDENT } from 'src/ui';
-import { networkMap } from 'src/constants';
-import { Escrow, Token, AppNetworkContext } from 'src/components';
-import NetworkSwitcher from 'src/components/NetworkSwitcher';
-import Footer from 'src/components/Footer';
-
-import './main.css';
+import { NetworkView, LatestNewsView, TokenView } from './views';
 
 export const Main: React.FC = (): React.ReactElement => {
-  const { network, setNetwork } = React.useContext(AppNetworkContext);
-
-  const [escrowFactory, setEscrowFactory] = React.useState(
-    networkMap[network].defaultFactoryAddr
-  );
-  const { showTokenStats } = networkMap[network];
-
-  const onNetworkChange = (networkKey: string) => {
-    setNetwork(networkKey);
-    setEscrowFactory(networkMap[networkKey].defaultFactoryAddr);
-  };
-
   return (
-    <Box>
-      <Box className="wrapper">
-        <Box className="inner-wrapper">
-          <NetworkSwitcher
-            onNetworkChange={onNetworkChange}
-            network={network}
-          />
-          <Box
-            className="escrow-wrapper"
-            sx={{
-              mt: INDENT.M,
-            }}
-          >
-            <Escrow escrowFactory={escrowFactory} />
-          </Box>
-          {showTokenStats && (
-            <Box
-              sx={{
-                mt: INDENT.M,
-              }}
-            >
-              <Token />
-            </Box>
-          )}
-          <Footer />
-        </Box>
+    <Box sx={{ px: '56px' }}>
+      <Box
+        sx={{
+          background: '#f6f7fe',
+          borderRadius: '40px',
+          padding: '70px 90px',
+        }}
+      >
+        <NetworkView />
+        <LatestNewsView />
+        <TokenView />
       </Box>
     </Box>
   );
