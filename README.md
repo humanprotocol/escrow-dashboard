@@ -25,4 +25,7 @@ The build is minified and the filenames include the hashes.
 
 ### `yarn test/ run lint`
 
+# CI and CD documentation
+https://www.notion.so/human-protocol/Escrow-Dashboard-47d26b3be14f4ad395e2fcd4a168d77f
+
 
