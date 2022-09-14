@@ -28,7 +28,7 @@ export const EscrowContainer: React.FC<IEscrowContainer> = ({
   const { rpcUrl } = networkMap[network];
 
   const { data: queryResponse } = useQuery(ESCROW_STATS);
-  if (queryResponse) {
+  if (queryResponse?.escrowStatistics) {
     pendingEventCount = Number(
       queryResponse.escrowStatistics.pendingEventCount
     );
