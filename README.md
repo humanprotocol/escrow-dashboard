@@ -25,4 +25,18 @@ The build is minified and the filenames include the hashes.
 
 ### `yarn test/ run lint`
 
+# Branching
+[GitFlow convention](https://www.gitkraken.com/learn/git/git-flow) is to be followed (and feature PRs should target `develop` branch rather than `master`)
 
+# Deployment
+
+[Internal CI CD documentation](https://www.notion.so/human-protocol/Escrow-Dashboard-47d26b3be14f4ad395e2fcd4a168d77f)
+
+## Deployment Endpoints
+
+`develop` branch → staging: http://ec2-18-219-139-195.us-east-2.compute.amazonaws.com/ 
+
+`master` branch → production: https://dashboard.humanprotocol.org/
+
+# Tests
+Feel free to add your own automated tests following GiHub Actions documentation
