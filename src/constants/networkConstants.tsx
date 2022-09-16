@@ -86,8 +86,8 @@ export const networkMap: INetworkMap = {
     rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
     defaultFactoryAddr: '0x161228DaAB6F935548E2B98f6cedC9FF648C781d',
     hmtAddr: '0x1f613bc2f4e741EA96d30A5957fF7fA6916acDD6',
-    graphqlClientUrl: 'https://api.thegraph.com',
-    // the graph is not implemented yet
+    graphqlClientUrl:
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/bsctest',
     showTokenStats: false,
   },
 };
