@@ -11,18 +11,18 @@ interface ITokenContainer {}
 export const TokenContainer: React.FC<ITokenContainer> =
   (): React.ReactElement => {
     const { network } = React.useContext(AppNetworkContext);
-    let transferEventCount;
-    let approvalEventCount;
+    let totalTransferEventCount;
+    let totalApprovalEventCount;
 
     const { scanner, hmtAddr } = networkMap[network];
     const { data: queryResponse } = useQuery(TOKEN_STATS);
 
     if (queryResponse) {
-      transferEventCount = Number(
-        queryResponse.hmtokenStatistics.transferEventCount
+      totalTransferEventCount = Number(
+        queryResponse.hmtokenStatistics.totalTransferEventCount
       );
-      approvalEventCount = Number(
-        queryResponse.hmtokenStatistics.approvalEventCount
+      totalApprovalEventCount = Number(
+        queryResponse.hmtokenStatistics.totalApprovalEventCount
       );
     }
 
@@ -30,8 +30,8 @@ export const TokenContainer: React.FC<ITokenContainer> =
       <TokenView
         address={hmtAddr}
         scanner={scanner}
-        transferEventCount={transferEventCount}
-        approvalEventCount={approvalEventCount}
+        transferEventCount={totalTransferEventCount}
+        approvalEventCount={totalApprovalEventCount}
       />
     );
   };

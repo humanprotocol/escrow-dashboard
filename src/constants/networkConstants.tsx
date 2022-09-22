@@ -23,6 +23,17 @@ export const networkMap: INetworkMap = {
       'https://api.thegraph.com/subgraphs/name/humanprotocol/polygon',
     showTokenStats: true,
   },
+  bsc: {
+    title: 'Binance Smart Chain Mainnet',
+    key: 'bsc',
+    scanner: 'https://bscscan.com',
+    rpcUrl: 'https://bsc-dataseed1.binance.org/',
+    defaultFactoryAddr: '0xc88bC422cAAb2ac8812de03176402dbcA09533f4',
+    hmtAddr: '0x0d501B743F22b641B8C8dfe00F1AAb881D57DDC7',
+    graphqlClientUrl:
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/bsc',
+    showTokenStats: true,
+  },
   mumbai: {
     title: 'Polygon Mumbai Testnet',
     key: 'mumbai',
@@ -67,6 +78,17 @@ export const networkMap: INetworkMap = {
     graphqlClientUrl:
       'https://api.thegraph.com/subgraphs/name/humanprotocol/moonbeam',
     showTokenStats: true,
+  },
+  bsctest: {
+    title: 'Binance Smart Chain Testnet',
+    key: 'bsctest',
+    scanner: 'https://testnet.bscscan.com',
+    rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+    defaultFactoryAddr: '0x161228DaAB6F935548E2B98f6cedC9FF648C781d',
+    hmtAddr: '0x1f613bc2f4e741EA96d30A5957fF7fA6916acDD6',
+    graphqlClientUrl:
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/bsctest',
+    showTokenStats: false,
   },
 };
 export const networks = Object.values(networkMap).map((network) => network);
