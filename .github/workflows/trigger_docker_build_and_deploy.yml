@@ -13,7 +13,6 @@ permissions:
 
 jobs:
   trigger-build-and-deploy:
-    if: github.repository.owner == 'humanprotocol'
     name: Trigger build and deploy image
     runs-on: ubuntu-latest
 
