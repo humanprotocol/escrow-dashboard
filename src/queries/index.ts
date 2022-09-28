@@ -13,19 +13,20 @@ export const ESCROW_STATS = gql`
   query GetEscrowStatistics {
     escrowStatistics(id: "escrow-statistics-id") {
       intermediateStorageEventCount
-      pendingEventCount
       bulkTransferEventCount
+      pendingEventCount
+      totalEventCount
+      totalEscrowCount
     }
   }
 `;
 
 export const TOKEN_STATS = gql`
   query GetHmtStatistics {
-    hmtokenStatistics(id: "hmt-statistics-1") {
-      transferEventCount
-      bulkTransferEventCount
-      approvalEventCount
-      bulkApprovalEventCount
+    hmtokenStatistics(id: "hmt-statistics-id") {
+      totalApprovalEventCount
+      totalTransferEventCount
+      totalValueTransfered
       token
     }
   }
