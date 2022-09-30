@@ -1,21 +1,24 @@
 import { Tab, Tabs } from '@mui/material';
 import React from 'react';
+import { useNetwork } from 'src/hooks/useNetwork';
 
-// import EthereumIcon from '../icons/EthreumIcon';
-import HumanIcon from '../Icons/HumanIcon';
-// import NeonIcon from '../icons/NeonIcon';
 import PolygonIcon from '../Icons/PolygonIcon';
 
 const tabs = [
-  { id: 'all', title: 'All Networks', icon: <HumanIcon /> },
   { id: 'polygon', title: 'Polygon', icon: <PolygonIcon /> },
-  { id: 'eth-rinkeby', title: 'Ethereum Rinkeby', icon: <PolygonIcon /> },
-  { id: 'neonlabs', title: 'NeonLabs', icon: <PolygonIcon /> },
+  { id: 'rinkeby', title: 'Ethereum Rinkeby', icon: <PolygonIcon /> },
+  { id: 'moonbeam', title: 'Moonbeam', icon: <PolygonIcon /> },
 ];
 
 export default function NetworkTabs() {
+  const { networkId, switchNetwork } = useNetwork();
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    switchNetwork(newValue);
+  };
+
   return (
-    <Tabs sx={{ my: '44px' }} value="all">
+    <Tabs sx={{ my: '44px' }} value={networkId} onChange={handleChange}>
       {tabs.map(({ id, title, icon }) => (
         <Tab
           key={id}

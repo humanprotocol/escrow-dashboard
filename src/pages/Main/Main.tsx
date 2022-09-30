@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 
+import { NetworkProvider } from 'src/hooks/useNetwork';
 import { NetworkView, LatestNewsView, TokenView } from './views';
 
 export const Main: React.FC = (): React.ReactElement => {
@@ -13,7 +14,9 @@ export const Main: React.FC = (): React.ReactElement => {
           padding: '70px 90px',
         }}
       >
-        <NetworkView />
+        <NetworkProvider>
+          <NetworkView />
+        </NetworkProvider>
         <LatestNewsView />
         <TokenView />
       </Box>
