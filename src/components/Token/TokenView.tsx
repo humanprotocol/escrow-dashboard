@@ -8,6 +8,7 @@ interface IToken {
   scanner: string;
   transferEventCount?: number | string;
   approvalEventCount?: number | string;
+  holders?: number | string;
 }
 
 function getTotal(
@@ -28,6 +29,7 @@ export const TokenView: React.FC<IToken> = ({
   scanner,
   transferEventCount = 'N/A',
   approvalEventCount = 'N/A',
+  holders = 'N/A',
 }): React.ReactElement => {
   const totalEvents = getTotal(transferEventCount, approvalEventCount);
   const hmtUrl = `${scanner}/address/${address}`;
@@ -37,6 +39,7 @@ export const TokenView: React.FC<IToken> = ({
         <CardLinkBox url={hmtUrl} text={address} header="Token Address" />
         <CardTextBlock title="Token Transfers" value={transferEventCount} />
         <CardTextBlock title="Token Approvals" value={approvalEventCount} />
+        <CardTextBlock title="Token Holders" value={holders} />
         <CardTextBlock
           title="Total Number Of Token Events"
           value={totalEvents}

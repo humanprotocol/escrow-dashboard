@@ -32,6 +32,7 @@ export const TokenContainer: React.FC<ITokenContainer> =
         scanner={scanner}
         transferEventCount={totalTransferEventCount}
         approvalEventCount={totalApprovalEventCount}
+        holders={queryResponse?.hmtokenStatistics.holders}
       />
     );
   };

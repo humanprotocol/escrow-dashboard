@@ -28,6 +28,7 @@ export const TOKEN_STATS = gql`
       totalTransferEventCount
       totalValueTransfered
       token
+      holders
     }
   }
 `;
