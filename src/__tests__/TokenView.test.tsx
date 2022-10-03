@@ -8,6 +8,7 @@ const mock = {
   scanner: 'test-scanner',
   transferEventCount: 2034,
   approvalEventCount: 1343,
+  holders: 12345,
 };
 
 describe('when rendered CardTextBlock component', () => {
@@ -18,6 +19,7 @@ describe('when rendered CardTextBlock component', () => {
         scanner={mock.scanner}
         transferEventCount={mock.transferEventCount}
         approvalEventCount={mock.approvalEventCount}
+        holders={mock.holders}
       />
     );
     expect(screen.findByLabelText(mock.address)).toBeTruthy();
@@ -29,6 +31,7 @@ describe('when rendered CardTextBlock component', () => {
         scanner={mock.scanner}
         transferEventCount={mock.transferEventCount}
         approvalEventCount={mock.approvalEventCount}
+        holders={mock.holders}
       />
     );
     expect(screen.findByLabelText(mock.scanner)).toBeTruthy();
@@ -40,6 +43,7 @@ describe('when rendered CardTextBlock component', () => {
         scanner={mock.scanner}
         transferEventCount={mock.transferEventCount}
         approvalEventCount={mock.approvalEventCount}
+        holders={mock.holders}
       />
     );
     expect(screen.getByText(mock.transferEventCount)).toBeInTheDocument();
@@ -52,9 +56,22 @@ describe('when rendered CardTextBlock component', () => {
         scanner={mock.scanner}
         transferEventCount={mock.transferEventCount}
         approvalEventCount={mock.approvalEventCount}
+        holders={mock.holders}
       />
     );
     expect(screen.getByText(mock.approvalEventCount)).toBeInTheDocument();
+  });
+  it('should render passed prop `holders`', () => {
+    render(
+      <TokenView
+        address={mock.address}
+        scanner={mock.scanner}
+        transferEventCount={mock.transferEventCount}
+        approvalEventCount={mock.approvalEventCount}
+        holders={mock.holders}
+      />
+    );
+    expect(screen.getByText(mock.holders)).toBeInTheDocument();
   });
 });
 
@@ -66,6 +83,7 @@ it('TokenView component renders correctly, corresponds to the snapshot', () => {
         scanner={mock.scanner}
         transferEventCount={mock.scanner}
         approvalEventCount={mock.approvalEventCount}
+        holders={mock.holders}
       />
     )
     .toJSON();

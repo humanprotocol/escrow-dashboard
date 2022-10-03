@@ -21,6 +21,13 @@ exports[`Layout component renders correctly, corresponds to the snapshot 1`] = `
           >
             HUMAN Escrow Factory Dashboard
           </div>
+          <div
+            className="MuiTypography-root MuiTypography-h6 css-vr6w4y-MuiTypography-root"
+          >
+            Price : 
+            
+             $
+          </div>
         </div>
       </div>
     </header>

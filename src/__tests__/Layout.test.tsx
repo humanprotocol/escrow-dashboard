@@ -3,6 +3,14 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Layout from 'src/components/Layout';
 
+const MOCK_PRICES = { 'human-protocol': { usd: 23 } };
+// @ts-ignore
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(MOCK_PRICES),
+  })
+);
+
 describe('when rendered Layout component', () => {
   it('should render passed `children` prop', () => {
     const { getByTestId } = render(

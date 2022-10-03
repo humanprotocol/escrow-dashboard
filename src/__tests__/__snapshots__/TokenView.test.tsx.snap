@@ -83,6 +83,25 @@ exports[`TokenView component renders correctly, corresponds to the snapshot 1`] 
         <p
           className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
         >
+          Token Holders
+        </p>
+      </span>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body2 css-1ypfif-MuiTypography-root"
+    >
+      12345
+    </p>
+    <div
+      className="MuiDivider-root MuiDivider-fullWidth MuiDivider-withChildren css-16qoh2c-MuiDivider-root"
+      role="separator"
+    >
+      <span
+        className="MuiDivider-wrapper css-qywfm8-MuiDivider-wrapper"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
           Total Number Of Token Events
         </p>
       </span>
