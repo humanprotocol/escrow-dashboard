@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
+import Footer from './Footer';
 import Header from './Header';
 
 interface ILayout {
@@ -14,6 +15,7 @@ const Layout: React.FC<ILayout> = ({ children }): React.ReactElement => (
   >
     <Header />
     {children}
+    <Footer />
   </Box>
 );
 

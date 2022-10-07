@@ -59,7 +59,7 @@ export default function NetworkView() {
   }, [eventDayDatas]);
 
   return (
-    <Box mb="120px">
+    <Box>
       <ViewTitle title="Network" iconUrl={networkSvg} />
       <NetworkTabs />
       <Box px={2}>

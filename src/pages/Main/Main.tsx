@@ -2,11 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 
 import { NetworkProvider } from 'src/hooks/useNetwork';
-import { NetworkView, LatestNewsView, TokenView } from './views';
+import { NetworkView } from './views';
 
 export const Main: React.FC = (): React.ReactElement => {
   return (
-    <Box sx={{ px: '56px' }}>
+    <Box sx={{ px: 5 }}>
       <Box
         sx={{
           background: '#f6f7fe',
@@ -17,8 +17,6 @@ export const Main: React.FC = (): React.ReactElement => {
         <NetworkProvider>
           <NetworkView />
         </NetworkProvider>
-        <LatestNewsView />
-        <TokenView />
       </Box>
     </Box>
   );

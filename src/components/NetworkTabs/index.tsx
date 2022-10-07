@@ -6,7 +6,7 @@ import PolygonIcon from '../Icons/PolygonIcon';
 
 const tabs = [
   { id: 'polygon', title: 'Polygon', icon: <PolygonIcon /> },
-  { id: 'rinkeby', title: 'Ethereum Rinkeby', icon: <PolygonIcon /> },
+  // { id: 'rinkeby', title: 'Ethereum Rinkeby', icon: <PolygonIcon /> },
   { id: 'moonbeam', title: 'Moonbeam', icon: <PolygonIcon /> },
 ];
 
