@@ -1,51 +1,24 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import { Stack, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Link from '@mui/material/Link';
+import { INDENT } from 'src/ui';
+import { CardBlockWithChildren } from './Cards';
 
-import smallLogoSvg from 'src/assets/small-logo.svg';
-import GithubIcon from './Icons/GithubIcon';
-import DiscordIcon from './Icons/DiscordIcon';
-import TwitterIcon from './Icons/TwitterIcon';
-import TelegramIcon from './Icons/TelegramIcon';
-import LinkedinIcon from './Icons/LinkedinIcon';
-
-const Footer: React.FC = (): React.ReactElement => {
-  return (
-    <Box
-      sx={{
-        px: 12,
-        pt: '12px',
-        pb: '32px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <img src={smallLogoSvg} alt="logo" />
-        <Typography
-          color="text.secondary"
-          variant="caption"
-          ml={2.5}
-          lineHeight={1}
+const Footer: React.FC = (): React.ReactElement => (
+  <Card variant="outlined" sx={{ mt: INDENT.S }}>
+    <CardContent>
+      <CardBlockWithChildren>
+        <Link
+          href="https://github.com/humanprotocol/hmt-escrow"
+          target="_blank"
+          rel="noreferrer"
         >
-          Terms and conditions
-        </Typography>
-      </Box>
-      <Typography color="text.secondary" variant="caption">
-        © {new Date().getFullYear()} HPF. HUMAN Protocol® is a registered
-        trademark
-      </Typography>
-      <Stack direction="row" spacing={4}>
-        <GithubIcon />
-        <DiscordIcon />
-        <TwitterIcon />
-        <TelegramIcon />
-        <LinkedinIcon />
-      </Stack>
-    </Box>
-  );
-};
+          HMT Escrow Source Code
+        </Link>
+      </CardBlockWithChildren>
+    </CardContent>
+  </Card>
+);
 
 export default Footer;

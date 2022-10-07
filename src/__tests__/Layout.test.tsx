@@ -3,14 +3,6 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Layout from 'src/components/Layout';
 
-global.fetch = jest.fn().mockImplementationOnce(() =>
-  Promise.resolve({
-    status: 400,
-    json: () =>
-      Promise.resolve({ success: false, error: 'Something bad happened' }),
-  })
-);
-
 describe('when rendered Layout component', () => {
   it('should render passed `children` prop', () => {
     const { getByTestId } = render(

@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const mock = {
   link: 'https://github.com/humanprotocol/hmt-escrow',
-  text: 'Terms and conditions',
+  text: 'HMT Escrow Source Code',
 };
 
 describe('when rendered Footer component', () => {
@@ -14,10 +14,10 @@ describe('when rendered Footer component', () => {
     expect(screen.getByText(mock.text)).toBeTruthy();
   });
 
-  // it('should render prop `link` to /https://github.com/humanprotocol/hmt-escrow', () => {
-  //   render(<Footer />);
-  //   expect(screen.getByText(mock.text).href).toBe(mock.link);
-  // });
+  it('should render prop `link` to /https://github.com/humanprotocol/hmt-escrow', () => {
+    render(<Footer />);
+    expect(screen.getByText(mock.text).href).toBe(mock.link);
+  });
 });
 
 it('Footer component renders correctly, corresponds to the snapshot', () => {
