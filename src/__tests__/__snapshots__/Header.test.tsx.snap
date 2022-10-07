@@ -5,43 +5,18 @@ exports[`Header component renders correctly, corresponds to the snapshot 1`] = `
   className="MuiBox-root css-i9gxme"
 >
   <header
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-164jy24-MuiPaper-root-MuiAppBar-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-11b3ww9-MuiPaper-root-MuiAppBar-root"
   >
     <div
       className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
     >
       <div
-        className="MuiBox-root css-juac3j"
+        className="MuiBox-root css-1o0y1dn"
       >
         <div
-          className="MuiBox-root css-70qvj9"
+          className="MuiTypography-root MuiTypography-h6 css-vr6w4y-MuiTypography-root"
         >
-          <img
-            alt="logo"
-            src="test-file-stub"
-          />
-          <h6
-            className="MuiTypography-root MuiTypography-h6 css-i6uuzy-MuiTypography-root"
-          >
-            Scan
-          </h6>
-        </div>
-        <div
-          className="MuiBox-root css-84nudp"
-        >
-          <a
-            className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1h92s5f-MuiTypography-root-MuiLink-root"
-            href="https://humanprotocol.org"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            target="_blank"
-          >
-            <p
-              className="MuiTypography-root MuiTypography-body2 css-hoiwr4-MuiTypography-root"
-            >
-              HUMAN Website
-            </p>
-          </a>
+          HUMAN Escrow Factory Dashboard
         </div>
       </div>
     </div>

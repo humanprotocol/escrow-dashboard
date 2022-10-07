@@ -1,16 +1,12 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 
-import humanLogo from 'src/assets/logo.svg';
-import TokenPriceIndicator from './TokenPriceIndicator';
-
 const Header: React.FC = (): React.ReactElement => (
   <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="fixed" sx={{ background: '#fff', boxShadow: 'none' }}>
+    <AppBar position="fixed">
       <Toolbar>
         <Box
           sx={{
@@ -19,27 +15,20 @@ const Header: React.FC = (): React.ReactElement => (
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
-            padding: '30px 28px 26px',
           }}
         >
-          <Box display="flex" alignItems="center">
-            <img src={humanLogo} alt="logo" />
-            <Typography variant="h6" color="primary" ml="10px">
-              Scan
-            </Typography>
-          </Box>
-          <Box display="flex" alignItems="center" ml="auto">
-            <TokenPriceIndicator />
-            <Link
-              href="https://humanprotocol.org"
-              target="_blank"
-              sx={{ textDecoration: 'none', ml: '28px' }}
-            >
-              <Typography variant="body2" fontWeight={600}>
-                HUMAN Website
-              </Typography>
-            </Link>
-          </Box>
+          <Typography
+            variant="h6"
+            component="div"
+            color="info.main"
+            sx={{
+              paddingLeft: 2,
+              paddingBottom: 2,
+              paddingTop: 2,
+            }}
+          >
+            HUMAN Escrow Factory Dashboard
+          </Typography>
         </Box>
       </Toolbar>
     </AppBar>
