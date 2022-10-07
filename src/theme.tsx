@@ -3,8 +3,8 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#6309ff',
-      light: '#616161',
+      main: '#320a8d',
+      light: '#320a8d',
       dark: '#4a148c',
     },
     info: {
@@ -13,10 +13,39 @@ const theme = createTheme({
       dark: '#bdbdbd',
     },
     secondary: {
-      main: '#ae52d4',
-      light: '#82e9de',
+      main: '#6309ff',
+      light: '#6309ff',
       dark: '#00867d',
       contrastText: '#000',
+    },
+    text: {
+      primary: '#320a8d',
+      secondary: '#858ec6',
+    },
+  },
+  typography: {
+    fontFamily: 'Inter',
+    h2: {
+      fontSize: '80px',
+      lineHeight: '94px',
+      letterSpacing: '-0.5px',
+      fontWeight: 800,
+    },
+    h4: {
+      fontSize: '34px',
+      fontWeight: 600,
+    },
+    h6: {
+      fontSize: '20px',
+      lineHeight: '160%',
+    },
+    body1: {
+      fontSize: '16px',
+      lineHeight: '28px',
+    },
+    body2: {
+      fontSize: '14px',
+      lineHeight: '24px',
     },
   },
 });
