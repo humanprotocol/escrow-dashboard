@@ -46,13 +46,6 @@ exports[`Layout component renders correctly, corresponds to the snapshot 1`] = `
               </p>
             </a>
           </div>
-          <div
-            className="MuiTypography-root MuiTypography-h6 css-vr6w4y-MuiTypography-root"
-          >
-            Price : 
-            
-             $
-          </div>
         </div>
       </div>
     </header>
