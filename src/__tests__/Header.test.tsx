@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Header from 'src/components/Header';
 
-
 global.fetch = jest.fn().mockImplementationOnce(() =>
   Promise.resolve({
     status: 400,
