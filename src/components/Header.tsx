@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
-import { useGetTokenPrice } from 'src/hooks/useGetTokenPrice';
 import humanLogo from 'src/assets/logo.svg';
 import TokenPriceIndicator from './TokenPriceIndicator';
 
