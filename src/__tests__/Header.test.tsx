@@ -3,20 +3,19 @@ import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Header from 'src/components/Header';
 
-const MOCK_PRICES = { 'human-protocol': { usd: 23 } };
-// @ts-ignore
-global.fetch = jest.fn(() =>
+
+global.fetch = jest.fn().mockImplementationOnce(() =>
   Promise.resolve({
-    json: () => Promise.resolve(MOCK_PRICES),
+    status: 400,
+    json: () =>
+      Promise.resolve({ success: false, error: 'Something bad happened' }),
   })
 );
 
 describe('when rendered Header component', () => {
   it('should render `text` prop', () => {
     render(<Header />);
-    expect(
-      screen.getByText(/HUMAN Escrow Factory Dashboard/)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/HUMAN Website/)).toBeInTheDocument();
   });
 });
 

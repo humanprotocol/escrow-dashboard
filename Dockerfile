@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --production=true
+RUN yarn install
 
 COPY ./public ./public
 COPY ./src ./src

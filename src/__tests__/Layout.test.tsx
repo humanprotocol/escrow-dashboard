@@ -3,11 +3,12 @@ import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Layout from 'src/components/Layout';
 
-const MOCK_PRICES = { 'human-protocol': { usd: 23 } };
-// @ts-ignore
-global.fetch = jest.fn(() =>
+
+global.fetch = jest.fn().mockImplementationOnce(() =>
   Promise.resolve({
-    json: () => Promise.resolve(MOCK_PRICES),
+    status: 400,
+    json: () =>
+      Promise.resolve({ success: false, error: 'Something bad happened' }),
   })
 );
 
