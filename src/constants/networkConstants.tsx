@@ -84,8 +84,8 @@ export const networkMap: INetworkMap = {
     key: 'bsctest',
     scanner: 'https://testnet.bscscan.com',
     rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
-    defaultFactoryAddr: '0x161228DaAB6F935548E2B98f6cedC9FF648C781d',
-    hmtAddr: '0x1f613bc2f4e741EA96d30A5957fF7fA6916acDD6',
+    defaultFactoryAddr: '0xaae6a2646c1f88763e62e0cd08ad050ea66ac46f',
+    hmtAddr: '0xd3a31d57fdd790725d0f6b78095f62e8cd4ab317',
     graphqlClientUrl:
       'https://api.thegraph.com/subgraphs/name/humanprotocol/bsctest',
     showTokenStats: false,
