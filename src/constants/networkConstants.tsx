@@ -41,9 +41,9 @@ export const networkMap: INetworkMap = {
     rpcUrl: 'https://rpc-mumbai.maticvigil.com',
     defaultFactoryAddr: '0x558cd800f9F0B02f3B149667bDe003284c867E94',
     hmtAddr: '0x0376D26246Eb35FF4F9924cF13E6C05fd0bD7Fb4',
-    graphqlClientUrl: 'https://api.thegraph.com',
-    // the graph is not implemented yet
-    showTokenStats: false,
+    graphqlClientUrl:
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/mumbai',
+    showTokenStats: true,
   },
   rinkeby: {
     title: 'Ethereum Rinkeby',
