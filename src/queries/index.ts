@@ -49,3 +49,13 @@ export const RAW_EVENT_DAY_DATA_QUERY = `{
     dailyEscrowAmounts
   }
 }`;
+
+export const RAW_TOKEN_STATS_QUERY = `{
+  hmtokenStatistics(id: "hmt-statistics-id") {
+    totalApprovalEventCount
+    totalTransferEventCount
+    totalValueTransfered
+    token
+    holders
+  }
+}`;

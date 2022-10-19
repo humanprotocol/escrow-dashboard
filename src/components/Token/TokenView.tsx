@@ -1,47 +1,91 @@
+import { Box, Grid, LinearProgress, Typography } from '@mui/material';
+import numeral from 'numeral';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { CardTextBlock, CardLinkBox } from '../Cards';
+import { CardWrapper } from 'src/components/Cards';
+import useHMTData from 'src/hooks/useHMTData';
+import useTokenStatistics from 'src/hooks/useTokenStatistics';
+import { CardBlock } from './Cards';
 
-interface IToken {
-  address: string;
-  scanner: string;
-  transferEventCount?: number | string;
-  approvalEventCount?: number | string;
-}
+export const TokenView: React.FC<{}> = (): React.ReactElement => {
+  const tokenStatistics = useTokenStatistics();
+  const data = useHMTData();
 
-function getTotal(
-  transferEventCount: number | string,
-  approvalEventCount: number | string
-): number | string {
-  if (
-    typeof transferEventCount === 'string' &&
-    typeof approvalEventCount === 'string'
-  ) {
+  const totalEvents = React.useMemo(() => {
+    const { totalTransferEventCount, totalApprovalEventCount } =
+      tokenStatistics || {};
+    if (totalApprovalEventCount && totalTransferEventCount) {
+      return Number(totalApprovalEventCount) + Number(totalTransferEventCount);
+    }
+
     return 'N/A';
-  }
+  }, [tokenStatistics]);
 
-  return Number(transferEventCount) + Number(approvalEventCount);
-}
-export const TokenView: React.FC<IToken> = ({
-  address,
-  scanner,
-  transferEventCount = 'N/A',
-  approvalEventCount = 'N/A',
-}): React.ReactElement => {
-  const totalEvents = getTotal(transferEventCount, approvalEventCount);
-  const hmtUrl = `${scanner}/address/${address}`;
+  const percentage = React.useMemo(() => {
+    if (!data) return 0;
+
+    return (data.circulatingSupply / data.totalSupply) * 100;
+  }, [data]);
+
   return (
-    <Card variant="outlined">
-      <CardContent>
-        <CardLinkBox url={hmtUrl} text={address} header="Token Address" />
-        <CardTextBlock title="Token Transfers" value={transferEventCount} />
-        <CardTextBlock title="Token Approvals" value={approvalEventCount} />
-        <CardTextBlock
-          title="Total Number Of Token Events"
-          value={totalEvents}
+    <Grid container spacing={{ xs: 2, sm: 2, md: 3, lg: 4, xl: 5 }}>
+      <Grid item xs={12} sm={12} md={4}>
+        <CardBlock
+          title="Price"
+          value={data?.currentPriceInUSD}
+          format="0,0.00"
         />
-      </CardContent>
-    </Card>
+      </Grid>
+      <Grid item xs={12} sm={12} md={4}>
+        <CardBlock title="Amount of transfers" value={totalEvents} />
+      </Grid>
+      <Grid item xs={12} sm={12} md={4}>
+        <CardBlock title="Holders" value={tokenStatistics?.holders} />
+      </Grid>
+      <Grid item xs={12}>
+        <CardWrapper>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            flexWrap="wrap"
+            mb={4}
+          >
+            <Box>
+              <Typography
+                variant="body2"
+                color="primary"
+                fontWeight={600}
+                mb="4px"
+              >
+                Circulating Supply
+              </Typography>
+              <Typography variant="h2" fontSize={72} color="primary">
+                {numeral(data?.circulatingSupply).format('0,0')}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant="body2"
+                color="primary"
+                fontWeight={600}
+                mb="4px"
+              >
+                Total Supply
+              </Typography>
+              <Typography variant="h2" fontSize={72} color="primary">
+                {numeral(data?.totalSupply).format('0,0')}
+              </Typography>
+            </Box>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <LinearProgress
+              variant="determinate"
+              value={percentage}
+              sx={{ height: '24px', borderRadius: '24px' }}
+            />
+          </Box>
+        </CardWrapper>
+      </Grid>
+    </Grid>
   );
 };

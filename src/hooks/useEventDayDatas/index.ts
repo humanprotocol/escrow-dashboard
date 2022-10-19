@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { networkMap } from 'src/constants';
 import { RAW_EVENT_DAY_DATA_QUERY } from 'src/queries';
 import { gqlFetch } from 'src/utils/gqlFetch';
 import { useNetwork } from '../useNetwork';
@@ -13,11 +12,10 @@ interface IEventDayData {
 }
 
 export default function useEventDayData() {
-  const { networkId } = useNetwork();
+  const { network } = useNetwork();
   const [_eventDayDatas, setBulkTransferEvents] = useState<IEventDayData[]>();
 
   useEffect(() => {
-    const network = networkMap[networkId];
     const fetchData = async (url: string) => {
       const res = await gqlFetch(url, RAW_EVENT_DAY_DATA_QUERY);
       const json = await res.json();
@@ -30,7 +28,7 @@ export default function useEventDayData() {
     if (network && network.graphqlClientUrl) {
       fetchData(network.graphqlClientUrl);
     }
-  }, [networkId]);
+  }, [network]);
 
   return _eventDayDatas;
 }

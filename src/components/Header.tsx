@@ -11,7 +11,7 @@ import TokenPriceIndicator from './TokenPriceIndicator';
 const Header: React.FC = (): React.ReactElement => (
   <Box sx={{ flexGrow: 1 }}>
     <AppBar position="fixed" sx={{ background: '#fff', boxShadow: 'none' }}>
-      <Toolbar>
+      <Toolbar disableGutters>
         <Box
           sx={{
             display: 'flex',
@@ -19,7 +19,11 @@ const Header: React.FC = (): React.ReactElement => (
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
-            padding: '30px 28px 26px',
+            padding: {
+              xs: '30px 8px 26px',
+              sm: '30px 28px 26px',
+              md: '30px 52px 26px',
+            },
           }}
         >
           <Box display="flex" alignItems="center">
@@ -33,7 +37,11 @@ const Header: React.FC = (): React.ReactElement => (
             <Link
               href="https://humanprotocol.org"
               target="_blank"
-              sx={{ textDecoration: 'none', ml: '28px' }}
+              sx={{
+                textDecoration: 'none',
+                ml: '28px',
+                display: { xs: 'none', sm: 'block' },
+              }}
             >
               <Typography variant="body2" fontWeight={600}>
                 HUMAN Website

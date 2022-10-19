@@ -9,7 +9,7 @@ import {
   XAxis,
 } from 'recharts';
 
-import ChartWrapper from './ChartWrapper';
+import { CardWrapper } from 'src/components/Cards';
 
 interface ISeries {
   date: string;
@@ -30,7 +30,7 @@ export default function BarChart({
   const theme = useTheme();
 
   return (
-    <ChartWrapper>
+    <CardWrapper>
       <Typography variant="body2" color="primary" fontWeight={600} mb="4px">
         {title}
       </Typography>
@@ -49,6 +49,6 @@ export default function BarChart({
           </RechartsBarChart>
         </ResponsiveContainer>
       </Box>
-    </ChartWrapper>
+    </CardWrapper>
   );
 }

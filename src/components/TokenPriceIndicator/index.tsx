@@ -1,12 +1,14 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import React from 'react';
-import useHmtPrice from 'src/hooks/useHmtPrice';
+import useHMTData from 'src/hooks/useHMTData';
 
 export default function TokenPriceIndicator() {
   const theme = useTheme();
-  const price = useHmtPrice();
+  const data = useHMTData();
 
-  if (!price) return null;
+  if (!data) return null;
+
+  const { currentPriceInUSD, priceChangePercentage24h } = data;
 
   return (
     <Box
@@ -29,15 +31,15 @@ export default function TokenPriceIndicator() {
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', px: '16px' }}>
         <Typography variant="caption" color="primary">
-          ${price.usd.toFixed(2)}
+          ${currentPriceInUSD.toFixed(2)}
         </Typography>
-        {price.usd_24h_change >= 0 ? (
+        {priceChangePercentage24h >= 0 ? (
           <Typography variant="caption" color="success.dark" ml="4px">
-            (+{Math.abs(price.usd_24h_change).toFixed(2)}%)
+            (+{Math.abs(priceChangePercentage24h).toFixed(2)}%)
           </Typography>
         ) : (
           <Typography variant="caption" color="error.dark" ml="4px">
-            (-{Math.abs(price.usd_24h_change).toFixed(2)}%)
+            (-{Math.abs(priceChangePercentage24h).toFixed(2)}%)
           </Typography>
         )}
       </Box>
