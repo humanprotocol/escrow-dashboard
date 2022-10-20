@@ -34,7 +34,11 @@ export default function BarChart({
       <Typography variant="body2" color="primary" fontWeight={600} mb="4px">
         {title}
       </Typography>
-      <Typography variant="h2" color="primary">
+      <Typography
+        variant="h2"
+        color="primary"
+        sx={{ fontSize: { xs: 32, md: 48, lg: 64, xl: 80 } }}
+      >
         {numeral(totalValue).format('0,0')}
       </Typography>
       <Box sx={{ width: '100%', height: 190 }}>

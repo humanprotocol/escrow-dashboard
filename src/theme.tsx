@@ -27,7 +27,7 @@ const theme = createTheme({
     fontFamily: 'Inter',
     h2: {
       fontSize: '80px',
-      lineHeight: '94px',
+      lineHeight: 1.5,
       letterSpacing: '-0.5px',
       fontWeight: 800,
     },

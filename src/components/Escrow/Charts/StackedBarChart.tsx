@@ -66,7 +66,11 @@ export default function StackedBarChart({
             >
               Amount of Escrows
             </Typography>
-            <Typography variant="h2" color="primary">
+            <Typography
+              variant="h2"
+              color="primary"
+              sx={{ fontSize: { xs: 32, md: 48, lg: 64, xl: 80 } }}
+            >
               {numeral(allEscrowAmount).format('0,0')}
             </Typography>
           </Grid>
@@ -79,7 +83,11 @@ export default function StackedBarChart({
             >
               All Escrows Pending Events
             </Typography>
-            <Typography variant="h2" color="secondary">
+            <Typography
+              variant="h2"
+              color="secondary"
+              sx={{ fontSize: { xs: 32, md: 48, lg: 64, xl: 80 } }}
+            >
               {numeral(pendingEventCount).format('0,0')}
             </Typography>
           </Grid>

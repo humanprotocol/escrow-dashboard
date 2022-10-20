@@ -1,6 +1,7 @@
-import { Grid } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
+import lowAmountEscrowSvg from 'src/assets/lowAmountEscrow.svg';
 import useEscrowCounter from 'src/hooks/useEscrowCounter';
 import useEscrowStatistics from 'src/hooks/useEscrowStatistics';
 import useEventDayDatas from 'src/hooks/useEventDayDatas';
@@ -55,6 +56,57 @@ export const EscrowView = () => {
     }
     return [];
   }, [eventDayDatas]);
+
+  if (escrowCounter === undefined) {
+    return null;
+  }
+
+  if (escrowCounter === 0) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          background: '#fff',
+          boxShadow:
+            '0px 3px 1px -2px #E9EBFA, 0px 2px 2px rgba(233, 235, 250, 0.5), 0px 1px 5px rgba(233, 235, 250, 0.2)',
+          borderRadius: { xs: '8px', xl: '16px' },
+          px: { xs: '24px', md: '40px', lg: '60px', xl: '100px' },
+          justifyContent: 'space-between',
+          flexDirection: { xs: 'column', md: 'row' },
+        }}
+      >
+        <Box
+          mt={{ xs: '24px', md: '48px', lg: '72px', xl: '94px' }}
+          mb={{ xs: '36px', md: '60px', lg: '80px', xl: '128px' }}
+        >
+          <Typography
+            color="primary"
+            fontSize={{ xs: 24, sm: 36, md: 48, xl: 60 }}
+            fontWeight={600}
+            lineHeight={1.2}
+          >
+            Low amount of escrows,
+            <br /> please run Fortune App.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ mt: { xs: '24px', md: '60px' } }}
+          >
+            Run Fortune App
+          </Button>
+        </Box>
+        <Box
+          sx={{
+            background: `url(${lowAmountEscrowSvg})`,
+            width: 470,
+            mt: '48px',
+            display: { xs: 'none', md: 'block' },
+          }}
+        />
+      </Box>
+    );
+  }
 
   return (
     <Grid container spacing={{ xs: 2, sm: 2, md: 3, lg: 4, xl: 5 }}>

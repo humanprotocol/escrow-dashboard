@@ -11,9 +11,9 @@ interface ITokenContainer {}
 export const TokenContainer: React.FC<ITokenContainer> =
   (): React.ReactElement => {
     return (
-      <Box mt={8}>
+      <Box mt={{ xs: 4, md: 8 }}>
         <ViewTitle title="Token" iconUrl={tokenSvg} />
-        <Box mt={8}>
+        <Box mt={{ xs: 4, md: 8 }}>
           <TokenView />
         </Box>
       </Box>
