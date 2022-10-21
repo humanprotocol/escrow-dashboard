@@ -45,17 +45,16 @@ export const networkMap: INetworkMap = {
       'https://api.thegraph.com/subgraphs/name/humanprotocol/mumbai',
     showTokenStats: true,
   },
-  rinkeby: {
-    title: 'Ethereum Rinkeby',
-    key: 'rinkeby',
-    scanner: 'https://rinkeby.etherscan.io',
-    rpcUrl: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
-    defaultFactoryAddr: '0x925B24444511c86F4d4E63141D8Be0A025E2dca4',
-    hmtAddr: '0x4dCf5ac4509888714dd43A5cCc46d7ab389D9c23',
+  goerli: {
+    title: 'Ethereum Goerli',
+    key: 'goerli',
+    scanner: 'https://goerli.etherscan.io',
+    rpcUrl: 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    defaultFactoryAddr: '0xaAe6a2646C1F88763E62e0cD08aD050Ea66AC46F',
+    hmtAddr: '0xd3A31D57FDD790725d0F6B78095F62E8CD4ab317',
     graphqlClientUrl:
-      'https://api.thegraph.com/subgraphs/name/humanprotocol/rinkeby',
-    // the graph is implemented, but doesn't contain fresh deployments
-    showTokenStats: false,
+      'https://api.thegraph.com/subgraphs/name/humanprotocol/goerli',
+    showTokenStats: true,
   },
   neonslabdev: {
     title: 'NeonsLab Devtestnet',
@@ -88,7 +87,7 @@ export const networkMap: INetworkMap = {
     hmtAddr: '0xd3a31d57fdd790725d0f6b78095f62e8cd4ab317',
     graphqlClientUrl:
       'https://api.thegraph.com/subgraphs/name/humanprotocol/bsctest',
-    showTokenStats: false,
+    showTokenStats: true,
   },
 };
 export const networks = Object.values(networkMap).map((network) => network);
