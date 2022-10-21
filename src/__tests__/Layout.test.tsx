@@ -33,14 +33,14 @@ describe('when rendered Layout component', () => {
           </div>
         </Layout>
       );
-  
+
       const root = getByTestId('root');
       const parent = getByTestId('parent');
       const child = getByTestId('child');
-      expect(root).toContainElement(parent!);
-      expect(parent).toContainElement(child!);
+      expect(root).toContainElement(parent);
+      expect(parent).toContainElement(child);
       expect(child).not.toContainElement(parent); // Pass
-    })
+    });
   });
 });
 
