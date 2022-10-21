@@ -1,47 +1,47 @@
+import { Grid } from '@mui/material';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { CardTextBlock, CardLinkBox } from '../Cards';
+import { CardTextBlock } from 'src/components/Cards';
+import useHMTData from 'src/hooks/useHMTData';
+import useTokenStatistics from 'src/hooks/useTokenStatistics';
 
-interface IToken {
-  address: string;
-  scanner: string;
-  transferEventCount?: number | string;
-  approvalEventCount?: number | string;
-}
+export const TokenView: React.FC<{}> = (): React.ReactElement => {
+  const tokenStatistics = useTokenStatistics();
+  const data = useHMTData();
 
-function getTotal(
-  transferEventCount: number | string,
-  approvalEventCount: number | string
-): number | string {
-  if (
-    typeof transferEventCount === 'string' &&
-    typeof approvalEventCount === 'string'
-  ) {
+  const totalEvents = React.useMemo(() => {
+    const { totalTransferEventCount, totalApprovalEventCount } =
+      tokenStatistics || {};
+    if (totalApprovalEventCount && totalTransferEventCount) {
+      return Number(totalApprovalEventCount) + Number(totalTransferEventCount);
+    }
+
     return 'N/A';
-  }
+  }, [tokenStatistics]);
 
-  return Number(transferEventCount) + Number(approvalEventCount);
-}
-export const TokenView: React.FC<IToken> = ({
-  address,
-  scanner,
-  transferEventCount = 'N/A',
-  approvalEventCount = 'N/A',
-}): React.ReactElement => {
-  const totalEvents = getTotal(transferEventCount, approvalEventCount);
-  const hmtUrl = `${scanner}/address/${address}`;
   return (
-    <Card variant="outlined">
-      <CardContent>
-        <CardLinkBox url={hmtUrl} text={address} header="Token Address" />
-        <CardTextBlock title="Token Transfers" value={transferEventCount} />
-        <CardTextBlock title="Token Approvals" value={approvalEventCount} />
+    <Grid container spacing={{ xs: 2, sm: 2, md: 3, lg: 4, xl: 5 }}>
+      <Grid item xs={12} sm={4}>
         <CardTextBlock
-          title="Total Number Of Token Events"
-          value={totalEvents}
+          title="Price"
+          value={data?.currentPriceInUSD}
+          format="$0,0.00"
         />
-      </CardContent>
-    </Card>
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <CardTextBlock title="Amount of transfers" value={totalEvents} />
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <CardTextBlock title="Holders" value={tokenStatistics?.holders} />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <CardTextBlock
+          title="Circulating Supply"
+          value={data?.circulatingSupply}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <CardTextBlock title="Total Supply" value={data?.totalSupply} />
+      </Grid>
+    </Grid>
   );
 };

@@ -1,37 +1,21 @@
 import * as React from 'react';
-import { useQuery } from '@apollo/client';
+import { Box } from '@mui/material';
 
-import { TOKEN_STATS } from 'src/queries';
-import { networkMap } from 'src/constants';
-import { AppNetworkContext } from 'src/components/App';
+import tokenSvg from 'src/assets/token.svg';
+import ViewTitle from 'src/components/ViewTitle';
+
 import { TokenView } from './TokenView';
 
 interface ITokenContainer {}
 
 export const TokenContainer: React.FC<ITokenContainer> =
   (): React.ReactElement => {
-    const { network } = React.useContext(AppNetworkContext);
-    let totalTransferEventCount;
-    let totalApprovalEventCount;
-
-    const { scanner, hmtAddr } = networkMap[network];
-    const { data: queryResponse } = useQuery(TOKEN_STATS);
-
-    if (queryResponse) {
-      totalTransferEventCount = Number(
-        queryResponse.hmtokenStatistics.totalTransferEventCount
-      );
-      totalApprovalEventCount = Number(
-        queryResponse.hmtokenStatistics.totalApprovalEventCount
-      );
-    }
-
     return (
-      <TokenView
-        address={hmtAddr}
-        scanner={scanner}
-        transferEventCount={totalTransferEventCount}
-        approvalEventCount={totalApprovalEventCount}
-      />
+      <Box mt={{ xs: 4, md: 8 }}>
+        <ViewTitle title="Token" iconUrl={tokenSvg} />
+        <Box mt={{ xs: 4, md: 8 }}>
+          <TokenView />
+        </Box>
+      </Box>
     );
   };

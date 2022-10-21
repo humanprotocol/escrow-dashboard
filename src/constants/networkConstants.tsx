@@ -1,14 +1,16 @@
+export interface INetwork {
+  title: string;
+  key: string;
+  scanner: string;
+  rpcUrl: string;
+  defaultFactoryAddr: string;
+  hmtAddr: string;
+  graphqlClientUrl: string;
+  showTokenStats: boolean;
+}
+
 interface INetworkMap {
-  [key: string]: {
-    title: string;
-    key: string;
-    scanner: string;
-    rpcUrl: string;
-    defaultFactoryAddr: string;
-    hmtAddr: string;
-    graphqlClientUrl: string;
-    showTokenStats: boolean;
-  };
+  [key: string]: INetwork;
 }
 
 export const networkMap: INetworkMap = {

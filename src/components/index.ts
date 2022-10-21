@@ -1,4 +1,3 @@
-export { Escrow } from './Escrow';
+export { EscrowContainer as Escrow } from './Escrow';
 export { TokenContainer as Token } from './Token';
 export { App, AppNetworkContext } from './App';
-export { CardBlockWithChildren, CardTextBlock } from './Cards';
