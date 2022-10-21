@@ -9,7 +9,7 @@ import {
   XAxis,
 } from 'recharts';
 
-import ChartWrapper from './ChartWrapper';
+import { CardContainer } from '../Container';
 
 interface IStackSeries {
   date: string;
@@ -31,7 +31,7 @@ export default function StackedBarChart({
   const theme = useTheme();
 
   return (
-    <ChartWrapper>
+    <CardContainer>
       <Grid container>
         <Grid item xs={12} sm={12} md={8}>
           <Box sx={{ width: '100%', height: 362 }}>
@@ -56,8 +56,8 @@ export default function StackedBarChart({
             </ResponsiveContainer>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={12} md={4} sx={{ px: '80px' }}>
-          <Box mb="40px">
+        <Grid item container justifyContent="center" xs={12} sm={12} md={4}>
+          <Grid item xs={12} sm={6} md={12}>
             <Typography
               variant="body2"
               color="primary"
@@ -66,11 +66,15 @@ export default function StackedBarChart({
             >
               Amount of Escrows
             </Typography>
-            <Typography variant="h2" color="primary">
+            <Typography
+              variant="h2"
+              color="primary"
+              sx={{ fontSize: { xs: 32, md: 48, lg: 64, xl: 80 } }}
+            >
               {numeral(allEscrowAmount).format('0,0')}
             </Typography>
-          </Box>
-          <Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={12}>
             <Typography
               variant="body2"
               color="secondary"
@@ -79,12 +83,16 @@ export default function StackedBarChart({
             >
               All Escrows Pending Events
             </Typography>
-            <Typography variant="h2" color="secondary">
+            <Typography
+              variant="h2"
+              color="secondary"
+              sx={{ fontSize: { xs: 32, md: 48, lg: 64, xl: 80 } }}
+            >
               {numeral(pendingEventCount).format('0,0')}
             </Typography>
-          </Box>
+          </Grid>
         </Grid>
       </Grid>
-    </ChartWrapper>
+    </CardContainer>
   );
 }

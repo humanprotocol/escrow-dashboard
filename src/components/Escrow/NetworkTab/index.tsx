@@ -2,7 +2,7 @@ import { Tab, Tabs } from '@mui/material';
 import React from 'react';
 import { useNetwork } from 'src/hooks/useNetwork';
 
-import PolygonIcon from '../Icons/PolygonIcon';
+import PolygonIcon from '../../Icons/PolygonIcon';
 
 const tabs = [
   { id: 'polygon', title: 'Polygon', icon: <PolygonIcon /> },
@@ -10,7 +10,7 @@ const tabs = [
   { id: 'moonbeam', title: 'Moonbeam', icon: <PolygonIcon /> },
 ];
 
-export default function NetworkTabs() {
+export const NetworkTab = () => {
   const { networkId, switchNetwork } = useNetwork();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -18,7 +18,13 @@ export default function NetworkTabs() {
   };
 
   return (
-    <Tabs sx={{ my: '44px' }} value={networkId} onChange={handleChange}>
+    <Tabs
+      sx={{
+        my: { xs: '12px', sm: '18px', md: '26px', lg: '32px', xl: '44px' },
+      }}
+      value={networkId}
+      onChange={handleChange}
+    >
       {tabs.map(({ id, title, icon }) => (
         <Tab
           key={id}
@@ -31,4 +37,4 @@ export default function NetworkTabs() {
       ))}
     </Tabs>
   );
-}
+};

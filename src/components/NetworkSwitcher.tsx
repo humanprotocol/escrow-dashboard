@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { INDENT } from 'src/ui';
 import { networks } from 'src/constants';
 
 interface INetworkSwitcher {
@@ -17,7 +16,7 @@ const NetworkSwitcher: React.FC<INetworkSwitcher> = ({
     id="network-select"
     value={network}
     size="small"
-    sx={{ mt: INDENT.L }}
+    sx={{ mt: 3 }}
     onChange={(event) => onNetworkChange(event.target.value)}
   >
     {networks.map((net) => (

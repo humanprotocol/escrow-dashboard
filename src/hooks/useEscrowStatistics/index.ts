@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { networkMap } from 'src/constants';
 import { RAW_ESCROW_STATS_QUERY } from 'src/queries';
 import { gqlFetch } from 'src/utils/gqlFetch';
 import { useNetwork } from '../useNetwork';
@@ -11,12 +10,11 @@ interface IEscrowStatistics {
 }
 
 export default function useEscrowStatistics() {
-  const { networkId } = useNetwork();
+  const { network } = useNetwork();
   const [_escrowStatistics, setEscrowStatistics] =
     useState<IEscrowStatistics>();
 
   useEffect(() => {
-    const network = networkMap[networkId];
     const fetchData = async (url: string) => {
       const res = await gqlFetch(url, RAW_ESCROW_STATS_QUERY);
       const json = await res.json();
@@ -29,7 +27,7 @@ export default function useEscrowStatistics() {
     if (network && network.graphqlClientUrl) {
       fetchData(network.graphqlClientUrl);
     }
-  }, [networkId]);
+  }, [network]);
 
   return _escrowStatistics;
 }

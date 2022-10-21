@@ -1,6 +1,8 @@
 import React, { createContext, useState } from 'react';
+import { networkMap, INetwork } from 'src/constants';
 
 export const NetworkContext = createContext<{
+  network: INetwork;
   networkId: string;
   switchNetwork: (id: string) => void;
 } | null>(null);
@@ -14,8 +16,10 @@ export const NetworkProvider = ({
 
   const switchNetwork = (id: string) => setNetworkId(id);
 
+  const network = networkMap[networkId];
+
   return (
-    <NetworkContext.Provider value={{ networkId, switchNetwork }}>
+    <NetworkContext.Provider value={{ network, networkId, switchNetwork }}>
       {children}
     </NetworkContext.Provider>
   );

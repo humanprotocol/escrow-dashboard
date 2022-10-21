@@ -11,10 +11,10 @@ exports[`Layout component renders correctly, corresponds to the snapshot 1`] = `
       className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-164jy24-MuiPaper-root-MuiAppBar-root"
     >
       <div
-        className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+        className="MuiToolbar-root MuiToolbar-regular css-r6ewbb-MuiToolbar-root"
       >
         <div
-          className="MuiBox-root css-juac3j"
+          className="MuiBox-root css-1qtwkyj"
         >
           <div
             className="MuiBox-root css-70qvj9"
@@ -33,7 +33,7 @@ exports[`Layout component renders correctly, corresponds to the snapshot 1`] = `
             className="MuiBox-root css-84nudp"
           >
             <a
-              className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1h92s5f-MuiTypography-root-MuiLink-root"
+              className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-q1xa4c-MuiTypography-root-MuiLink-root"
               href="https://humanprotocol.org"
               onBlur={[Function]}
               onFocus={[Function]}
