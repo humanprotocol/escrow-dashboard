@@ -9,7 +9,7 @@ import {
   XAxis,
 } from 'recharts';
 
-import { CardWrapper } from 'src/components/Cards';
+import { CardContainer } from '../Container';
 
 interface IStackSeries {
   date: string;
@@ -31,7 +31,7 @@ export default function StackedBarChart({
   const theme = useTheme();
 
   return (
-    <CardWrapper>
+    <CardContainer>
       <Grid container>
         <Grid item xs={12} sm={12} md={8}>
           <Box sx={{ width: '100%', height: 362 }}>
@@ -93,6 +93,6 @@ export default function StackedBarChart({
           </Grid>
         </Grid>
       </Grid>
-    </CardWrapper>
+    </CardContainer>
   );
 }

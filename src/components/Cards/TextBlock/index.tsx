@@ -1,21 +1,22 @@
 import { Typography } from '@mui/material';
 import numeral from 'numeral';
 import React from 'react';
-import { CardWrapper } from 'src/components/Cards';
 
-type CardBlockProps = {
+import { CardContainer } from '../Container';
+
+type CardTextBlockProps = {
   title: string;
   value?: number | string;
   format?: string;
 };
 
-export const CardBlock: React.FC<CardBlockProps> = ({
+export const CardTextBlock: React.FC<CardTextBlockProps> = ({
   title,
   value,
   format = '0,0',
 }): React.ReactElement => {
   return (
-    <CardWrapper>
+    <CardContainer>
       <Typography variant="body2" color="primary" fontWeight={600} mb="4px">
         {title}
       </Typography>
@@ -26,6 +27,6 @@ export const CardBlock: React.FC<CardBlockProps> = ({
       >
         {numeral(value).format(format)}
       </Typography>
-    </CardWrapper>
+    </CardContainer>
   );
 };

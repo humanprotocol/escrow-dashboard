@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import React from 'react';
 
-export const CardWrapper = ({ children }: { children: React.ReactNode }) => {
+export const CardContainer = ({ children }: { children: React.ReactNode }) => {
   return (
     <Box
       sx={{

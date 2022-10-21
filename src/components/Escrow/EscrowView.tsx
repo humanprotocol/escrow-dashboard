@@ -1,12 +1,11 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
+import { CardBarChart, CardStackedBarChart } from 'src/components/Cards';
 import lowAmountEscrowSvg from 'src/assets/lowAmountEscrow.svg';
 import useEscrowCounter from 'src/hooks/useEscrowCounter';
 import useEscrowStatistics from 'src/hooks/useEscrowStatistics';
 import useEventDayDatas from 'src/hooks/useEventDayDatas';
-
-import { EscrowBarChart, EscrowStackedBarChart } from './Charts';
 
 export const EscrowView = () => {
   const escrowStatistics = useEscrowStatistics();
@@ -111,28 +110,28 @@ export const EscrowView = () => {
   return (
     <Grid container spacing={{ xs: 2, sm: 2, md: 3, lg: 4, xl: 5 }}>
       <Grid item xs={12}>
-        <EscrowStackedBarChart
+        <CardStackedBarChart
           series={escrowSeries}
           allEscrowAmount={escrowCounter}
           pendingEventCount={escrowStatistics?.pendingEventCount}
         />
       </Grid>
       <Grid item xs={12} sm={12} md={6} lg={4}>
-        <EscrowBarChart
+        <CardBarChart
           title="BulkTransfer Events"
           totalValue={escrowStatistics?.bulkTransferEventCount}
           series={bulkTransferEvents}
         />
       </Grid>
       <Grid item xs={12} sm={12} md={6} lg={4}>
-        <EscrowBarChart
+        <CardBarChart
           title="IntermediateStorage Events"
           totalValue={escrowStatistics?.intermediateStorageEventCount}
           series={intermediateStorageEvents}
         />
       </Grid>
       <Grid item xs={12} sm={12} md={6} lg={4}>
-        <EscrowBarChart
+        <CardBarChart
           title="Total Number Of Escrows Events"
           totalValue={
             escrowStatistics

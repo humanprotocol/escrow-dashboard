@@ -1,5 +1,6 @@
+import { Contract, providers } from 'ethers';
 import { useEffect, useState } from 'react';
-import { getWeb3 } from 'src/helpers';
+
 import { useNetwork } from '../useNetwork';
 
 const EscrowFactoryABI = require('src/contracts/EscrowFactoryABI.json');
@@ -10,12 +11,13 @@ export default function useEscrowCounter() {
 
   useEffect(() => {
     const fetchData = async (rpcUrl: string) => {
-      const web3 = getWeb3(rpcUrl);
-      const EscrowFactory = new web3.eth.Contract(
+      const provider = new providers.JsonRpcProvider(rpcUrl);
+      const contract = new Contract(
+        network.defaultFactoryAddr,
         EscrowFactoryABI,
-        network.defaultFactoryAddr
+        provider
       );
-      const escrowAmount = await EscrowFactory.methods.counter().call();
+      const escrowAmount = await contract.counter();
       setEscrowQty(Number(escrowAmount));
     };
     if (network && network.rpcUrl) {
